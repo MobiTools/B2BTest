@@ -1,0 +1,81 @@
+import React, { Fragment, useEffect } from "react";
+import PropTypes from "prop-types";
+import CssBaseline from "@mui/material/CssBaseline";
+import Head from "next/head";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+// Use this below for Server Side Render/Translation (SSR)
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+// Use this below for Static Site Generation (SSG)
+// import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+import { useSpacing } from "~/theme/common";
+import Header from "~/components/Header";
+import Article from "~/components/Blog/Article";
+import Sidebar from "~/components/Blog/Sidebar";
+import Footer from "~/components/Footer";
+import brand from "~/public/text/brand";
+import { useParams, useSearchParams } from "next/navigation";
+
+function BlogDetail(props) {
+  const { classes } = useSpacing();
+  const { onToggleDark, onToggleDir } = props;
+  const searchParams = useSearchParams();
+  const params = useParams();
+  useEffect(() => {
+    console.log("params.....");
+    console.log(params);
+  }, []);
+
+  return (
+    <Fragment>
+      <Head>
+        <title>{brand.starter.name + " - Blog Detail"}</title>
+      </Head>
+      <CssBaseline />
+      <section id="home" />
+      <div className={classes.mainWrap}>
+        <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} home />
+        <div className={classes.containerGeneral}>
+          <Box pt={5}>
+            <Container>
+              <Grid container spacing={4}>
+                <Grid item md={8} xs={12}>
+                  <Article />
+                </Grid>
+                <Grid item md={4} xs={12}>
+                  <Sidebar />
+                </Grid>
+              </Grid>
+            </Container>
+          </Box>
+        </div>
+        <div id="footer">
+          <Footer toggleDir={onToggleDir} />
+        </div>
+      </div>
+    </Fragment>
+  );
+}
+
+BlogDetail.propTypes = {
+  onToggleDark: PropTypes.func.isRequired,
+  onToggleDir: PropTypes.func.isRequired,
+};
+
+export default BlogDetail;
+
+// Use this below for Server Side Render/Translation (SSR)
+
+export async function getStaticPaths(params) {
+  console.log(params);
+  // Return a list of possible value for id
+}
+
+export const getStaticProps = async ({ locale }) => ({
+  props: { ...(await serverSideTranslations(locale, ["common"])) },
+});
+
+// Use this below for Static Site Generation (SSG)
+// const getStaticProps = makeStaticProps(['common']);
+// export { getStaticPaths, getStaticProps };
