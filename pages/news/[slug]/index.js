@@ -36,16 +36,16 @@ function BlogDetail(props) {
     console.log(params);
 
     // Filtrăm array-ul articles după router.query.id
-    if (router.query.id && articles.articlesArray) {
+    if (params.slug && articles.articlesArray) {
       const filtered = articles.articlesArray.filter(
-        (article) => article.id == router.query.id
+        (article) => article.id == params.slug
       );
       // Actualizăm filteredServices cu noul array filtrat
       setFilteredArticles(filtered);
     }
     console.log("articles....");
     console.log(articles);
-  }, [router.query.id, articles]);
+  }, [params.slug, articles]);
 
   return (
     <Fragment>

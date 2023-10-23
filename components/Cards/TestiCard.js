@@ -23,9 +23,8 @@ export default function NewsCard(props) {
 
   const handleRoute = (item) => {
     route.push({
-      pathname: "/news/[article]",
+      pathname: "/news/[id]",
       query: {
-        article: item.title,
         id: item.id,
       },
     });

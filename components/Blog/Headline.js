@@ -21,9 +21,8 @@ function Headline({ newestArticle }) {
       <CardActionArea
         onClick={() =>
           route.push({
-            pathname: "/news/[article]",
+            pathname: "/news/[id]",
             query: {
-              article: newestArticle.title,
               id: newestArticle.id,
             },
           })

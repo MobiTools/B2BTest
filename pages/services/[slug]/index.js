@@ -35,16 +35,16 @@ function ServiceDetail() {
     console.log(params);
 
     // Filtrăm array-ul services după router.query.id
-    if (router.query.id && services.servicesArray) {
+    if (params.slug && services.servicesArray) {
       const filtered = services.servicesArray.filter(
-        (service) => service.id == router.query.id
+        (service) => service.id == params.slug
       );
       // Actualizăm filteredServices cu noul array filtrat
       setFilteredServices(filtered);
     }
     console.log(filteredServices);
     console.log(filteredServices);
-  }, [router.query.id, services]);
+  }, [params.slug, services]);
 
   return (
     <Fragment>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -16,6 +16,8 @@ function PostCard(props) {
   const { date, title, desc, img, orientation, type, href, id } = props;
   const { t } = useTranslation("common");
   const route = useRouter();
+
+  useEffect(() => {}, []);
 
   return (
     <Card className={cx(classes.newsCard, classes[orientation], classes[type])}>
@@ -54,9 +56,8 @@ function PostCard(props) {
             className={classes.btn}
             onClick={() =>
               route.push({
-                pathname: "/news/[article]",
+                pathname: "/news/[id]",
                 query: {
-                  article: title,
                   id,
                 },
               })
