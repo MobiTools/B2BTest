@@ -56,9 +56,9 @@ function PostCard(props) {
             className={classes.btn}
             onClick={() =>
               route.push({
-                pathname: "/news/[id]",
+                pathname: "/news/[slug]",
                 query: {
-                  id,
+                  slug,
                 },
               })
             }
