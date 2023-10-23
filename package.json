@@ -42,7 +42,7 @@
     "google-maps-react18": "^2.0.9",
     "i18next": "^22.4.6",
     "leaflet": "^1.9.4",
-    "next": "^13.3.0",
+    "next": "^13.5.0",
     "next-i18next": "^13.0.2",
     "next-images": "^1.7.0",
     "next-language-detector": "1.0.0",

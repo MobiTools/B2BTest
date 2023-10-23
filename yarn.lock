@@ -3868,7 +3868,7 @@
     "prop-types" "^15.6.1"
     "react-transition-group" "^2.3.1"
 
-"next@^13.3.0", "next@>= 12.0.0":
+"next@^13.5.0", "next@>= 12.0.0":
   "integrity" "sha512-Y2wTcTbO4WwEsVb4A8VSnOsG1I9ok+h74q0ZdxkwM3EODqrs4pasq7O0iUxbcS9VtWMicG7f3+HAj0r1+NtKSw=="
   "resolved" "https://registry.npmjs.org/next/-/next-13.5.6.tgz"
   "version" "13.5.6"
