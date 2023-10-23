@@ -14,9 +14,9 @@ import Footer from "~/components/Footer";
 import { CircularProgress, Divider, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useParams } from "next/navigation";
-import { useDatabase } from "../../../context/DatabaseContext";
 
-import Serv from "../../../components/Services/Serv";
+import { useDatabase } from "../../context/DatabaseContext";
+import Serv from "../../components/Services/Serv";
 
 function ServiceDetail() {
   const { services } = useDatabase();
