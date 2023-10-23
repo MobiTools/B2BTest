@@ -15,10 +15,11 @@ import Article from "~/components/Blog/Article";
 import Sidebar from "~/components/Blog/Sidebar";
 import Footer from "~/components/Footer";
 import brand from "~/public/text/brand";
-import { useDatabase } from "../../../context/DatabaseContext";
+
 import { useRouter } from "next/router";
 import { useParams } from "next/navigation";
 import { CircularProgress } from "@mui/material";
+import { useDatabase } from "../../context/DatabaseContext";
 
 function BlogDetail(props) {
   const { articles } = useDatabase();
@@ -35,7 +36,7 @@ function BlogDetail(props) {
     // console.log(article);
     console.log(params);
 
-    // Filtrăm array-ul articles după router.query.id
+    // Filtrăm array-ul articles după router.query.idgi
     if (params.slug && articles.articlesArray) {
       const filtered = articles.articlesArray.filter(
         (article) => article.id == params.slug
