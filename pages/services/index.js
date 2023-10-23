@@ -118,9 +118,9 @@ const MediaCard = ({ item }) => {
           <Button
             onClick={() =>
               route.push({
-                pathname: "/services/[id]",
+                pathname: "/services/[slug]",
                 query: {
-                  id: item.id,
+                  slug: item.id,
                 },
               })
             }
