@@ -30,7 +30,7 @@ function BlogDetail(props) {
   const [filteredArticles, setFilteredArticles] = useState(articles);
 
   useEffect(() => {
-    console.log("router...");
+    console.log("router..");
     console.log(router.query.id);
     // console.log(article);
     console.log(params);
