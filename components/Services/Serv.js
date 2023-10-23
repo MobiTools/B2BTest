@@ -9,9 +9,9 @@ import Button from "@mui/material/Button";
 import { useTranslation } from "next-i18next";
 import CommentForm from "../Comment/Form";
 import Item from "../Comment/Item";
-import useStyles from "./blog-style";
+import useStyles from "./serv-style";
 
-function Article({ filteredArticles }) {
+function Serv({ filteredServices }) {
   const { classes } = useStyles();
   const { t } = useTranslation("common");
 
@@ -19,22 +19,57 @@ function Article({ filteredArticles }) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
+  const content = `<div>
+  <span style="font-size: 18px;">Quill Rich Text Editor</span>
+</div>
+<div>
+  <br>
+</div>
+<div>Quill is a free,
+  <a href="https://github.com/quilljs/quill/">open source</a>WYSIWYG editor built for the modern web. With its
+  <a href="http://quilljs.com/docs/modules/">extensible architecture</a>and a
+  <a href="http://quilljs.com/docs/api/">expressive API</a>you can completely customize it to fulfill your needs. Some built in features include:</div>
+<div>
+  <br>
+</div>
+<ul>
+  <li>Fast and lightweight</li>
+  <li>Semantic markup</li>
+  <li>Standardized HTML between browsers</li>
+  <li>Cross browser support including Chrome, Firefox, Safari, and IE 9+</li>
+</ul>
+<div>
+  <br>
+</div>
+<div>
+  <span style="font-size: 18px;">Downloads</span>
+</div>
+<div>
+  <br>
+</div>
+<ul>
+  <li>
+      <a href="https://quilljs.com">Quill.js</a>, the free, open source WYSIWYG editor</li>
+  <li>
+      <a href="https://zenoamaro.github.io/react-quill">React-quill</a>, a React component that wraps Quill.js</li>
+</ul>`;
   return (
     <div className={classes.root}>
       <article className={classes.article}>
         <div className={classes.content}>
           <Typography variant="h4" className={classes.titleBlog}>
-            {filteredArticles.title}
+            {filteredServices && filteredServices.title}
           </Typography>
-          <span className={classes.caption} style={{ color: "white" }}>
-            {filteredArticles.date}
-          </span>
+
           <figure className={classes.imageBlog}>
-            <img src={filteredArticles.image.finalUri} alt="blog" />
+            <img
+              src={filteredServices && filteredServices.image.finalUri}
+              alt="blog"
+            />
           </figure>
           <div
             dangerouslySetInnerHTML={{
-              __html: filteredArticles.content,
+              __html: filteredServices && filteredServices.content,
             }}
             style={{ color: "white" }}
           ></div>
@@ -80,4 +115,4 @@ function Article({ filteredArticles }) {
   );
 }
 
-export default Article;
+export default Serv;

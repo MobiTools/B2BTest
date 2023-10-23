@@ -7,7 +7,7 @@ import Paper from "../../Paper";
 import useStyles from "../blog-style";
 import { Button } from "@mui/material";
 
-function PostWidget() {
+function PostWidget({ lastFiveArticles }) {
   const { classes } = useStyles();
   const { t } = useTranslation("common");
   const news = [
@@ -34,30 +34,36 @@ function PostWidget() {
   ];
 
   return (
-    <Paper title={t("blog_post")} icon="ion-android-bookmark" whiteBg desc="">
+    <Paper
+      title={"Latest Articles"}
+      icon="ion-android-bookmark"
+      whiteBg
+      desc=""
+    >
       <div
         className={classes.albumRoot}
         style={{ backgroundColor: "transparent" }}
       >
         <List component="nav">
-          {news.map((item, index) => (
-            <ListItem
-              key={index.toString()}
-              button
-              sx={{
-                "&:hover": {
-                  backgroundColor: "#252525", // Culoarea pentru hover
-                },
-              }}
-            >
-              <ListItemText
-                primary={item.title}
-                secondary={item.date}
-                primaryTypographyProps={{ style: { color: "white" } }}
-                secondaryTypographyProps={{ style: { color: "#d3a03e" } }}
-              />
-            </ListItem>
-          ))}
+          {lastFiveArticles &&
+            lastFiveArticles.map((item, index) => (
+              <ListItem
+                key={index.toString()}
+                button
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "#252525", // Culoarea pentru hover
+                  },
+                }}
+              >
+                <ListItemText
+                  primary={item.name}
+                  secondary={item.date}
+                  primaryTypographyProps={{ style: { color: "white" } }}
+                  secondaryTypographyProps={{ style: { color: "#d3a03e" } }}
+                />
+              </ListItem>
+            ))}
         </List>
       </div>
     </Paper>

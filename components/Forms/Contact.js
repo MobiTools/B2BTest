@@ -124,15 +124,21 @@ const ContactForm = (props) => {
                   fullWidth
                   sx={{
                     marginBottom: 2,
+                    backgroundColor: "#252525", // Background color
+                    borderRadius: 2,
                     "& .MuiFilledInput-input": {
+                      borderRadius: 2,
                       color: "white", // Text color
                     },
                     "& .MuiFormLabel-root": {
+                      backgroundColor: "#252525", // Background color
+                      borderRadius: 2,
                       color: "white", // Text color
                     },
                     "& .MuiInputBase-root": {
                       backgroundColor: "#252525", // Background color
                       borderRadius: 2,
+
                       // padding: 0, // Text color
                     },
                   }}

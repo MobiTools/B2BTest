@@ -3,6 +3,53 @@ import { makeStyles } from "tss-react/mui";
 const sectionMargin = (margin) => margin * 20;
 // TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export const useSpacing = makeStyles({ uniqId: "spacing" })((theme) => ({
+  bannerWrapper1: {
+    [theme.breakpoints.up("xs")]: {
+      padding: "50px 15px",
+      // height: "50px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      // padding: "120px 15px",
+    },
+    [theme.breakpoints.up("md")]: {
+      // padding: "120px 15px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      // padding: "120px 15px",
+    },
+    [theme.breakpoints.up("xl")]: {
+      // padding: "120px 15px",
+    },
+  },
+  bannerWrapper2: {
+    [theme.breakpoints.up("xs")]: {
+      // padding: "120px 15px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      // padding: "120px 15px",
+      display: "flex", // Setează afișarea pe flexbox pentru centrat
+      justifyContent: "center", // Centrează orizontal
+      alignItems: "center", // Centrează vertical
+    },
+    [theme.breakpoints.up("md")]: {
+      // padding: "120px 15px",
+      display: "flex", // Setează afișarea pe flexbox pentru centrat
+      justifyContent: "center", // Centrează orizontal
+      alignItems: "center", // Centrează vertical
+    },
+    [theme.breakpoints.up("lg")]: {
+      // padding: "120px 15px",
+      display: "flex", // Setează afișarea pe flexbox pentru centrat
+      justifyContent: "center", // Centrează orizontal
+      alignItems: "center", // Centrează vertical
+    },
+    [theme.breakpoints.up("xl")]: {
+      // padding: "120px 15px",
+      display: "flex", // Setează afișarea pe flexbox pentru centrat
+      justifyContent: "center", // Centrează orizontal
+      alignItems: "center", // Centrează vertical
+    },
+  },
   wraperSection: {
     [theme.breakpoints.up("xs")]: {
       padding: "50px 15px",

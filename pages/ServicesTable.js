@@ -49,7 +49,7 @@ export default function ServicesTable() {
     const servicesDB = await handleGetServices();
 
     if (servicesDB) {
-      setDb([...servicesDB]);
+      setDb([...servicesDB.servicesArray]);
       setIsLoading(false);
     } else {
       setIsLoading(false);

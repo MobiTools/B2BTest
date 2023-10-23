@@ -4,7 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Head from "next/head";
 import Hidden from "@mui/material/Hidden";
 // Use this below for Server Side Render/Translation (SSR)
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 // Use this below for Static Site Generation (SSG)
 // // import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import { useSpacing } from "~/theme/common";
@@ -78,9 +78,7 @@ function Landing(props) {
 }
 
 // Use this below for Server Side Render/Translation (SSR)
-export const getStaticProps = async ({ locale }) => ({
-  props: { ...(await serverSideTranslations(locale, ["common"])) },
-});
+// export const getStaticProps = async () => ({});
 
 // Use this below for Static Site Generation (SSG)
 // // const getStaticProps = makeStaticProps(['common']);

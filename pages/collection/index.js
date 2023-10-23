@@ -1,56 +1,54 @@
-import React, { useState, Fragment } from 'react';
-import Head from 'next/head';
-import PropTypes from 'prop-types';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
+import React, { useState, Fragment } from "react";
+import Head from "next/head";
+import PropTypes from "prop-types";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 // Use this below for Server Side Render/Translation (SSR)
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 // Use this below for Static Site Generation (SSG)
 // import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
-import ProfileCards from '~/components/Cards/ProfileCard';
-import ProductCards from '~/components/Cards/ProductCard';
-import MediaCard from '~/components/Cards/MediaCard';
-import NewsCard from '~/components/Cards/NewsCard';
-import PostCard from '~/components/Cards/PostCard';
-import brand from '~/public/text/brand';
-import { useSpacing, useText } from '~/theme/common';
-import Header from '~/components/Header';
-import Footer from '~/components/Footer';
-import Search from '~/components/Filter/Search';
-import Sidebar from '~/components/List/Sidebar';
+import ProfileCards from "~/components/Cards/ProfileCard";
+import ProductCards from "~/components/Cards/ProductCard";
+import MediaCard from "~/components/Cards/MediaCard";
+import NewsCard from "~/components/Cards/NewsCard";
+import PostCard from "~/components/Cards/PostCard";
+import brand from "~/public/text/brand";
+import { useSpacing, useText } from "~/theme/common";
+import Header from "~/components/Header";
+import Footer from "~/components/Footer";
+import Search from "~/components/Filter/Search";
+import Sidebar from "~/components/List/Sidebar";
 
 function Collection(props) {
   const { classes } = useSpacing();
   const { classes: text } = useText();
   const { onToggleDark, onToggleDir } = props;
-  const [keyword, setKeyword] = useState('');
+  const [keyword, setKeyword] = useState("");
 
   return (
     <Fragment>
       <Head>
-        <title>
-          { brand.starter.name + ' - Card Collection' }
-        </title>
+        <title>{brand.starter.name + " - Card Collection"}</title>
       </Head>
       <CssBaseline />
       <div className={classes.mainWrap}>
-        <Header
-          onToggleDark={onToggleDark}
-          onToggleDir={onToggleDir}
-        />
+        <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
         <Search value={keyword} updateValue={setKeyword} />
         <section className={classes.containerWrap}>
           <div className={classes.searchContent}>
             <Container>
-              <Grid container alignItems="flex-start" justifyContent="center" spacing={3}>
+              <Grid
+                container
+                alignItems="flex-start"
+                justifyContent="center"
+                spacing={3}
+              >
                 <Grid item md={8} xs={12}>
                   <div id="profile_p" className={classes.spaceTopShort}>
                     <Box mb={3}>
-                      <h4 className={text.subtitle}>
-                        Profile Cards Portrait
-                      </h4>
+                      <h4 className={text.subtitle}>Profile Cards Portrait</h4>
                     </Box>
                     <Grid container spacing={3}>
                       {[...Array(2)].map((e, index) => (
@@ -71,9 +69,7 @@ function Collection(props) {
                   </div>
                   <div id="profile_l" className={classes.spaceTopShort}>
                     <Box mb={3}>
-                      <h4 className={text.subtitle}>
-                        Profile Cards Landscape
-                      </h4>
+                      <h4 className={text.subtitle}>Profile Cards Landscape</h4>
                     </Box>
                     <Grid container>
                       {[...Array(3)].map((e, index) => (
@@ -96,9 +92,7 @@ function Collection(props) {
                   </div>
                   <div id="product_p" className={classes.spaceTopShort}>
                     <Box mb={3}>
-                      <h4 className={text.subtitle}>
-                        Product Cards Portrait
-                      </h4>
+                      <h4 className={text.subtitle}>Product Cards Portrait</h4>
                     </Box>
                     <Grid container spacing={3}>
                       {[...Array(3)].map((e, index) => (
@@ -118,9 +112,7 @@ function Collection(props) {
                   </div>
                   <div id="product_l" className={classes.spaceTopShort}>
                     <Box mb={3}>
-                      <h4 className={text.subtitle}>
-                        Product Cards Landscape
-                      </h4>
+                      <h4 className={text.subtitle}>Product Cards Landscape</h4>
                     </Box>
                     <Grid container>
                       {[...Array(3)].map((e, index) => (
@@ -142,9 +134,7 @@ function Collection(props) {
                   </div>
                   <div id="media_video" className={classes.spaceTopShort}>
                     <Box mb={3}>
-                      <h4 className={text.subtitle}>
-                        Video Cards
-                      </h4>
+                      <h4 className={text.subtitle}>Video Cards</h4>
                     </Box>
                     <Grid container spacing={3}>
                       {[...Array(2)].map((e, index) => (
@@ -163,9 +153,7 @@ function Collection(props) {
                   </div>
                   <div id="media_photo" className={classes.spaceTopShort}>
                     <Box mb={3}>
-                      <h4 className={text.subtitle}>
-                        Image Cards
-                      </h4>
+                      <h4 className={text.subtitle}>Image Cards</h4>
                     </Box>
                     <Grid container spacing={3}>
                       {[...Array(2)].map((e, index) => (
@@ -184,9 +172,7 @@ function Collection(props) {
                   </div>
                   <div id="news_p" className={classes.spaceTopShort}>
                     <Box mb={3}>
-                      <h4 className={text.subtitle}>
-                        News Cards Portrait
-                      </h4>
+                      <h4 className={text.subtitle}>News Cards Portrait</h4>
                     </Box>
                     <Grid container spacing={3}>
                       {[...Array(3)].map((e, index) => (
@@ -205,9 +191,7 @@ function Collection(props) {
                   </div>
                   <div id="news_l" className={classes.spaceTopShort}>
                     <Box mb={3}>
-                      <h4 className={text.subtitle}>
-                        News Cards Landscape
-                      </h4>
+                      <h4 className={text.subtitle}>News Cards Landscape</h4>
                     </Box>
                     <Grid container>
                       {[...Array(3)].map((e, index) => (
@@ -226,9 +210,7 @@ function Collection(props) {
                   </div>
                   <div id="post_p" className={classes.spaceTopShort}>
                     <Box mb={3}>
-                      <h4 className={text.subtitle}>
-                        Post Cards Portrait
-                      </h4>
+                      <h4 className={text.subtitle}>Post Cards Portrait</h4>
                     </Box>
                     <Grid container spacing={3}>
                       {[...Array(3)].map((e, index) => (
@@ -248,9 +230,7 @@ function Collection(props) {
                   </div>
                   <div id="post_l" className={classes.spaceTopShort}>
                     <Box mb={3}>
-                      <h4 className={text.subtitle}>
-                        Post Cards Landscape
-                      </h4>
+                      <h4 className={text.subtitle}>Post Cards Landscape</h4>
                     </Box>
                     <Grid container>
                       {[...Array(3)].map((e, index) => (
@@ -290,7 +270,6 @@ Collection.propTypes = {
 export default Collection;
 
 // Use this below for Server Side Render/Translation (SSR)
-export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
 // Use this below for Static Site Generation (SSG)
 // const getStaticProps = makeStaticProps(['common']);

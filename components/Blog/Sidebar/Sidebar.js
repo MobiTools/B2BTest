@@ -7,12 +7,12 @@ import CommentWidget from "./CommentWidget";
 import ListWidget from "./ListWidget";
 import GalleryWidget from "./GalleryWidget";
 
-function Sidebar() {
+function Sidebar({ lastFiveArticles }) {
   return (
     <div>
-      <SubscribeWidget />
-      <Box py={3} />
-      <PostWidget />
+      {/* <SubscribeWidget /> */}
+      <Box py={5} />
+      <PostWidget lastFiveArticles={lastFiveArticles} />
       <Box py={3} />
     </div>
   );

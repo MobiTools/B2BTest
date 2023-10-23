@@ -10,46 +10,42 @@ export const DatabaseContext = createContext({
 });
 
 export const DatabaseProvider = ({ children }) => {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState({});
   const [services, setServices] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Setează initial isLoading la true
 
-  const [isLoading, setIsLoading] = React.useState(false);
-
-  const handleArticles = async () => {
-    setIsLoading(true);
-    const articlesDB = await handleGetArticles();
-
-    if (articlesDB) {
-      setArticles([...articlesDB]);
-      setIsLoading(false);
-    } else {
-      setIsLoading(false);
-      // Handle the case where articlesDB is undefined
-      // For example, display an error message or take appropriate action
-    }
-  };
-  const handleServices = async () => {
-    setIsLoading(true);
-    const servicesDB = await handleGetServices();
-
-    if (servicesDB) {
-      setServices([...servicesDB]);
-      setIsLoading(false);
-    } else {
-      setIsLoading(false);
-      // Handle the case where servicesDB is undefined
-      // For example, display an error message or take appropriate action
+  const handleData = async (setter, dataFetcher) => {
+    try {
+      const data = await dataFetcher();
+      setter(data);
+    } catch (error) {
+      // Gestionează erorile aici
+      console.error("Error fetching data:", error);
+    } finally {
+      console.log("test here...");
+      console.log(articles);
+      console.log(isLoading);
+      setIsLoading(false); // Setează isLoading la false indiferent de rezultat
+      console.log(isLoading);
     }
   };
 
-  React.useEffect(() => {
+  const handleArticles = () => {
+    handleData(setArticles, handleGetArticles);
+  };
+
+  const handleServices = () => {
+    handleData(setServices, handleGetServices);
+  };
+
+  useEffect(() => {
     handleArticles();
     handleServices();
   }, []);
 
   return (
     <DatabaseContext.Provider
-      value={{ articles, setArticles, services, setArticles, isLoading }}
+      value={{ articles, setArticles, services, setServices, isLoading }}
     >
       {children}
     </DatabaseContext.Provider>

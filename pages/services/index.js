@@ -10,6 +10,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useDatabase } from "../../context/DatabaseContext";
 import { useSpacing } from "../../theme/common";
+import { useRouter } from "next/router";
 
 const gridList = [
   {
@@ -51,11 +52,12 @@ const gridList = [
 ];
 
 const MediaCard = ({ item }) => {
+  const route = useRouter();
   return (
     <Card
       sx={{
         maxWidth: 300,
-        minWidth: 300,
+        width: "100%",
         minHeight: 400,
         display: "flex",
         flexDirection: "column",
@@ -114,6 +116,15 @@ const MediaCard = ({ item }) => {
           }}
         >
           <Button
+            onClick={() =>
+              route.push({
+                pathname: "/services/[article]",
+                query: {
+                  article: item.name,
+                  id: item.id,
+                },
+              })
+            }
             size="small"
             sx={{
               fontSize: "15px",
@@ -142,6 +153,11 @@ const MediaCard = ({ item }) => {
 export function Services() {
   const { classes, cx } = useSpacing();
   const { services } = useDatabase();
+
+  React.useEffect(() => {
+    console.log("asdadsasd");
+    console.log(services);
+  }, []);
   return (
     <div style={{ backgroundColor: "#252525" }}>
       <section>
@@ -150,7 +166,7 @@ export function Services() {
       <section>
         <div className={classes.imgContainer}>
           <img
-            src="/ServicesHeader.png"
+            src="/servicesHeader.png"
             alt="About Matteale Services image"
             className={classes.aboutImg}
           />
@@ -162,35 +178,38 @@ export function Services() {
         <div
           style={{
             backgroundColor: "black",
-            padding: "120px 50px",
           }}
+          className={classes.wraperSection}
         >
           <Grid
             container
             rowSpacing={4}
+            columnSpacing={2}
             sx={{
               display: "flex",
-              justifyContent: "center",
+              justifyContent: "flex-start",
               alignItems: "center",
             }}
           >
-            {services.map((item, index) => {
-              return (
-                <Grid
-                  key={index}
-                  item
-                  xs={12}
-                  md={4}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <MediaCard item={item} />
-                </Grid>
-              );
-            })}
+            {services.servicesArray &&
+              services.servicesArray.map((item, index) => {
+                return (
+                  <Grid
+                    key={index}
+                    item
+                    xs={12}
+                    sm={6}
+                    md={3}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <MediaCard item={item} />
+                  </Grid>
+                );
+              })}
           </Grid>
         </div>
       </section>

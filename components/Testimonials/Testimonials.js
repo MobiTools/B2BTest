@@ -48,15 +48,6 @@ function Testimonials() {
     },
   };
 
-  const mappedData = articles.map((item) => {
-    // testiContent.splice(0, testiContent.length);
-    testiContent.push({
-      text: item.metaDescription,
-      avatar: item.image.finalUri,
-      name: `${item.name}`,
-    });
-  });
-
   useEffect(() => {
     setLoaded(true);
     console.log("Text");
@@ -99,11 +90,12 @@ function Testimonials() {
             renderDotsOutside={true}
             removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
           >
-            {testiContent.map((item, index) => (
-              <div className={classes.cardWrapper}>
-                <NewsCard item={item} />
-              </div>
-            ))}
+            {articles.articlesArray &&
+              articles.articlesArray.map((item, index) => (
+                <div className={classes.cardWrapper}>
+                  <NewsCard item={item} />
+                </div>
+              ))}
           </Carousel>
         )}
       </div>

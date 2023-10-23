@@ -4,7 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Head from "next/head";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 import { useSpacing } from "~/theme/common";
 import Header from "~/components/Header";
 import Counter from "~/components/Counter";
@@ -19,6 +19,8 @@ import CallAction from "~/components/CallAction";
 import CompanyLogo from "~/components/CompanyLogo";
 import Footer from "~/components/Footer";
 import brand from "~/public/text/brand";
+import Mision from "../../components/About/Mision";
+import Expertise from "../../components/About/Expertise/Expertise";
 
 function About(props) {
   const { classes, cx } = useSpacing();
@@ -41,6 +43,7 @@ function About(props) {
           />
           <h2 className={classes.aboutText}>About Us</h2>
         </div>
+
         <div
           style={{ backgroundColor: "black" }}
           className={classes.wraperSection}
@@ -65,6 +68,18 @@ function About(props) {
           style={{ backgroundColor: "black" }}
           className={classes.wraperSection}
         >
+          <Expertise />
+        </div>
+        <div
+          style={{ backgroundColor: "#252525" }}
+          className={classes.wraperSection}
+        >
+          <Mision />
+        </div>
+        <div
+          style={{ backgroundColor: "black" }}
+          className={classes.wraperSection}
+        >
           <Container>
             <Grid container spacing={2}>
               <Grid item md={6} xs={12}>
@@ -78,13 +93,10 @@ function About(props) {
         </div>
 
         <div
-          style={{ backgroundColor: "black" }}
+          style={{ backgroundColor: "black", paddingTop: 0 }}
           className={classes.wraperSection}
         >
           <CallAction />
-        </div>
-        <div style={{ backgroundColor: "black" }}>
-          <CompanyLogo />
         </div>
         <Footer toggleDir={onToggleDir} />
       </div>
@@ -98,7 +110,3 @@ About.propTypes = {
 };
 
 export default About;
-
-export const getStaticProps = async ({ locale }) => ({
-  props: { ...(await serverSideTranslations(locale, ["common"])) },
-});

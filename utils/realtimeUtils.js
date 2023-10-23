@@ -8,6 +8,29 @@ import {
   update,
 } from "firebase/database";
 
+function getLatestArticles(articles) {
+  try {
+    // Sortează articolele în ordine descrescătoare a datelor și orelor
+    articles.sort((a, b) => {
+      const dateA = new Date(`${a.date} ${a.time}`);
+      const dateB = new Date(`${b.date} ${b.time}`);
+      return dateB - dateA;
+    });
+
+    // Selectează primele două articole (cele mai noi)
+    const latestArticles = articles.slice(0, 2);
+
+    // Selectează ultimele cinci articole după data
+    const lastFiveArticles = articles.slice(0, 5);
+
+    const newestArticle = latestArticles[0];
+
+    return { latestArticles, newestArticle, lastFiveArticles };
+  } catch (err) {
+    console.log("error on getLatestArticles...", err);
+  }
+}
+
 export const writeArticleData = (newArticle) => {
   try {
     const db = getDatabase();
@@ -56,7 +79,10 @@ export const handleGetArticles = async () => {
       console.log("No data available");
     }
 
-    return articlesArray;
+    let { latestArticles, newestArticle, lastFiveArticles } =
+      getLatestArticles(articlesArray);
+
+    return { articlesArray, latestArticles, newestArticle, lastFiveArticles };
   } catch (error) {
     console.error(error);
   }
@@ -99,7 +125,7 @@ export const handleGetServices = async () => {
       console.log("No data available");
     }
 
-    return servicesArray;
+    return { servicesArray };
   } catch (error) {
     console.error(error);
   }

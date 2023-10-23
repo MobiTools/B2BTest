@@ -95,12 +95,16 @@ function Video() {
           </Box>
         </Grid>
         <Grid item xs={12} md={7} sm={12}>
-          <MediaCard
-            orientation="landscape"
-            type="video"
-            thumb="https://source.unsplash.com/random"
-            action={() => handleClickOpen()}
-          />
+          <div className={classes.videoWrap}>
+            <MediaCard
+              title="Description text"
+              orientation="landscape"
+              type="video"
+              thumb="https://source.unsplash.com/random"
+              action={() => handleClickOpen()}
+              duration="02:30"
+            />
+          </div>
         </Grid>
       </Grid>
     </div>

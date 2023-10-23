@@ -186,10 +186,10 @@ export default function SignIn() {
               error={!!errors.password}
               helperText={errors.password}
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth

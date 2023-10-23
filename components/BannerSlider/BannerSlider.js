@@ -11,6 +11,8 @@ import { useText } from "~/theme/common";
 import useStyles from "./slider-style";
 import { Button } from "@mui/material";
 import { useSpacing } from "../../theme/common";
+import ScrollAnimation from "react-scroll-animation-wrapper";
+import { useRouter } from "next/router";
 
 function BannerSlider() {
   const { classes: spacingClasses } = useSpacing();
@@ -18,6 +20,7 @@ function BannerSlider() {
   const { classes: text } = useText();
   const { t } = useTranslation("common");
   const slider = useRef(null);
+  const route = useRouter();
 
   const [loaded, setLoaded] = useState(false);
   const [curSlide, setCurSlide] = useState(0);
@@ -55,7 +58,7 @@ function BannerSlider() {
     <div className={classes.bannerWrap}>
       {loaded && (
         <div className={classes.carousel}>
-          <Grid container style={{ width: "100%" }}>
+          <Grid container style={{ width: "100%", height: "88vh" }}>
             <Grid
               item
               sm={8}
@@ -66,36 +69,50 @@ function BannerSlider() {
               justifyContent="center"
               alignItems="center"
               style={{ backgroundColor: "#252525" }}
-              className={spacingClasses.wraperSection}
+              className={spacingClasses.bannerWrapper1}
             >
-              <div className={classes.text}>
-                <h1
-                  className={text.title}
-                  style={{
-                    color: "white",
-                    margin: 0,
-                    padding: 0,
-                    lineHeight: 1.5,
-                  }}
-                >
-                  Let us handle your services
-                </h1>
-                <h2
-                  style={{
-                    color: "white",
-                    margin: 0,
-                    padding: 0,
-                    lineHeight: 1.5,
-                  }}
-                >
-                  Our services are
-                  <span style={{ color: "#d3a03e", lineHeight: 1.5 }}>
-                    {" "}
-                    tailored to your needs.
-                  </span>
-                </h2>
-                <Button className={classes.buttonHeader}>Learn More</Button>
-              </div>
+              <ScrollAnimation
+                animateOnce
+                animateIn="fadeIn"
+                offset={100}
+                delay={100}
+                duration={1.0}
+              >
+                <div className={classes.text}>
+                  <h1
+                    className={text.title}
+                    style={{
+                      color: "white",
+                      margin: 0,
+                      padding: 0,
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    Let us handle your services
+                  </h1>
+
+                  <h2
+                    style={{
+                      color: "white",
+                      margin: 0,
+                      padding: 0,
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    Our services are
+                    <span style={{ color: "#d3a03e", lineHeight: 1.5 }}>
+                      {" "}
+                      tailored to your needs.
+                    </span>
+                  </h2>
+                  <Button
+                    onClick={() => route.push("/services")}
+                    className={classes.buttonHeader}
+                  >
+                    Learn More
+                  </Button>
+                </div>
+              </ScrollAnimation>
             </Grid>
             <Grid
               item
@@ -104,18 +121,23 @@ function BannerSlider() {
               xs={12}
               style={{
                 backgroundColor: "black",
-                display: "flex", // Setează afișarea pe flexbox pentru centrat
-                justifyContent: "center", // Centrează orizontal
-                alignItems: "center", // Centrează vertical
               }}
-              className={spacingClasses.wraperSection}
+              className={spacingClasses.bannerWrapper2}
             >
-              <img
-                src="/pozaHeader.png"
-                alt="illustration"
-                style={{ marginBottom: 20 }}
-                className={classes.imageHeader}
-              />
+              <ScrollAnimation
+                animateOnce
+                animateIn="fadeIn"
+                offset={100}
+                delay={100}
+                duration={1.0}
+              >
+                <img
+                  src="/pozaHeader.png"
+                  alt="illustration"
+                  // style={{ marginBottom: 20 }}
+                  className={[classes.imageHeader]}
+                />
+              </ScrollAnimation>
             </Grid>
           </Grid>
         </div>

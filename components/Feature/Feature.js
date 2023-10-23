@@ -72,7 +72,7 @@ function Feature() {
       <ScrollAnimation
         animateOnce
         animateIn="fadeInLeftShort"
-        offset={100}
+        offset={10}
         delay={500}
         duration={0.5}
         style={{ width: "100%" }}
@@ -107,8 +107,8 @@ function Feature() {
     >
       <ScrollAnimation
         animateOnce
-        animateIn="fadeInLeftShort"
-        offset={100}
+        animateIn="fadeInRightShort"
+        offset={10}
         delay={500}
         duration={0.5}
         style={{ width: "100%" }}

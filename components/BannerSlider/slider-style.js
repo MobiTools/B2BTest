@@ -19,11 +19,14 @@ const sliderStyle = makeStyles({ uniqId: "slider" })(
       maxWidth: "100%",
       position: "relative",
       right: 200,
+
       [theme.breakpoints.up("xs")]: {
         right: 0,
+        // bottom: 70,
       },
       [theme.breakpoints.up("sm")]: {
         right: 0,
+        bottom: 0,
       },
       [theme.breakpoints.up("md")]: {
         right: 100,

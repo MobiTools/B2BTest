@@ -50,7 +50,7 @@ export default function ProcessTable() {
     const articlesDB = await handleGetArticles();
 
     if (articlesDB) {
-      setDb([...articlesDB]);
+      setDb([...articlesDB.articlesArray]);
       setIsLoading(false);
     } else {
       setIsLoading(false);

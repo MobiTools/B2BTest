@@ -33,8 +33,7 @@ function Copyright() {
       display="block"
       color="textSecondary"
     >
-      &copy;&nbsp;
-      {brand.starter.footerText}
+      &copy;&nbsp; xx All Rights Reserved 2023
     </Typography>
   );
 }
@@ -84,8 +83,8 @@ function Footer(props) {
     <div maxWidth="lg" component="footer" className={classes.footer}>
       <Grid container spacing={4}>
         <Grid item xs={12} md={3}>
-          <Logo type="landscape" />
-
+          <img src={"/logo-transparent-white-1.png"} alt="logo" width={120} />
+          {/* 
           <Typography
             sx={{ color: "white" }}
             color="textPrimary"
@@ -93,7 +92,7 @@ function Footer(props) {
             gutterBottom
           >
             {t("starter-landing.banner_subtitle")}
-          </Typography>
+          </Typography> */}
           {isDesktop && <Copyright />}
         </Grid>
         <Grid item xs={12} md={6}>

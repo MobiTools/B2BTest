@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 
 function PostCard(props) {
   const { classes, cx } = useStyles();
-  const { date, title, desc, img, orientation, type, href } = props;
+  const { date, title, desc, img, orientation, type, href, id } = props;
   const { t } = useTranslation("common");
   const route = useRouter();
 
@@ -51,9 +51,16 @@ function PostCard(props) {
         <CardActions className={classes.action}>
           <Button
             variant="outlined"
-            href={href}
             className={classes.btn}
-            onClick={() => route.push("/news/article")}
+            onClick={() =>
+              route.push({
+                pathname: "/news/[article]",
+                query: {
+                  article: title,
+                  id,
+                },
+              })
+            }
           >
             Read More
           </Button>

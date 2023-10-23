@@ -46,7 +46,7 @@ function SidebarBlog() {
           variant="outlined"
           type="submit"
         >
-          {t("btn_submit")}
+          Submit
         </Button>
       </div>
     </Paper>

@@ -15,7 +15,9 @@ const appTheme = (color, mode) => ({
     },
   },
   typography: {
-    fontFamily: ["Roboto", "Roboto Condensed", "sans-serif"].join(","),
+    fontFamily: ["rockwell", "roboto", "open sans", "lato", "sans-serif"].join(
+      ","
+    ),
   },
   shade: {
     light: "0 1.5px 12px 2px rgba(0, 0, 0, 0.06)",

@@ -23,8 +23,11 @@ export default function NewsCard(props) {
 
   const handleRoute = (item) => {
     route.push({
-      pathname: "/news/article/[article]",
-      query: { article: item.name },
+      pathname: "/news/[article]",
+      query: {
+        article: item.title,
+        id: item.id,
+      },
     });
   };
 
@@ -32,7 +35,7 @@ export default function NewsCard(props) {
     <Card sx={{ maxWidth: 345 }} elevation={0}>
       <CardMedia
         sx={{ height: 140, width: 440 }}
-        image={props.item.avatar}
+        image={props.item.image.finalUri}
         title="green iguana"
       />
       <CardContent sx={{ height: 140 }}>
@@ -40,7 +43,7 @@ export default function NewsCard(props) {
           {props.item.name}
         </Typography>
         <Typography variant="body2" color="white" style={cardTextStyles}>
-          {props.item.text}
+          {props.item.metaDescription}
         </Typography>
       </CardContent>
       <CardActions>

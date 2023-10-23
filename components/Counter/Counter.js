@@ -10,6 +10,7 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import useStyles from "./counter-style";
 import { Button } from "@mui/material";
+import { useRouter } from "next/router";
 
 function Counter(props) {
   const { classes, cx } = useStyles();
@@ -18,6 +19,7 @@ function Counter(props) {
   const countup = (val, isPlay) => (
     <span>{isPlay ? <CountUp end={val} /> : 0}</span>
   );
+  const route = useRouter();
   const handlePlay = (visible) => {
     if (visible.inViewport) {
       setTimeout(() => {
@@ -49,7 +51,12 @@ function Counter(props) {
                 >
                   Take your first step towards success
                 </Typography>
-                <Button className={classes.buttonHeader}>Contact Us</Button>
+                <Button
+                  onClick={() => route.push("/contact")}
+                  className={classes.buttonHeader}
+                >
+                  Contact Us
+                </Button>
               </div>
             </Grid>
           </Grid>

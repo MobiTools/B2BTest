@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import ReactQuill from "react-quill";
+import dynamic from "next/dynamic"; // Importă funcția dynamic pentru încărcarea dinamică
 import "react-quill/dist/quill.snow.css"; // Stilurile pentru editor
+
+// Importă ReactQuill în mod dinamic pentru a fi utilizat doar în client
+const ReactQuill = dynamic(() => import("react-quill"), {
+  ssr: false, // Dezactivează încărcarea în timpul construcției (server-side rendering)
+});
 
 const ArticleEditor = (props) => {
   return (
@@ -9,7 +14,7 @@ const ArticleEditor = (props) => {
         style={{ height: 300, marginBottom: 40 }}
         value={props.content}
         onChange={props.handleContentChange}
-        theme="snow" // Optional editor theme
+        theme="snow"
         modules={{
           toolbar: [
             [{ header: "1" }, { header: "2" }, { font: [] }],
@@ -41,8 +46,8 @@ const ArticleEditor = (props) => {
           "image",
           "video",
         ]}
-        placeholder="Enter your text here..." // Placeholder text
-        readOnly={false} // Set to true for read-only mode
+        placeholder="Enter your text here..."
+        readOnly={false}
       />
     </div>
   );
