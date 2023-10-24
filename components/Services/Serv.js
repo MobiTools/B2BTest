@@ -19,40 +19,30 @@ function Serv({ filteredServices }) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
-  const content = `<div>
-  <span style="font-size: 18px;">Quill Rich Text Editor</span>
-</div>
-<div>
-  <br>
-</div>
-<div>Quill is a free,
-  <a href="https://github.com/quilljs/quill/">open source</a>WYSIWYG editor built for the modern web. With its
-  <a href="http://quilljs.com/docs/modules/">extensible architecture</a>and a
-  <a href="http://quilljs.com/docs/api/">expressive API</a>you can completely customize it to fulfill your needs. Some built in features include:</div>
-<div>
-  <br>
-</div>
-<ul>
-  <li>Fast and lightweight</li>
-  <li>Semantic markup</li>
-  <li>Standardized HTML between browsers</li>
-  <li>Cross browser support including Chrome, Firefox, Safari, and IE 9+</li>
-</ul>
-<div>
-  <br>
-</div>
-<div>
-  <span style="font-size: 18px;">Downloads</span>
-</div>
-<div>
-  <br>
-</div>
-<ul>
-  <li>
-      <a href="https://quilljs.com">Quill.js</a>, the free, open source WYSIWYG editor</li>
-  <li>
-      <a href="https://zenoamaro.github.io/react-quill">React-quill</a>, a React component that wraps Quill.js</li>
-</ul>`;
+  // Functie pentru partajare pe Facebook
+  const shareOnFacebook = () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      "_blank"
+    );
+  };
+
+  // Functie pentru partajare pe Twitter
+  const shareOnTwitter = () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://twitter.com/intent/tweet?url=${url}`, "_blank");
+  };
+
+  // Functie pentru partajare pe LinkedIn
+  const shareOnLinkedIn = () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(
+      `https://www.linkedin.com/shareArticle?mini=true&url=${url}`,
+      "_blank"
+    );
+  };
+
   return (
     <div className={classes.root}>
       <article className={classes.article}>
@@ -87,6 +77,7 @@ function Serv({ filteredServices }) {
               variant="outlined"
               className={classes.indigoBtn}
               type="button"
+              onClick={shareOnFacebook}
             >
               <i className="ion-social-facebook" />
               {isDesktop && "Facebook"}
@@ -95,6 +86,7 @@ function Serv({ filteredServices }) {
               variant="outlined"
               className={classes.cyanBtn}
               type="button"
+              onClick={shareOnTwitter}
             >
               <i className="ion-social-twitter" />
               {isDesktop && "Twitter"}
@@ -103,6 +95,7 @@ function Serv({ filteredServices }) {
               variant="outlined"
               className={classes.blueBtn}
               type="button"
+              onClick={shareOnLinkedIn}
             >
               <i className="ion-social-linkedin" />
               {isDesktop && "Linkedin"}

@@ -83,7 +83,7 @@ function About(props) {
           <Container>
             <Grid container spacing={2}>
               <Grid item md={6} xs={12}>
-                <img src="/values.webp" />
+                <img src="/values.webp" className={classes.valuesImg} />
               </Grid>
               <Grid item md={6} xs={12}>
                 <AboutProgress />

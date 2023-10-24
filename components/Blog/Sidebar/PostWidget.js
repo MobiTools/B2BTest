@@ -6,32 +6,21 @@ import { useTranslation } from "next-i18next";
 import Paper from "../../Paper";
 import useStyles from "../blog-style";
 import { Button } from "@mui/material";
+import { useRouter } from "next/router";
 
 function PostWidget({ lastFiveArticles }) {
   const { classes } = useStyles();
   const { t } = useTranslation("common");
-  const news = [
-    {
-      title: "Vestibulum bibendum nisi eget magna",
-      date: "Jan 9, 2014",
-    },
-    {
-      title: "Quisque a consequat ante",
-      date: "Jan 9, 2014",
-    },
-    {
-      title: "Donec dignissim, odio ac imperdiet luctus",
-      date: "Jan 9, 2014",
-    },
-    {
-      title: "Suspendisse eleifend nunc non",
-      date: "Jan 9, 2014",
-    },
-    {
-      title: "Vestibulum a massa vestibulum",
-      date: "Jan 9, 2014",
-    },
-  ];
+  const route = useRouter();
+
+  const handleRoute = (item) => {
+    route.push({
+      pathname: "/news/[slug]",
+      query: {
+        slug: item.id,
+      },
+    });
+  };
 
   return (
     <Paper
@@ -49,6 +38,7 @@ function PostWidget({ lastFiveArticles }) {
             lastFiveArticles.map((item, index) => (
               <ListItem
                 key={index.toString()}
+                onClick={() => handleRoute(item)}
                 button
                 sx={{
                   "&:hover": {

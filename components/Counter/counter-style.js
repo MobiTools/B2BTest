@@ -20,10 +20,24 @@ const counterStyles = makeStyles({ uniqId: "counter" })(
 
     text: {},
     counterItem: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: "column",
+      [theme.breakpoints.up("xs")]: {
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        flexDirection: "column",
+      },
+      [theme.breakpoints.up("sm")]: {
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        flexDirection: "column",
+      },
+      [theme.breakpoints.up("md")]: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      },
     },
     dark: {
       background: theme.palette.primary.main,

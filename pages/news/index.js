@@ -44,8 +44,8 @@ function BlogHome(props) {
     articles.articlesArray.slice(startIndex, endIndex);
 
   useEffect(() => {
-    console.log("articleSSSs.....");
-    console.log(articles.latestArticles);
+    console.log("articleSSSsss.....");
+    console.log(articles);
   }, []);
 
   return (
@@ -128,7 +128,7 @@ function BlogHome(props) {
                       </Box>
                     </Grid>
                     <Grid item md={4} xs={12}>
-                      <Sidebar latestArticles={articles.latestArticles} />
+                      <Sidebar lastFiveArticles={articles.lastFiveArticles} />
                     </Grid>
                   </Grid>
                 </Box>

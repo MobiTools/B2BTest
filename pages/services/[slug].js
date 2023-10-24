@@ -29,7 +29,7 @@ function ServiceDetail() {
   const [filteredServices, setFilteredServices] = useState(services);
 
   useEffect(() => {
-    console.log("router......");
+    console.log("router........");
     console.log(router.query.id);
     console.log(services);
     console.log(params);

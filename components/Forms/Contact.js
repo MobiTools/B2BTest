@@ -10,8 +10,11 @@ import {
   CssBaseline,
 } from "@mui/material";
 import Alert from "@mui/material/Alert";
+import { useSpacing } from "../../theme/common";
 
 const ContactForm = (props) => {
+  const { classes } = useSpacing();
+
   const [formData, setFormData] = useState({
     from_name: "",
     email: "",
@@ -44,7 +47,7 @@ const ContactForm = (props) => {
   return (
     <div style={{ backgroundColor: "black" }}>
       <CssBaseline />
-      <Container sx={{ padding: "120px", position: "relative" }}>
+      <Container className={classes.contactFormWrapper}>
         <Grid
           container
           spacing={10}
@@ -182,6 +185,7 @@ const ContactForm = (props) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-start",
+                overflow: "hidden",
               }}
             >
               <Typography

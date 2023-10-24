@@ -3,6 +3,23 @@ import { makeStyles } from "tss-react/mui";
 const sectionMargin = (margin) => margin * 20;
 // TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export const useSpacing = makeStyles({ uniqId: "spacing" })((theme) => ({
+  contactFormWrapper: {
+    [theme.breakpoints.up("xs")]: {
+      padding: "50px 30px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      padding: "120px 70px",
+    },
+    [theme.breakpoints.up("md")]: {
+      padding: "120px 15px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      padding: "120px 15px",
+    },
+    [theme.breakpoints.up("xl")]: {
+      padding: "120px 15px",
+    },
+  },
   bannerWrapper1: {
     [theme.breakpoints.up("xs")]: {
       padding: "50px 15px",
@@ -164,6 +181,18 @@ export const useSpacing = makeStyles({ uniqId: "spacing" })((theme) => ({
     width: "100%",
     height: "100%",
     objectFit: "cover",
+  },
+  valuesImg: {
+    // width:200
+    [theme.breakpoints.up("xs")]: {
+      width: 300,
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: 400,
+    },
+    [theme.breakpoints.up("md")]: {
+      width: 500,
+    },
   },
   aboutText: {
     position: "absolute",

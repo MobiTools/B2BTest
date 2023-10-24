@@ -15,6 +15,30 @@ function Article({ filteredArticles }) {
   const { classes } = useStyles();
   const { t } = useTranslation("common");
 
+  // Functie pentru partajare pe Facebook
+  const shareOnFacebook = () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      "_blank"
+    );
+  };
+
+  // Functie pentru partajare pe Twitter
+  const shareOnTwitter = () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://twitter.com/intent/tweet?url=${url}`, "_blank");
+  };
+
+  // Functie pentru partajare pe LinkedIn
+  const shareOnLinkedIn = () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(
+      `https://www.linkedin.com/shareArticle?mini=true&url=${url}`,
+      "_blank"
+    );
+  };
+
   // Theme breakpoints
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
@@ -52,6 +76,7 @@ function Article({ filteredArticles }) {
               variant="outlined"
               className={classes.indigoBtn}
               type="button"
+              onClick={shareOnFacebook}
             >
               <i className="ion-social-facebook" />
               {isDesktop && "Facebook"}
@@ -60,6 +85,7 @@ function Article({ filteredArticles }) {
               variant="outlined"
               className={classes.cyanBtn}
               type="button"
+              onClick={shareOnTwitter}
             >
               <i className="ion-social-twitter" />
               {isDesktop && "Twitter"}
@@ -68,6 +94,7 @@ function Article({ filteredArticles }) {
               variant="outlined"
               className={classes.blueBtn}
               type="button"
+              onClick={shareOnLinkedIn}
             >
               <i className="ion-social-linkedin" />
               {isDesktop && "Linkedin"}
