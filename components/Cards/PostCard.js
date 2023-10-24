@@ -58,7 +58,7 @@ function PostCard(props) {
               route.push({
                 pathname: "/news/[slug]",
                 query: {
-                  slug,
+                  slug: id,
                 },
               })
             }

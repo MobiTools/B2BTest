@@ -10,14 +10,19 @@ import { useTranslation } from "next-i18next";
 import CommentForm from "../Comment/Form";
 import Item from "../Comment/Item";
 import useStyles from "./blog-style";
+import { usePathname } from "next/navigation";
 
 function Article({ filteredArticles }) {
   const { classes } = useStyles();
   const { t } = useTranslation("common");
-
+  const pathname = usePathname();
   // Functie pentru partajare pe Facebook
   const shareOnFacebook = () => {
-    const url = encodeURIComponent(window.location.href);
+    console.log(pathname);
+    console.log(window.location.hostname);
+    console.log(window.location.href);
+    // const url = encodeURIComponent(window.location.href);
+    const url = window.location.href;
     window.open(
       `https://www.facebook.com/sharer/sharer.php?u=${url}`,
       "_blank"
