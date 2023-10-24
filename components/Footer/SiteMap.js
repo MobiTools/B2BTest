@@ -24,6 +24,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 
 function Copyright() {
   return (
@@ -41,8 +42,8 @@ function Copyright() {
 const footers = [
   {
     title: "Company",
-    description: ["Team", "History", "Contact us", "Locations"],
-    link: ["#team", "#history", "#contact-us", "#locations"],
+    description: ["About us", "Services", "Contact us", "News"],
+    link: ["/about", "/services", "/contact", "/news"],
   },
   {
     title: "Resources",
@@ -62,7 +63,7 @@ const footers = [
   {
     title: "Legal",
     description: ["Privacy policy", "Terms of use"],
-    link: ["#privacy-policy", "#terms-of-use"],
+    link: ["/privacypolicy", "#terms-of-use"],
   },
 ];
 
@@ -140,18 +141,18 @@ function Footer(props) {
               aria-label="FB"
               className={classes.margin}
               size="small"
-              style={{ backgroundColor: "#1DA1F2", marginLeft: 0 }}
+              style={{ backgroundColor: "#1877F2", marginLeft: 0 }}
             >
-              <TwitterIcon style={{ color: "white" }} />
+              <a
+                href="https://www.facebook.com/mattealeconsulting"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <FacebookIcon style={{ color: "white" }} />
+              </a>
             </IconButton>
-            <IconButton
-              aria-label="TW"
-              className={classes.margin}
-              size="small"
-              style={{ backgroundColor: "#1877F2" }}
-            >
-              <FacebookIcon style={{ color: "white" }} />
-            </IconButton>
+
             <IconButton
               aria-label="IG"
               className={classes.margin}
@@ -161,7 +162,14 @@ function Footer(props) {
                   "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
               }}
             >
-              <InstagramIcon style={{ color: "white" }} />
+              <a
+                href="https://www.instagram.com/mattealeconsulting/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <InstagramIcon style={{ color: "white" }} />
+              </a>
             </IconButton>
 
             <IconButton
@@ -170,7 +178,31 @@ function Footer(props) {
               size="small"
               style={{ backgroundColor: "#0077B5" }}
             >
-              <LinkedInIcon style={{ color: "white" }} />
+              <a
+                href="https://www.linkedin.com/company/matteale-consulting-services/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <LinkedInIcon style={{ color: "white" }} />
+              </a>
+            </IconButton>
+
+            <IconButton
+              aria-label="YT"
+              className={classes.margin}
+              size="small"
+              style={{ backgroundColor: "#FF0000" }}
+            >
+              <a
+                href="https://www.youtube.com/channel/UCcCrYY8-Afj8UvVuM0PyC_A"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                {/* Înlocuiește cu un icon de YouTube */}
+                <YouTubeIcon style={{ color: "white" }} />
+              </a>
             </IconButton>
           </div>
           <Subscribe />

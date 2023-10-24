@@ -4,12 +4,9 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import TextField from "@mui/material/TextField";
-
-import Grid from "@mui/material/Grid";
-import Icon from "@mui/material/Icon";
+import Button from "@mui/material/Button"; // Importă componenta Button
 import { useTranslation } from "next-i18next";
 import useStyles from "./subscribe-style";
-import { Button } from "@mui/material";
 
 function SubscribeForm() {
   const { t } = useTranslation("common");
@@ -17,8 +14,16 @@ function SubscribeForm() {
   const [values, setValues] = useState({
     email: "",
   });
+
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
+  };
+
+  const handleSubscribe = () => {
+    // Aici poți adăuga logica de abonare, cum ar fi trimiterea datelor pe server
+    const email = values.email;
+    // Exemplu simplu de afișare în consolă, dar de obicei, trebuie să trimiti datele la un server
+    console.log(`Subscribed with email: ${email}`);
   };
 
   // Theme breakpoints
@@ -64,15 +69,16 @@ function SubscribeForm() {
             margin="normal"
             InputProps={{
               style: { color: "white" },
-              // placeholder: "Email", // Setează textul de placeholder
             }}
             InputLabelProps={{
-              style: { color: "white", borderBottomColor: "red" }, // Setează culoarea etichetei
+              style: { color: "white" },
             }}
           />
 
           <div style={{ textAlign: "center" }}>
-            <Button className={classes.buttonHeader}>Subscribe</Button>
+            <Button className={classes.buttonHeader} onClick={handleSubscribe}>
+              Subscribe
+            </Button>
           </div>
         </form>
       </Paper>

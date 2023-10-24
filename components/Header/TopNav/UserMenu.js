@@ -21,10 +21,10 @@ function UserMenu(props) {
       <div style={{ display: "flex", alignItems: "center" }}>
         <PhoneIcon style={{ color: "white" }} />
         <Button
-          href={"Tel:+40774621411"}
+          href={"Tel:+40345404753"}
           style={{ color: "white", marginLeft: "8px" }}
         >
-          +40774621412
+          +40345404753
         </Button>
       </div>
     </div>

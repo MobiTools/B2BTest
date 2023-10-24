@@ -11,6 +11,9 @@ import {
 } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import { useSpacing } from "../../theme/common";
+import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 
 const ContactForm = (props) => {
   const { classes } = useSpacing();
@@ -189,40 +192,167 @@ const ContactForm = (props) => {
               }}
             >
               <Typography
-                variant="h5"
-                sx={{ color: "white", paddingBottom: 2 }}
+                variant="h4"
+                sx={{ color: "white", paddingBottom: 2, fontSize: 30 }}
               >
-                Contact Information
+                Get in touch
+              </Typography>
+              <Typography
+                variant="body"
+                sx={{ color: "white", paddingBottom: 2, fontSize: 20 }}
+              >
+                Reach us if you want more details or if you need more
+                information or collaboration
               </Typography>
 
               <Typography
-                sx={{ fontSize: "16px", color: "white", marginTop: 1 }}
+                sx={{
+                  fontSize: "18px",
+                  color: "white",
+                  marginTop: 1,
+                  display: "flex",
+                }}
               >
-                Address
-              </Typography>
-              <Typography
-                sx={{ fontSize: "16px", color: "white", marginTop: 1 }}
-              >
-                Strada Tudor Vladimirescu 94, Targoviste, Dambovita
-              </Typography>
-
-              <Typography
-                sx={{ fontSize: "16px", color: "white", marginTop: 1 }}
-              >
-                Phone{" "}
-                <span>
-                  {" "}
-                  <a
-                    href="tel:+40774621411"
-                    sx={{ fontSize: "16px", color: "white", marginTop: 1 }}
-                  ></a>
+                {
+                  <LocationOnOutlinedIcon
+                    style={{ fontSize: "25px", color: "#ffc045" }}
+                  />
+                }
+                <span
+                  style={{
+                    fontSize: "20px",
+                    color: "white",
+                    marginTop: 1,
+                    marginLeft: 5,
+                    textDecoration: "none",
+                  }}
+                >
+                  Strada Tudor Vladimirescu 94 Targoviste, 130083
                 </span>
               </Typography>
 
               <Typography
-                sx={{ fontSize: "16px", color: "white", marginTop: 1 }}
+                sx={{
+                  fontSize: "18px",
+                  color: "white",
+                  marginTop: 1,
+                  display: "flex",
+                }}
               >
-                Email <span> office@mattealeconsulting.com</span>
+                {
+                  <LocalPhoneOutlinedIcon
+                    style={{ fontSize: "25px", color: "#ffc045" }}
+                  />
+                }
+                <span>
+                  {" "}
+                  <a
+                    href="tel:+40345404753"
+                    style={{
+                      fontSize: "20px",
+                      color: "white",
+                      marginTop: 1,
+                      marginLeft: 5,
+                      textDecoration: "none",
+                    }}
+                  >
+                    +40345404753
+                  </a>
+                </span>
+
+                <span>
+                  {" "}
+                  <a
+                    href="tel:0774621411"
+                    style={{
+                      fontSize: "20px",
+                      color: "white",
+                      marginTop: 1,
+                      marginLeft: 5,
+                      textDecoration: "none",
+                    }}
+                  >
+                    0774621411
+                  </a>
+                </span>
+              </Typography>
+
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: "white",
+                  marginTop: 1,
+                  display: "flex",
+                }}
+              >
+                {
+                  <EmailOutlinedIcon
+                    style={{ fontSize: "25px", color: "#ffc045" }}
+                  />
+                }
+                {}
+                <span>
+                  {" "}
+                  <a
+                    href="mailto:alexandru.barbu@mattealeconsulting.com"
+                    style={{
+                      fontSize: "20px",
+                      color: "white",
+                      marginTop: 1,
+                      marginLeft: 5,
+                      textDecoration: "none",
+                    }}
+                  >
+                    alexandru.barbu@mattealeconsulting.com
+                  </a>
+                </span>
+                <span>
+                  {" "}
+                  <a
+                    href="mailto:office@mattealeconsulting.com"
+                    style={{
+                      fontSize: "20px",
+                      color: "white",
+                      marginTop: 1,
+                      marginLeft: 5,
+                      textDecoration: "none",
+                    }}
+                  >
+                    office@mattealeconsulting.com
+                  </a>
+                </span>
+              </Typography>
+
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  color: "white",
+                  marginTop: 1,
+                  display: "flex",
+                }}
+              >
+                {
+                  <EmailOutlinedIcon
+                    style={{ fontSize: "25px", color: "#ffc045" }}
+                  />
+                }
+                {}
+
+                <span>
+                  {" "}
+                  <a
+                    href="mailto:office@mattealeconsulting.com"
+                    style={{
+                      fontSize: "20px",
+                      color: "white",
+                      marginTop: 1,
+                      marginLeft: 5,
+                      textDecoration: "none",
+                    }}
+                  >
+                    office@mattealeconsulting.com
+                  </a>
+                </span>
               </Typography>
             </Paper>
           </Grid>
