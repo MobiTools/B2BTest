@@ -33,7 +33,7 @@ function Expertise() {
                   height={1099}
                   className={classes.decoration}
                 >
-                  <use xlinkHref="/images/agency/wave_decoration.svg#main" />
+                  <use xlinkHref="/images/expertise/wave_decoration.svg#main" />
                 </svg>
               )}
               <TitleDeco text={"Our expertise"} />

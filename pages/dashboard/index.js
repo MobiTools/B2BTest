@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Head from "next/head";
 
 export default function MainScreen() {
   const route = useRouter();
@@ -35,6 +36,9 @@ export default function MainScreen() {
   });
   return (
     <>
+      <Head>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       {isLoading ? (
         <Box
           sx={{

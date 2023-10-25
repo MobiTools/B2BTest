@@ -13,23 +13,20 @@ import LoadingBar from "react-top-loading-bar";
 import { appWithTranslation } from "next-i18next";
 import lngDetector from "../lib/languageDetector";
 import appTheme from "../theme/appTheme";
+// import "animate.css/animate.min.css";
 /* import css vendors */
 import "react-18-image-lightbox/style.css";
 import "../vendors/animate.css";
 import "../vendors/animate-slider.css";
 import "../vendors/hamburger-menu.css";
 import "../vendors/animate-extends.css";
-import "../vendors/react-top-loading-bar.css";
-import "../vendors/page-transition.css";
-import "../vendors/slick/slick.css";
-import "../vendors/slick/slick-theme.css";
+// import "../vendors/react-top-loading-bar.css";
+// import "../vendors/page-transition.css";
+// import "../vendors/slick/slick.css";
+// import "../vendors/slick/slick-theme.css";
 import { DatabaseProvider } from "../context/DatabaseContext";
 
 let themeType = "light";
-if (typeof Storage !== "undefined") {
-  // eslint-disable-line
-  themeType = localStorage.getItem("oironTheme") || "light";
-}
 
 const isBrowser = typeof document !== "undefined";
 let insertionPoint;
@@ -100,19 +97,6 @@ function MyApp(props) {
     }, 2000);
   }, []);
 
-  const toggleDarkTheme = () => {
-    const newPaletteType = theme.palette.mode === "light" ? "dark" : "light";
-    localStorage.setItem(
-      "oironTheme",
-      theme.palette.mode === "light" ? "dark" : "light"
-    );
-
-    setTheme({
-      ...appTheme(themeName, newPaletteType),
-      direction: theme.direction,
-    });
-  };
-
   const toggleDirection = (dir) => {
     document.dir = dir;
     // set theme
@@ -130,11 +114,22 @@ function MyApp(props) {
     <CacheProvider value={theme.direction === "rtl" ? cacheRTL : cacheLTR}>
       <DatabaseProvider>
         <Head>
+          <meta charSet="utf-8" />
+          <meta name="author" content="Numele Tău sau Companiei" />
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
+          <meta name="image" content="URL-imagine" />
+          <meta name="og:url" content="https://www.mattealeconsulting.com" />
+          <meta
+            name="og:image"
+            content="https://www.mattealeconsulting.com/images/social_media.png"
+          />
+
+          <meta name="og:type" content="website" />
         </Head>
+
         <ThemeProvider theme={muiTheme}>
           <CssBaseline />
           {/* <LoadingBar
@@ -147,7 +142,6 @@ function MyApp(props) {
           <div id="main-wrap">
             <Component
               {...pageProps}
-              onToggleDark={toggleDarkTheme}
               onToggleDir={toggleDirection}
               key={router.route}
             />

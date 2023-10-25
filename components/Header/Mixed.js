@@ -14,6 +14,8 @@ import useStyles from "./header-style";
 import navMenu from "./data/single";
 import samplePages from "./data/sample-pages";
 import navData from "./data/single";
+import MultiLevelHover from "./TopNav/MultiLevelHover";
+import multiple from "./data/multiple";
 
 let counter = 0;
 
@@ -101,25 +103,30 @@ function Mixed(props) {
                   </span>
                 </IconButton>
               )}
-              <div className={classes.logo}>
-                <a href={link.starter.home}>
-                  <Logo type="landscape" />
-                </a>
-              </div>
+              {isDesktop && (
+                <div className={classes.logo}>
+                  <a href={link.starter.home}>
+                    <Logo type="landscape" />
+                  </a>
+                </div>
+              )}
+
               {isDesktop && (
                 <div className={classes.mainMenu}>
                   <HeaderMenu
                     open={openMenu}
                     menuPrimary={navData}
+                    dataMenu={multiple}
                     menuSecondary={samplePages}
                     toggle={handleToggle}
                     close={handleClose}
                     singleNav={home}
                   />
+                  {/* <MultiLevelHover dataMenu={multiple} /> */}
                 </div>
               )}
+              <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
             </nav>
-            <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
           </div>
         </Container>
       </AppBar>

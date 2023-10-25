@@ -19,10 +19,15 @@ function UserMenu(props) {
   return (
     <div className={classes.userMenu}>
       <div style={{ display: "flex", alignItems: "center" }}>
-        <PhoneIcon style={{ color: "white" }} />
+        <PhoneIcon style={{ color: "white", fontSize: 22 }} />
         <Button
           href={"Tel:+40345404753"}
-          style={{ color: "white", marginLeft: "8px" }}
+          style={{
+            color: "white",
+            marginLeft: "0px",
+            fontSize: 16,
+            padding: "0px 5px 0px 0px",
+          }}
         >
           +40345404753
         </Button>

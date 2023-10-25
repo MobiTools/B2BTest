@@ -1,7 +1,7 @@
 {
-  "name": "starter-project",
+  "name": "MattealeConsulting",
   "version": "2.0.0",
-  "description": "Oiron ReactJs Starter Project",
+  "description": "Protect your critical business information with SAP's comprehensive security solutions. From access control to data encryption, SAP helps you safeguard sensitive data and maintain regulatory compliance, ensuring the stability and reliability of your operations",
   "keywords": [
     "starter kit",
     "empty project",
@@ -9,8 +9,8 @@
     "kick start",
     "boilerplate"
   ],
-  "author": "Oiron Theme",
-  "license": "Envato",
+  "author": "ProWebSolutions",
+  "license": "ProWebSolutions",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -32,12 +32,14 @@
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.17",
     "@react-google-maps/api": "^2.19.2",
+    "animate.css": "^4.1.1",
     "babel-plugin-root-import": "^6.4.1",
     "core-js": "^3.29.1",
     "cross-env": "^7.0.3",
     "eslint-config-next": "^13.5.6",
     "express": "^4.17.1",
     "firebase": "^10.5.0",
+    "framer-motion": "^10.16.4",
     "gh-pages": "^6.0.0",
     "google-maps-react18": "^2.0.9",
     "i18next": "^22.4.6",
@@ -52,6 +54,7 @@
     "react": "^18.2.0",
     "react-18-image-lightbox": "^5.1.4",
     "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-animate-on-scroll": "^2.1.7",
     "react-countup": "^6.4.0",
     "react-dom": "^18.2.0",
     "react-floating-whatsapp": "^5.0.8",

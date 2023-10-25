@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ContactMap from "../../components/Forms/ContactMap";
 import MapContainer from "../../components/Forms/ContactMap";
+import Head from "next/head";
 
 function Contact() {
   const [isMessageSent, setIsMessageSent] = useState(false); // Stare pentru a afișa mesajul de succes
@@ -25,6 +26,19 @@ function Contact() {
 
   return (
     <>
+      <Head>
+        <title>Home | Numele Site-ului</title>
+        <meta
+          name="description"
+          content="Descrierea relevantă pentru pagina de start."
+        />
+        <meta name="og:title" content="Home | Numele Site-ului" />
+        <meta
+          name="og:description"
+          content="Descrierea relevantă pentru pagina de start."
+        />
+        <meta name="keywords" content="cuvant1, cuvant2, cuvant3" />
+      </Head>
       <Header />
       <CssBaseline />
       <div style={{ backgroundColor: "#252525" }}>

@@ -22,35 +22,6 @@ function Main(props) {
           onToggleDir={onToggleDir}
         />
       )}
-      {/* {state.header === "mega" && (
-        <Mega onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
-      )}
-      {state.header === "droplist" && (
-        <DropList onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
-      )}
-      {state.header === "navscroll" && (
-        <NavScroll
-          home={home}
-          onToggleDark={onToggleDark}
-          onToggleDir={onToggleDir}
-        />
-      )}
-      {state.header === "search" && (
-        <Search onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
-      )}
-      {state.header === "basic" && (
-        <Basic onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
-      )}
-      {state.header === "blog" && (
-        <Blog onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
-      )}
-      {state.header === "hamburger" && (
-        <Hamburger
-          home={home}
-          onToggleDark={onToggleDark}
-          onToggleDir={onToggleDir}
-        />
-      )} */}
     </div>
   );
 }

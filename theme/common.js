@@ -1,7 +1,7 @@
 import { makeStyles } from "tss-react/mui";
 
 const sectionMargin = (margin) => margin * 20;
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
+
 export const useSpacing = makeStyles({ uniqId: "spacing" })((theme) => ({
   contactFormWrapper: {
     [theme.breakpoints.up("xs")]: {
@@ -205,7 +205,6 @@ export const useSpacing = makeStyles({ uniqId: "spacing" })((theme) => ({
   },
 }));
 
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export const usePopup = makeStyles({ uniqId: "popup" })((theme) => ({
   appBar: {
     position: "relative",
@@ -217,7 +216,6 @@ export const usePopup = makeStyles({ uniqId: "popup" })((theme) => ({
   },
 }));
 
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export const useTextAlign = makeStyles({ uniqId: "text_align" })({
   textCenter: {
     textAlign: "center",
@@ -230,7 +228,6 @@ export const useTextAlign = makeStyles({ uniqId: "text_align" })({
   },
 });
 
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export const useFloat = makeStyles({ uniqId: "float" })({
   floatLeft: {
     float: "left",
@@ -240,7 +237,6 @@ export const useFloat = makeStyles({ uniqId: "float" })({
   },
 });
 
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export const useText = makeStyles({ uniqId: "text" })((theme) => ({
   title: {
     fontWeight: theme.typography.fontWeightBold,
@@ -330,7 +326,6 @@ export const useText = makeStyles({ uniqId: "text" })((theme) => ({
   },
 }));
 
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export const useHidden = makeStyles({ uniqId: "hidden" })((theme) => ({
   lgDown: {
     [theme.breakpoints.down("lg")]: {
@@ -369,7 +364,6 @@ export const useHidden = makeStyles({ uniqId: "hidden" })((theme) => ({
   },
 }));
 
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export const useFlexBox = makeStyles({ uniqId: "flexbox" })(() => ({
   justifyStart: {
     justifyContent: "flex-star",
@@ -393,7 +387,7 @@ export const useFlexBox = makeStyles({ uniqId: "flexbox" })(() => ({
 
 // TODO jss-to-tss-react codemod: Unable to handle style definition reliably. Unsupported arrow function syntax.
 // Unexpected value type of ConditionalExpression.
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
+
 export const useFlipRtl = makeStyles({ uniqId: "flip_rtl" })((theme) => ({
   transform: theme.direction === "rtl" ? "scale(-1)" : "none",
 }));

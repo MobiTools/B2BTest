@@ -94,15 +94,17 @@ function Video() {
             </h4>
           </Box>
         </Grid>
-        <Grid item xs={12} md={7} sm={12}>
-          <div className={classes.videoWrap}>
+        <Grid item xs={12} md={7} sm={12} sx={{ borderRadius: 0 }}>
+          <div style={{ borderRadius: 0 }}>
             <MediaCard
               title="Description text"
               orientation="landscape"
               type="video"
-              thumb="https://source.unsplash.com/random"
+              thumb="/servicesHeader.png"
               action={() => handleClickOpen()}
               duration="02:30"
+              sx={{ borderRadius: 0 }}
+              style={{ borderRadius: 0 }}
             />
           </div>
         </Grid>

@@ -18,6 +18,19 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 const ContactForm = (props) => {
   const { classes } = useSpacing();
 
+  const iconStyle = {
+    fontSize: "25px",
+    color: "#ffc045",
+    position: "relative",
+    top: 2,
+  };
+  const iconStyleEmail = {
+    fontSize: "25px",
+    color: "#ffc045",
+    position: "relative",
+    top: 3,
+  };
+
   const [formData, setFormData] = useState({
     from_name: "",
     email: "",
@@ -70,6 +83,7 @@ const ContactForm = (props) => {
                 flexDirection: "column",
                 justifyContent: "space-between",
                 height: "100%", // Asigura inaltimea la 100%
+                borderRadius: 1,
               }}
             >
               <Typography
@@ -82,7 +96,7 @@ const ContactForm = (props) => {
                 <TextField
                   name="from_name"
                   type="text"
-                  label="Name"
+                  label="Full Name"
                   variant="filled"
                   fullWidth
                   sx={{
@@ -90,7 +104,7 @@ const ContactForm = (props) => {
                     "& .MuiFilledInput-input": {
                       backgroundColor: "#252525", // Background color
                       color: "white", // Text color
-                      borderRadius: 2,
+                      borderRadius: 1,
                     },
                     "& .MuiFormLabel-root": {
                       color: "white", // Text color
@@ -103,7 +117,7 @@ const ContactForm = (props) => {
                 <TextField
                   name="email"
                   type="email"
-                  label="Email"
+                  label="Mail"
                   variant="filled"
                   fullWidth
                   sx={{
@@ -111,7 +125,7 @@ const ContactForm = (props) => {
                     "& .MuiFilledInput-input": {
                       backgroundColor: "#252525", // Background color
                       color: "white", // Text color
-                      borderRadius: 2,
+                      borderRadius: 1,
                     },
                     "& .MuiFormLabel-root": {
                       color: "white", // Text color
@@ -122,6 +136,49 @@ const ContactForm = (props) => {
                   required
                 />
                 <TextField
+                  name="phone"
+                  type="phone"
+                  label="Phone 1"
+                  variant="filled"
+                  fullWidth
+                  sx={{
+                    marginBottom: 2,
+                    "& .MuiFilledInput-input": {
+                      backgroundColor: "#252525", // Background color
+                      color: "white", // Text color
+                      borderRadius: 1,
+                    },
+                    "& .MuiFormLabel-root": {
+                      color: "white", // Text color
+                    },
+                  }}
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+                <TextField
+                  name="phone2"
+                  type="phone2"
+                  label="Phone 2"
+                  variant="filled"
+                  fullWidth
+                  sx={{
+                    marginBottom: 2,
+                    "& .MuiFilledInput-input": {
+                      backgroundColor: "#252525", // Background color
+                      color: "white", // Text color
+                      borderRadius: 1,
+                    },
+                    "& .MuiFormLabel-root": {
+                      color: "white", // Text color
+                    },
+                  }}
+                  value={formData.phone2}
+                  onChange={handleChange}
+                  required
+                />
+
+                <TextField
                   name="message"
                   label="Message"
                   variant="filled"
@@ -131,19 +188,19 @@ const ContactForm = (props) => {
                   sx={{
                     marginBottom: 2,
                     backgroundColor: "#252525", // Background color
-                    borderRadius: 2,
+                    borderRadius: 1,
                     "& .MuiFilledInput-input": {
-                      borderRadius: 2,
+                      borderRadius: 1,
                       color: "white", // Text color
                     },
                     "& .MuiFormLabel-root": {
                       backgroundColor: "#252525", // Background color
-                      borderRadius: 2,
+                      borderRadius: 1,
                       color: "white", // Text color
                     },
                     "& .MuiInputBase-root": {
                       backgroundColor: "#252525", // Background color
-                      borderRadius: 2,
+                      borderRadius: 1,
 
                       // padding: 0, // Text color
                     },
@@ -189,6 +246,7 @@ const ContactForm = (props) => {
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 overflow: "hidden",
+                borderRadius: 1,
               }}
             >
               <Typography
@@ -213,11 +271,7 @@ const ContactForm = (props) => {
                   display: "flex",
                 }}
               >
-                {
-                  <LocationOnOutlinedIcon
-                    style={{ fontSize: "25px", color: "#ffc045" }}
-                  />
-                }
+                {<LocationOnOutlinedIcon style={iconStyle} />}
                 <span
                   style={{
                     fontSize: "20px",
@@ -239,11 +293,7 @@ const ContactForm = (props) => {
                   display: "flex",
                 }}
               >
-                {
-                  <LocalPhoneOutlinedIcon
-                    style={{ fontSize: "25px", color: "#ffc045" }}
-                  />
-                }
+                {<LocalPhoneOutlinedIcon style={iconStyle} />}
                 <span>
                   {" "}
                   <a
@@ -259,22 +309,6 @@ const ContactForm = (props) => {
                     +40345404753
                   </a>
                 </span>
-
-                <span>
-                  {" "}
-                  <a
-                    href="tel:0774621411"
-                    style={{
-                      fontSize: "20px",
-                      color: "white",
-                      marginTop: 1,
-                      marginLeft: 5,
-                      textDecoration: "none",
-                    }}
-                  >
-                    0774621411
-                  </a>
-                </span>
               </Typography>
 
               <Typography
@@ -285,11 +319,7 @@ const ContactForm = (props) => {
                   display: "flex",
                 }}
               >
-                {
-                  <EmailOutlinedIcon
-                    style={{ fontSize: "25px", color: "#ffc045" }}
-                  />
-                }
+                {<EmailOutlinedIcon style={iconStyleEmail} />}
                 {}
                 <span>
                   {" "}
@@ -306,21 +336,6 @@ const ContactForm = (props) => {
                     alexandru.barbu@mattealeconsulting.com
                   </a>
                 </span>
-                <span>
-                  {" "}
-                  <a
-                    href="mailto:office@mattealeconsulting.com"
-                    style={{
-                      fontSize: "20px",
-                      color: "white",
-                      marginTop: 1,
-                      marginLeft: 5,
-                      textDecoration: "none",
-                    }}
-                  >
-                    office@mattealeconsulting.com
-                  </a>
-                </span>
               </Typography>
 
               <Typography
@@ -331,11 +346,7 @@ const ContactForm = (props) => {
                   display: "flex",
                 }}
               >
-                {
-                  <EmailOutlinedIcon
-                    style={{ fontSize: "25px", color: "#ffc045" }}
-                  />
-                }
+                {<EmailOutlinedIcon style={iconStyleEmail} />}
                 {}
 
                 <span>

@@ -1,8 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import DropdownMenu from "./dropdownMenu";
+import useStyles from "../header-style";
 
 function NavBar() {
-  const navData = ["Home", "Services", "About", "Contact", "News"];
+  const { classes } = useStyles();
+  const navData = ["Home", "Services", "About", "News", "Contact"];
 
   return (
     <ul>
@@ -10,12 +13,8 @@ function NavBar() {
         <li key={index}>
           <Link
             href={`/${item.toLowerCase()}`}
-            style={{
-              textDecoration: "none",
-              color: "white",
-              borderBottom: "2px solid transparent",
-              transition: "border-color 0.3s",
-            }}
+            className={classes.navLinkMixed}
+            style={{ color: "white" }}
             onMouseEnter={(e) => (e.target.style.borderBottomColor = "#FFF")}
             onMouseLeave={(e) =>
               (e.target.style.borderBottomColor = "transparent")
@@ -25,6 +24,9 @@ function NavBar() {
           </Link>
         </li>
       ))}
+      <li>
+        <DropdownMenu />
+      </li>
     </ul>
   );
 }

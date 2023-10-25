@@ -7,8 +7,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useTranslation } from "next-i18next";
-import CommentForm from "../Comment/Form";
-import Item from "../Comment/Item";
+
 import useStyles from "./service-style";
 
 function Service() {

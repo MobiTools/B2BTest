@@ -36,9 +36,15 @@ function Banner() {
             <Grid item sm={6}>
               <Box px={{ sm: 5 }}>
                 <img
-                  src="/pozaweb2-1.png"
+                  // src="/pozaweb2-1.png"
+                  src="/servicesHeader.png"
                   alt="illustration"
-                  style={{ width: "100%", height: "auto", minWidth: "60%" }}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    minWidth: "60%",
+                    // borderRadius: 2,
+                  }}
                 />
               </Box>
             </Grid>

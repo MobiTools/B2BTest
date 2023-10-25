@@ -1,7 +1,4 @@
 import { makeStyles } from "tss-react/mui";
-import greenBuble from "~/public/images/agency/green_buble.png";
-import blueBuble from "~/public/images/agency/blue_buble.png";
-import violetBuble from "~/public/images/agency/violet_buble.png";
 
 const expertiseStyle = makeStyles({ uniqId: "expertise" })(
   (theme, _params, classes) => ({
@@ -60,21 +57,21 @@ const expertiseStyle = makeStyles({ uniqId: "expertise" })(
       left: 30,
       width: 320,
       height: 600,
-      background: `url(${greenBuble}) no-repeat`,
+      background: `red`,
     },
     iconViolet: {
       width: 560,
       height: 560,
       left: -50,
       top: -620,
-      background: `url(${violetBuble}) no-repeat`,
+      background: `red`,
     },
     iconBlue: {
       width: 560,
       height: 560,
       left: 0,
       top: -1170,
-      background: `url(${blueBuble}) no-repeat`,
+      background: `red`,
     },
     descIcon: {
       width: 34,

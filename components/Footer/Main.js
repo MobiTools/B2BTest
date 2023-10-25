@@ -11,12 +11,7 @@ function Main(props) {
   const { toggleDir } = props;
 
   return (
-    <div>
-      {/* {state.footer === "basic" && <Basic />}
-      {state.footer === "blog" && <Blog toggleDir={toggleDir} />}
-      {state.footer === "contact" && <Contact />} */}
-      {state.footer === "sitemap" && <SiteMap toggleDir={toggleDir} />}
-    </div>
+    <div>{state.footer === "sitemap" && <SiteMap toggleDir={toggleDir} />}</div>
   );
 }
 

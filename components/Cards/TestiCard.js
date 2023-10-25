@@ -31,13 +31,13 @@ export default function NewsCard(props) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }} elevation={0}>
+    <Card sx={{ maxWidth: 345, borderRadius: 1 }} elevation={0}>
       <CardMedia
-        sx={{ height: 140, width: 440 }}
+        sx={{ height: 200, width: 440 }}
         image={props.item.image.finalUri}
         title="green iguana"
       />
-      <CardContent sx={{ height: 140 }}>
+      <CardContent sx={{ height: "auto", minHeight: "170px", padding: "24px" }}>
         <Typography gutterBottom variant="h5" component="div" color="white">
           {props.item.name}
         </Typography>

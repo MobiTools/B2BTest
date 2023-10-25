@@ -1,26 +1,22 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  Fragment
-} from 'react';
-import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Grow from '@mui/material/Grow';
-import Icon from '@mui/material/Icon';
-import Paper from '@mui/material/Paper';
-import Popper from '@mui/material/Popper';
-import MenuItem from '@mui/material/MenuItem';
-import MenuList from '@mui/material/MenuList';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { useTranslation } from 'next-i18next';
-import useStyles from '../header-style';
+import React, { useState, useEffect, useRef, Fragment } from "react";
+import PropTypes from "prop-types";
+import Button from "@mui/material/Button";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Grow from "@mui/material/Grow";
+import Icon from "@mui/material/Icon";
+import Paper from "@mui/material/Paper";
+import Popper from "@mui/material/Popper";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { useTranslation } from "next-i18next";
+import useStyles from "../header-style";
 
-const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disable-line
+const LinkBtn = React.forwardRef(function LinkBtn(props, ref) {
+  // eslint-disable-line
   return <AnchorLink to={props.to} {...props} />; // eslint-disable-line
 });
 
@@ -28,14 +24,14 @@ function MultiLevelHover(props) {
   const { classes, cx } = useStyles();
   const { dataMenu } = props;
 
-  const { i18n } = useTranslation('common');
-  const [curURL, setCurURL] = useState('');
-  const [curOrigin, setCurOrigin] = useState('');
-  const [langPath, setLangPath] = useState('');
+  const { i18n } = useTranslation("common");
+  const [curURL, setCurURL] = useState("");
+  const [curOrigin, setCurOrigin] = useState("");
+  const [langPath, setLangPath] = useState("");
 
   // Parent state
   const [open, setOpen] = useState(false);
-  const [menuName, setName] = useState('');
+  const [menuName, setName] = useState("");
   const [anchorEl, setAnchorEl] = useState(null);
   const anchorRef = useRef(null);
   const prevOpen = useRef(open);
@@ -52,7 +48,7 @@ function MultiLevelHover(props) {
   };
 
   const handleClose = () => {
-    setName('');
+    setName("");
     setOpen(false);
     setMenuChild({});
     setAnchorChild({});
@@ -66,23 +62,23 @@ function MultiLevelHover(props) {
       if (parent.child[i].id !== id) {
         menuClose = {
           ...menuClose,
-          [parent.child[i].id]: false
+          [parent.child[i].id]: false,
         };
         anchorClose = {
           ...anchorClose,
-          [parent.child[i].id]: null
+          [parent.child[i].id]: null,
         };
       }
     }
     setMenuChild({
       ...menuChild,
       ...menuClose,
-      [id]: true
+      [id]: true,
     });
     setAnchorChild({
       ...anchorChild,
       ...anchorClose,
-      [id]: event.currentTarget
+      [id]: event.currentTarget,
     });
   };
 
@@ -92,11 +88,11 @@ function MultiLevelHover(props) {
     for (let i = 0; i < parent.child.length; i += 1) {
       menuClose = {
         ...menuClose,
-        [parent.child[i].id]: false
+        [parent.child[i].id]: false,
       };
       anchorClose = {
         ...anchorClose,
-        [parent.child[i].id]: null
+        [parent.child[i].id]: null,
       };
     }
     setMenuChild({
@@ -117,41 +113,49 @@ function MultiLevelHover(props) {
     prevOpen.current = open;
     setCurURL(window.location.href);
     setCurOrigin(window.location.origin);
-    setLangPath('/' + i18n.language);
+    setLangPath("/" + i18n.language);
   }, [open]);
 
   const childMenu = (menu, item, anchor) => (
-    <Popper anchorEl={anchor[item.id] || null} open={menu[item.id] || false} placement="right-start" transition disablePortal>
+    <Popper
+      anchorEl={anchor[item.id] || null}
+      open={menu[item.id] || false}
+      placement="right-start"
+      transition
+      disablePortal
+    >
       {({ TransitionProps, placement }) => (
         <Grow
           {...TransitionProps}
-          style={{ transformOrigin: placement === 'bottom' ? 'center bottom' : 'center top' }}
+          style={{
+            transformOrigin:
+              placement === "bottom" ? "center bottom" : "center top",
+          }}
         >
           <Paper>
             <ClickAwayListener onClickAway={handleClose}>
               <MenuList id="menu-list-grow">
                 {item.child.map((subitem, index) => {
-                  if (subitem.child) {
-                    return (
-                      <MenuItem
-                        key={index.toString()}
-                        onClick={handleClose}
-                        onMouseEnter={(e) => handleToggleChild(e, item, subitem.id)}
-                      >
-                        <ListItemText primary={subitem.name} />
-                        { childMenu(menuChild, subitem, anchorChild) }
-                        <ChevronRightIcon fontSize="small" />
-                      </MenuItem>
-                    );
-                  }
                   return (
                     <MenuItem
                       key={index.toString()}
                       onMouseEnter={(e) => handleCloseChild(e, item)}
                       onClick={handleClose}
-                      className={cx(classes.menuList, curURL === curOrigin + langPath + subitem.link ? classes.current : '')}
+                      className={cx(
+                        classes.menuList,
+                        curURL === curOrigin + langPath + subitem.link
+                          ? classes.current
+                          : ""
+                      )}
                     >
-                      <ListItem disableGutters disableRipple className={classes.link} button component="a" href={subitem.link}>
+                      <ListItem
+                        disableGutters
+                        disableRipple
+                        className={classes.link}
+                        button
+                        component="a"
+                        href={subitem.link}
+                      >
                         <ListItemText primary={subitem.name} />
                       </ListItem>
                     </MenuItem>
@@ -189,7 +193,12 @@ function MultiLevelHover(props) {
                   {({ TransitionProps, placement }) => (
                     <Grow
                       {...TransitionProps}
-                      style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                      style={{
+                        transformOrigin:
+                          placement === "bottom"
+                            ? "center top"
+                            : "center bottom",
+                      }}
                     >
                       <Paper>
                         <ClickAwayListener onClickAway={handleClose}>
@@ -200,7 +209,9 @@ function MultiLevelHover(props) {
                                   <MenuItem
                                     key={indexChild.toString()}
                                     onClick={handleClose}
-                                    onMouseEnter={(e) => handleToggleChild(e, item, subitem.id)}
+                                    onMouseEnter={(e) =>
+                                      handleToggleChild(e, item, subitem.id)
+                                    }
                                     className={classes.menuList}
                                   >
                                     <ListItemText primary={subitem.name} />
@@ -212,11 +223,26 @@ function MultiLevelHover(props) {
                               return (
                                 <MenuItem
                                   key={indexChild.toString()}
-                                  onMouseEnter={(e) => handleCloseChild(e, item)}
+                                  onMouseEnter={(e) =>
+                                    handleCloseChild(e, item)
+                                  }
                                   onClick={handleClose}
-                                  className={cx(classes.menuList, curURL === curOrigin + langPath + subitem.link ? classes.current : '')}
+                                  className={cx(
+                                    classes.menuList,
+                                    curURL ===
+                                      curOrigin + langPath + subitem.link
+                                      ? classes.current
+                                      : ""
+                                  )}
                                 >
-                                  <ListItem disableGutters disableRipple className={classes.link} button component="a" href={subitem.link}>
+                                  <ListItem
+                                    disableGutters
+                                    disableRipple
+                                    className={classes.link}
+                                    button
+                                    component="a"
+                                    href={subitem.link}
+                                  >
                                     <ListItemText primary={subitem.name} />
                                   </ListItem>
                                 </MenuItem>
@@ -244,7 +270,7 @@ function MultiLevelHover(props) {
 }
 
 MultiLevelHover.propTypes = {
-  dataMenu: PropTypes.array.isRequired
+  dataMenu: PropTypes.array.isRequired,
 };
 
 export default MultiLevelHover;

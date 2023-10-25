@@ -68,6 +68,30 @@ const headerStyles = makeStyles({ uniqId: "header" })(
       background: theme.palette.background.paper,
       boxShadow: "none !important",
     },
+    navLinkMixed: {
+      textDecoration: "none",
+      color: "white",
+      fontWeight: "600",
+      marginRight: 30,
+      position: "relative",
+      "&:after": {
+        content: '""',
+        display: "block",
+        width: "0px",
+        height: "1.5px",
+        background: "white", // Modificăm culoarea border-ului aici
+        transition: "width .4s",
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+      },
+      "&:hover:after": {
+        width: "100%",
+        left: 0,
+        right: 0,
+      },
+    },
+
     headerContent: {
       display: "flex",
       alignItems: "center",
@@ -86,6 +110,7 @@ const headerStyles = makeStyles({ uniqId: "header" })(
       width: 240,
     },
     logo: {
+      padding: "0px 0px 0 70px",
       "& a": {
         textDecoration: "none",
         display: "block",
@@ -96,6 +121,10 @@ const headerStyles = makeStyles({ uniqId: "header" })(
     },
     active: {},
     navMenu: {
+      padding: "0px 10px 0px 10px",
+      display: "flex",
+      justifyContent: "space-between",
+      width: "100%",
       [theme.breakpoints.up("lg")]: {
         "& > *": {
           margin: theme.spacing(0, 1),
@@ -103,6 +132,16 @@ const headerStyles = makeStyles({ uniqId: "header" })(
       },
       "& ul li": {
         overflow: "visible",
+      },
+    },
+    dropdownMenu: {
+      transform: "scale(1)",
+      backgroundClor: "transparent",
+      transition: "transform 0.3s, background-color 0.3s",
+
+      "&:hover": {
+        transform: "scale(1.05)",
+        backgroundColor: "#252525",
       },
     },
     mainMenu: {
@@ -136,6 +175,7 @@ const headerStyles = makeStyles({ uniqId: "header" })(
       },
     },
     userMenu: {
+      padding: "0px 70px 0 0px",
       display: "flex",
       alignItems: "center",
       "& > div > a": {

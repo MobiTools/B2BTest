@@ -8,6 +8,7 @@ const featureStyles = makeStyles({ uniqId: "media_card" })(
       position: "relative",
       margin: theme.spacing(2, 0),
       height: 340,
+      borderRadius: 2,
       [theme.breakpoints.down("lg")]: {
         height: 250,
       },

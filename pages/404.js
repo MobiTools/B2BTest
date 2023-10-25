@@ -6,79 +6,99 @@ import { Stack } from "@mui/material";
 
 import Shape from "../components/Shape";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function PageNotFound() {
   const router = useRouter();
   return (
-    <Stack
-      sx={{ width: "100%", height: "100vh" }}
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Shape
-        position={"absolute"}
-        width={"186px"}
-        height={"117px"}
-        left={"32%"}
-        top={"24%"}
-        borderRadius={"14px"}
-        background={
-          "linear-gradient(134.55deg, rgba(37,37,37, 0.2) 5.97%, rgba(37,37,37, 0) 75%)"
-        }
-      />
-      <Shape
-        position={"absolute"}
-        width={"145.35px"}
-        height={"157.46px"}
-        right={"33%"}
-        top={"34%"}
-        borderRadius={"58.5px"}
-        background={
-          "linear-gradient(134.55deg, rgba(37,37,37, 0.2) 5.97%, rgba(37,37,37, 0) 75%)"
-        }
-        transform={"rotate(135deg)"}
-      />
-      <Stack direction="row" alignItems={"center"} justifyContent={"center"}>
-        <Typography
-          fontSize={140}
-          color={"black"}
+    <>
+      <Head>
+        <title>Home | Numele Site-ului</title>
+        <meta
+          name="description"
+          content="Descrierea relevantă pentru pagina de start."
+        />
+        <meta name="og:title" content="Home | Numele Site-ului" />
+        <meta
+          name="og:description"
+          content="Descrierea relevantă pentru pagina de start."
+        />
+        <meta name="keywords" content="cuvant1, cuvant2, cuvant3" />
+      </Head>
+      <Stack
+        sx={{ width: "100%", height: "100vh" }}
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Shape
+          position={"absolute"}
+          width={"186px"}
+          height={"117px"}
+          left={"32%"}
+          top={"24%"}
+          borderRadius={"14px"}
+          background={
+            "linear-gradient(134.55deg, rgba(37,37,37, 0.2) 5.97%, rgba(37,37,37, 0) 75%)"
+          }
+        />
+        <Shape
+          position={"absolute"}
+          width={"145.35px"}
+          height={"157.46px"}
+          right={"33%"}
+          top={"34%"}
+          borderRadius={"58.5px"}
+          background={
+            "linear-gradient(134.55deg, rgba(37,37,37, 0.2) 5.97%, rgba(37,37,37, 0) 75%)"
+          }
+          transform={"rotate(135deg)"}
+        />
+        <Stack direction="row" alignItems={"center"} justifyContent={"center"}>
+          <Typography
+            fontSize={140}
+            color={"black"}
+            sx={{
+              fontFamily: "Inter",
+            }}
+          >
+            4
+          </Typography>
+          <Typography
+            fontSize={140}
+            color={"black"}
+            sx={{ fontFamily: "Inter", position: "relative", top: 20 }}
+          >
+            0
+          </Typography>
+          <Typography
+            fontSize={140}
+            color={"black"}
+            sx={{ fontFamily: "Inter" }}
+          >
+            4
+          </Typography>
+        </Stack>
+        <Typography variant="h4">Page not found</Typography>
+        <Typography variant="body2" my={1}>
+          The page you are trying to reach is not available. It may have been
+          deleted or its URL was misspelled.
+        </Typography>
+        <Button
+          onClick={() => router.back()}
+          variant="contained"
           sx={{
-            fontFamily: "Inter",
+            backgroundColor: "#04385A",
+            width: 80,
+            height: 40,
+            borderRadius: "8px",
+            fontSize: 10,
+            marginTop: 1,
           }}
         >
-          4
-        </Typography>
-        <Typography
-          fontSize={140}
-          color={"black"}
-          sx={{ fontFamily: "Inter", position: "relative", top: 20 }}
-        >
-          0
-        </Typography>
-        <Typography fontSize={140} color={"black"} sx={{ fontFamily: "Inter" }}>
-          4
-        </Typography>
+          Go back
+        </Button>
       </Stack>
-      <Typography variant="h4">Page not found</Typography>
-      <Typography variant="body2" my={1}>
-        The page you are trying to reach is not available. It may have been
-        deleted or its URL was misspelled.
-      </Typography>
-      <Button
-        onClick={() => router.back()}
-        variant="contained"
-        sx={{
-          backgroundColor: "#04385A",
-          width: 80,
-          height: 40,
-          borderRadius: "8px",
-          fontSize: 10,
-          marginTop: 1,
-        }}
-      >
-        Go back
-      </Button>
-    </Stack>
+    </>
   );
 }

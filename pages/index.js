@@ -11,13 +11,13 @@ import { useSpacing } from "~/theme/common";
 import Header from "../components/Header";
 import BannerSlider from "../components/BannerSlider";
 import Feature from "../components/Feature";
-import Counter from "../components/Counter";
-import Testimonials from "../components/Testimonials";
+import ContactBanner from "../components/ContactBanner";
+import NewsBanner from "../components/NewsBanner";
 import Pricing from "../components/Pricing";
 import Blog from "../components/Blog";
 import Subscribe from "../components/Subscribe";
 import Footer from "../components/Footer";
-import Corner from "../components/Corner";
+
 import Notification from "../components/Notification";
 import brand from "~/public/text/brand";
 import TrustedBanner from "../components/TrustetBanner/TrustedBanner";
@@ -31,7 +31,22 @@ function Landing(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>{brand.starter.name + " - Home Page"}</title>
+        <title>Home | Numele Site-ului</title>
+        <meta
+          name="description"
+          content="Descrierea relevantă pentru pagina de start."
+        />
+        <meta name="og:title" content="Home | Numele Site-ului" />
+        <meta
+          name="og:description"
+          content="Descrierea relevantă pentru pagina de start."
+        />
+        <link
+          rel="canonical"
+          href="https://mattealeconsulting.com/"
+          key="canonical"
+        />
+        <meta name="keywords" content="cuvant1, cuvant2, cuvant3" />
       </Head>
       <CssBaseline />
       <div className={classes.mainWrap}>
@@ -60,14 +75,14 @@ function Landing(props) {
           </section>
 
           <section
-            id="testimonials"
+            id="NewsBanner"
             className={classes.wraperSection}
             style={{ backgroundColor: "#252525" }}
           >
-            <Testimonials />
+            <NewsBanner />
           </section>
           <section className={classes.wraperTrustedBanner}>
-            <Counter dark />
+            <ContactBanner dark />
           </section>
         </main>
         <FloatingWhatsApp

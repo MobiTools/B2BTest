@@ -9,17 +9,17 @@ import ListItemText from "@mui/material/ListItemText";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import Collapse from "@mui/material/Collapse";
-import { useTranslation } from "next-i18next";
+
 import useStyles from "../sidenav-style";
 import navMenu from "../data/single";
 import navPage from "../data/sample-pages";
 import link from "~/public/text/link";
+import Logo from "../../Logo";
 
 function MixedMobile(props) {
   const { classes, cx } = useStyles();
   const { toggleDrawer, open } = props;
   const [expand, setExpand] = useState({});
-  const { t, i18n } = useTranslation("common");
 
   const [curURL, setCurURL] = useState("");
   const [curOrigin, setCurOrigin] = useState("");
@@ -35,7 +35,6 @@ function MixedMobile(props) {
   useEffect(() => {
     setCurURL(window.location.href);
     setCurOrigin(window.location.origin);
-    setLangPath("/" + i18n.language);
   }, []);
 
   const childMenu = (menu, item) => (
@@ -93,12 +92,17 @@ function MixedMobile(props) {
       <div className={classes.mobileNav} role="presentation">
         <div className={open ? classes.menuOpen : ""}>
           <List component="nav" className={classes.sideSinglelv}>
+            <div className={classes.logo}>
+              <a href={link.starter.home}>
+                <Logo type="landscape" />
+              </a>
+            </div>
             {navMenu.map((item, index) => (
               <ListItem
                 button
                 index={index.toString()}
                 component="a"
-                href={`/${item}`}
+                href={`#${item}`}
                 key={item}
                 onClick={toggleDrawer}
                 onKeyDown={toggleDrawer}
@@ -106,6 +110,19 @@ function MixedMobile(props) {
                 <ListItemText primary={item} className={classes.menuList} />
               </ListItem>
             ))}
+            <ListItem
+              button
+              className={expand.samplePage ? classes.currentParent : ""}
+              onClick={() => handleToggle("samplePage")}
+            >
+              <ListItemText className={classes.menuList} primary={"Services"} />
+              {expand.samplePage ? (
+                <ExpandLess color="accent" />
+              ) : (
+                <ExpandMore color="accent" />
+              )}
+            </ListItem>
+            {childMenu(expand, navPage)}
           </List>
         </div>
       </div>

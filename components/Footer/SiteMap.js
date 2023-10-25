@@ -84,16 +84,17 @@ function Footer(props) {
     <div maxWidth="lg" component="footer" className={classes.footer}>
       <Grid container spacing={4}>
         <Grid item xs={12} md={3}>
-          <img src={"/logo-transparent-white-1.png"} alt="logo" width={120} />
-          {/* 
-          <Typography
-            sx={{ color: "white" }}
-            color="textPrimary"
-            className={classes.footerDesc}
-            gutterBottom
-          >
-            {t("starter-landing.banner_subtitle")}
-          </Typography> */}
+          <div style={{ overflow: "hidden" }}>
+            <img src={"/logo-transparent-white-1.png"} alt="logo" width={150} />
+
+            <Typography
+              color="textPrimary"
+              className={classes.footerDesc}
+              gutterBottom
+            >
+              asdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            </Typography>
+          </div>
           {isDesktop && <Copyright />}
         </Grid>
         <Grid item xs={12} md={6}>
@@ -121,9 +122,10 @@ function Footer(props) {
                       <li key={item}>
                         <Link
                           href={footer.link[index]}
+                          className={classes.navLinkMixed}
                           variant="subtitle1"
-                          color="white"
                           underline="hover"
+                          style={{ color: "white" }}
                         >
                           {item}
                         </Link>
@@ -200,7 +202,6 @@ function Footer(props) {
                 rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center" }}
               >
-                {/* Înlocuiește cu un icon de YouTube */}
                 <YouTubeIcon style={{ color: "white" }} />
               </a>
             </IconButton>

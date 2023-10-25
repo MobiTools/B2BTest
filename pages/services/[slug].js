@@ -49,7 +49,17 @@ function ServiceDetail() {
   return (
     <Fragment>
       <Head>
-        <title>{" - Blog Detail"}</title>
+        <title>Home | Numele Site-ului</title>
+        <meta
+          name="description"
+          content="Descrierea relevantă pentru pagina de start."
+        />
+        <meta name="og:title" content="Home | Numele Site-ului" />
+        <meta
+          name="og:description"
+          content="Descrierea relevantă pentru pagina de start."
+        />
+        <meta name="keywords" content="cuvant1, cuvant2, cuvant3" />
       </Head>
       <CssBaseline />
       <section id="home" />

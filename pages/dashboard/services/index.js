@@ -4,8 +4,13 @@ import ServicesTable from "../../ServicesTable";
 
 export default function index() {
   return (
-    <CustomDrawer selectedItem={"Servicii"}>
-      <ServicesTable />
-    </CustomDrawer>
+    <>
+      <Head>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
+      <CustomDrawer selectedItem={"Servicii"}>
+        <ServicesTable />
+      </CustomDrawer>
+    </>
   );
 }

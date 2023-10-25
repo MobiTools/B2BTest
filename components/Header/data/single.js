@@ -1,3 +1,3 @@
-const navData = ["home", "services", "about", "contact", "news"];
+const navData = ["home", "about", "contact", "news"];
 
 export default navData;

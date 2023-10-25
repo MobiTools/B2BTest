@@ -2,6 +2,33 @@ import { makeStyles } from "tss-react/mui";
 
 const footerStyles = makeStyles({ uniqId: "sitemap" })(
   (theme, _params, classes) => ({
+    navLinkMixed: {
+      textDecoration: "none",
+      color: "white",
+      fontWeight: "600",
+      marginRight: 30,
+      position: "relative",
+      "&:after": {
+        content: '""',
+        display: "block",
+        width: "0px",
+        height: "1.5px",
+        background: "white", // Modificăm culoarea border-ului aici
+        transition: "width .4s",
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+      },
+      "&:hover:after": {
+        width: "100%",
+        left: 0,
+        right: 0,
+        color: "white",
+      },
+      "&:hover": {
+        color: "white",
+      },
+    },
     link: {
       margin: theme.spacing(1, 1.5),
     },
@@ -64,7 +91,8 @@ const footerStyles = makeStyles({ uniqId: "sitemap" })(
     footerDesc: {
       display: "block",
       fontSize: 14,
-      marginBottom: theme.spacing(2),
+      marginBottom: 20,
+      color: "white",
     },
     socmed: {
       display: "flex",

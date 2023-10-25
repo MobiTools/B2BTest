@@ -9,27 +9,32 @@ import { Grid } from "@mui/material";
 
 export default function ResetPassword() {
   return (
-    <Grid container component="main" sx={styles.mainGrid}>
-      <Grid
-        item
-        xs={12}
-        sm={12}
-        md={12}
-        component={Paper}
-        sx={styles.confirmationGrid}
-      >
-        <ResetPasswordForm
-          txt={"Do you forgot your password?"}
-          subTxt={
-            "Insert your email and we will send you a link in your email box to reset your password."
-          }
-          txtLink={"Go back to"}
-          navLink={"/"}
-          firstLabel={"Email"}
-          btnTxt={"Reset Password"}
-          isEmail={true}
-        />
+    <>
+      <Head>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
+      <Grid container component="main" sx={styles.mainGrid}>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          component={Paper}
+          sx={styles.confirmationGrid}
+        >
+          <ResetPasswordForm
+            txt={"Do you forgot your password?"}
+            subTxt={
+              "Insert your email and we will send you a link in your email box to reset your password."
+            }
+            txtLink={"Go back to"}
+            navLink={"/"}
+            firstLabel={"Email"}
+            btnTxt={"Reset Password"}
+            isEmail={true}
+          />
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 }

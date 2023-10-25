@@ -1,0 +1,19 @@
+   <!-- public/sitemap.xml -->
+   <xml version="1.0" encoding="UTF-8">
+   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+     <url>
+       <loc>http://www.mattealeconsulting.com/</loc>
+       <lastmod>2023-10-25</lastmod>
+       <loc>http://www.mattealeconsulting.com/home</loc>
+       <lastmod>2023-10-25</lastmod>
+       <loc>http://www.mattealeconsulting.com/contact</loc>
+       <lastmod>2023-10-25</lastmod>
+       <loc>http://www.mattealeconsulting.com/news</loc>
+       <lastmod>2023-10-25</lastmod>
+       <loc>http://www.mattealeconsulting.com/services</loc>
+       <lastmod>2023-10-25</lastmod>
+       <loc>http://www.mattealeconsulting.com/about</loc>
+       <lastmod>2023-10-25</lastmod>
+     </url>
+   </urlset>
+   </xml>

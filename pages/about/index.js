@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 
 import { useSpacing } from "~/theme/common";
 import Header from "~/components/Header";
-import Counter from "~/components/Counter";
+
 import Banner from "~/components/About/Banner";
 import BannerSecond from "~/components/About/BannerSecond";
 import PhotoSlider from "~/components/About/PhotoSlider";
@@ -28,7 +28,17 @@ function About(props) {
   return (
     <Fragment>
       <Head>
-        <title>{brand.starter.name + " - About"}</title>
+        <title>Home | Numele Site-ului</title>
+        <meta
+          name="description"
+          content="Descrierea relevantă pentru pagina de start."
+        />
+        <meta name="og:title" content="Home | Numele Site-ului" />
+        <meta
+          name="og:description"
+          content="Descrierea relevantă pentru pagina de start."
+        />
+        <meta name="keywords" content="cuvant1, cuvant2, cuvant3" />
       </Head>
       <CssBaseline />
       <section id="home" />
@@ -51,7 +61,6 @@ function About(props) {
           <Banner />
         </div>
 
-        {/* <Counter /> */}
         <div
           style={{ backgroundColor: "#252525" }}
           className={classes.wraperSection}
