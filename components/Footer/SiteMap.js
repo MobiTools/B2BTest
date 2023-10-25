@@ -92,7 +92,7 @@ function Footer(props) {
               className={classes.footerDesc}
               gutterBottom
             >
-              asdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+              Description
             </Typography>
           </div>
           {isDesktop && <Copyright />}
