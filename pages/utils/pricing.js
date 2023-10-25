@@ -21,7 +21,7 @@ function ContactPage(props) {
   return (
     <Fragment>
       <Head>
-        <title>{brand.starter.name + " - Pricing"}</title>
+        <title>{brand.starter.name + " - Pricingg"}</title>
       </Head>
       <CssBaseline />
       <div className={classes.mainWrap}>
