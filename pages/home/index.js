@@ -13,9 +13,12 @@ import BannerSlider from "../../components/BannerSlider";
 import Feature from "../../components/Feature";
 import ContactBanner from "../../components/ContactBanner";
 import NewsBanner from "../../components/NewsBanner";
-
+import Pricing from "../../components/Pricing";
+import Blog from "../../components/Blog";
+import Subscribe from "../../components/Subscribe";
 import Footer from "../../components/Footer";
 
+import Notification from "../../components/Notification";
 import brand from "~/public/text/brand";
 import TrustedBanner from "../../components/TrustetBanner/TrustedBanner";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
@@ -38,12 +41,12 @@ function Landing(props) {
           name="og:description"
           content="Descrierea relevantă pentru pagina de start."
         />
-        <meta name="keywords" content="cuvant1, cuvant2, cuvant3" />
         <link
           rel="canonical"
           href="https://mattealeconsulting.com/"
           key="canonical"
         />
+        <meta name="keywords" content="cuvant1, cuvant2, cuvant3" />
       </Head>
       <CssBaseline />
       <div className={classes.mainWrap}>
