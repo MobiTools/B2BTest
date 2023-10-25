@@ -3,6 +3,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Head from "next/head";
 
 const CookiesPrivacyPolicyPage = () => {
   return (

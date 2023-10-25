@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import * as styles from "../../components/ResetPassword/FormStyles";
 import ResetPasswordForm from "../../components/ResetPassword/ResetPasswordForm";
 import { Grid } from "@mui/material";
+import Head from "next/head";
 
 export default function ResetPassword() {
   return (

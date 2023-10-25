@@ -18,6 +18,7 @@ import { useRouter } from "next/router";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Link from "next/link";
 import { auth } from "../../firebase";
+import Head from "next/head";
 
 const defaultTheme = createTheme();
 
