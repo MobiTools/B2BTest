@@ -32,7 +32,7 @@ function Progress() {
           <Typography
             variant="h2"
             className={text.title2}
-            style={{ fontSize: "54px" }}
+            style={{ fontSize: "40px" }}
           >
             Our values
           </Typography>
@@ -73,7 +73,7 @@ function Progress() {
               className={text.subtitle2}
               style={{
                 marginLeft: 0,
-                fontSize: "18px",
+                fontSize: "20px",
                 lineHeight: "1.5em",
                 marginLeft: "1px",
               }}
@@ -89,7 +89,7 @@ function Progress() {
               flexDirection: "column",
               justifyContent: "flex-start",
               alignItems: "flex-start",
-              marginBottom: "18px",
+              marginBottom: "20px",
               marginLeft: "2px",
             }}
           >
@@ -109,7 +109,7 @@ function Progress() {
               className={text.subtitle2}
               style={{
                 marginLeft: 0,
-                fontSize: "18px",
+                fontSize: "20px",
                 lineHeight: "1.5em",
                 marginLeft: "1px",
               }}
@@ -124,7 +124,7 @@ function Progress() {
               flexDirection: "column",
               justifyContent: "flex-start",
               alignItems: "flex-start",
-              marginBottom: "18px",
+              marginBottom: "20px",
               marginLeft: "2px",
             }}
           >
@@ -144,7 +144,7 @@ function Progress() {
               className={text.subtitle2}
               style={{
                 marginLeft: 0,
-                fontSize: "18px",
+                fontSize: "20px",
                 lineHeight: "1.5em",
                 marginLeft: "1px",
               }}

@@ -5,6 +5,7 @@ const footerStyles = makeStyles({ uniqId: "sitemap" })(
     navLinkMixed: {
       textDecoration: "none",
       color: "white",
+      fontSize: "16px",
       fontWeight: "600",
       marginRight: 30,
       position: "relative",
@@ -67,8 +68,20 @@ const footerStyles = makeStyles({ uniqId: "sitemap" })(
       color: "white",
       fontSize: 14,
       textTransform: "uppercase",
-      marginBottom: theme.spacing(3),
+
       fontWeight: theme.typography.fontWeightBold,
+      [theme.breakpoints.up("xs")]: {
+        marginTop: 20,
+        marginBottom: 8,
+      },
+      [theme.breakpoints.up("sm")]: {
+        marginTop: 10,
+        marginBottom: 8,
+      },
+      [theme.breakpoints.up("md")]: {
+        marginTop: 0,
+        marginBottom: theme.spacing(3),
+      },
     },
     logo: {
       textAlign: "left",
@@ -90,6 +103,7 @@ const footerStyles = makeStyles({ uniqId: "sitemap" })(
     },
     footerDesc: {
       display: "block",
+
       fontSize: 14,
       marginBottom: 20,
       color: "white",

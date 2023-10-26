@@ -89,7 +89,10 @@ function Video() {
             className={classes.charimanTextGrid}
             style={{ width: "80%" }}
           >
-            <h4 className={classes.charimanText} style={{ margin: 0 }}>
+            <h4
+              className={classes.charimanText}
+              style={{ margin: 0, fontSize: "40px" }}
+            >
               A word from our chairman
             </h4>
           </Box>

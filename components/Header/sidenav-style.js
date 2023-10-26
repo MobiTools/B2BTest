@@ -22,7 +22,7 @@ const sidenavStyles = makeStyles({ uniqId: "sidenav" })(
       },
     },
     sideSinglelv: {
-      padding: theme.spacing(3, 2),
+      padding: theme.spacing(0, 2),
     },
     userMenu: {
       padding: theme.spacing(2),

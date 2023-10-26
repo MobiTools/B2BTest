@@ -92,11 +92,6 @@ function MixedMobile(props) {
       <div className={classes.mobileNav} role="presentation">
         <div className={open ? classes.menuOpen : ""}>
           <List component="nav" className={classes.sideSinglelv}>
-            <div className={classes.logo}>
-              <a href={link.starter.home}>
-                <Logo type="landscape" />
-              </a>
-            </div>
             {navMenu.map((item, index) => (
               <ListItem
                 button

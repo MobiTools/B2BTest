@@ -16,6 +16,7 @@ import samplePages from "./data/sample-pages";
 import navData from "./data/single";
 import MultiLevelHover from "./TopNav/MultiLevelHover";
 import multiple from "./data/multiple";
+import { Button } from "@mui/material";
 
 let counter = 0;
 
@@ -29,6 +30,17 @@ function Mixed(props) {
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
+  const buttonStyle = {
+    position: "fixed",
+    bottom: 10,
+    left: 10,
+    backgroundColor: "#ffc045",
+    color: "white",
+    padding: "10px 20px",
+    fontSize: "16px",
+    borderRadius: "25px",
+    zIndex: 10,
+  };
   let flagFixed = false;
 
   const handleScroll = () => {
@@ -103,13 +115,12 @@ function Mixed(props) {
                   </span>
                 </IconButton>
               )}
-              {isDesktop && (
-                <div className={classes.logo}>
-                  <a href={link.starter.home}>
-                    <Logo type="landscape" />
-                  </a>
-                </div>
-              )}
+
+              <div className={classes.logo}>
+                <a href={link.starter.home}>
+                  <Logo type="landscape" />
+                </a>
+              </div>
 
               {isDesktop && (
                 <div className={classes.mainMenu}>
@@ -125,14 +136,24 @@ function Mixed(props) {
                   {/* <MultiLevelHover dataMenu={multiple} /> */}
                 </div>
               )}
-              <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+              {isDesktop && <UserMenu />}
             </nav>
           </div>
         </Container>
       </AppBar>
+
       <div
-        style={{ backgroundColor: "#252525", height: "86px", width: "100%" }}
+        style={{
+          backgroundColor: "#252525",
+          height: isDesktop ? "86px" : "56px",
+          width: "100%",
+        }}
       ></div>
+      {isMobile && (
+        <Button style={buttonStyle} href={"Tel:+40345404753"}>
+          +40 345404753
+        </Button>
+      )}
     </Fragment>
   );
 }

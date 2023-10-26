@@ -8,8 +8,10 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
+import useStyles from "../header-style";
 
 export default function DropdownMenu() {
+  const { classes } = useStyles();
   const dropdownData = [
     { name: "Support infrastructure", link: "supportinfrastructure" },
     { name: "Web and app support", link: "Webandappsupport" },
@@ -64,7 +66,7 @@ export default function DropdownMenu() {
   }, [open]);
 
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack direction="row">
       <div>
         <Link
           ref={anchorRef}
@@ -117,25 +119,29 @@ export default function DropdownMenu() {
                   >
                     {dropdownData.map((item, index) => {
                       return (
-                        <Link
-                          href={`/${item.name}`}
-                          style={{
-                            textDecoration: "none",
-                            marginBottom: 5,
-                            color: "white",
-                            borderBottom: "2px solid transparent",
-                            transition: "border-color 0.3s",
-                            fontWeight: "600",
-                          }}
-                          onMouseEnter={(e) =>
-                            (e.target.style.borderBottomColor = "#FFF")
-                          }
-                          onMouseLeave={(e) =>
-                            (e.target.style.borderBottomColor = "transparent")
-                          }
-                        >
-                          {item.name}
-                        </Link>
+                        <div style={{ marginTop: index === 0 ? 0 : 8 }}>
+                          <Link
+                            href={`/${item.name}`}
+                            className={classes.navLinkMixed}
+                            style={{
+                              textDecoration: "none",
+                              marginBottom: 5,
+                              color: "white",
+                              fontWeight: "600",
+                              marginRight: 0,
+
+                              display: "inline", // Setează display-ul la inline
+                            }}
+                            onMouseEnter={(e) =>
+                              (e.target.style.borderBottomColor = "#FFF")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.target.style.borderBottomColor = "transparent")
+                            }
+                          >
+                            {item.name}
+                          </Link>
+                        </div>
                       );
                     })}
                   </MenuList>

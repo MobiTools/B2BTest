@@ -46,18 +46,18 @@ const footers = [
     link: ["/about", "/services", "/contact", "/news"],
   },
   {
-    title: "Resources",
+    title: "Services",
     description: [
-      "Resource",
-      "Resource name",
-      "Another resource",
-      "Final resource",
+      "Support infrastructure",
+      "Web and app support",
+      "Migration and implementation",
+      "Cloud solutions",
     ],
     link: [
-      "#resource",
-      "#resource-name",
-      "#another-resource",
-      "#final-resource",
+      "/supportinfrastructure",
+      "/webandappsupport",
+      "/migrationandimplementation",
+      "/cloudsolutions",
     ],
   },
   {
@@ -91,8 +91,18 @@ function Footer(props) {
               color="textPrimary"
               className={classes.footerDesc}
               gutterBottom
+              style={{
+                textAlign: "left",
+                paddingLeft: 0,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 2, // Setează la 2 pentru a afișa maxim 2 linii
+              }}
             >
-              Description
+              Description oricare alt text aici este de maxim 2 randuri pe
+              latimea aceasta a containerului test lungime
             </Typography>
           </div>
           {isDesktop && <Copyright />}
@@ -104,7 +114,7 @@ function Footer(props) {
                 item
                 xs={12}
                 sm={4}
-                md={3}
+                md={footer.title === "Services" ? 5 : 3.5}
                 key={footer.title}
                 className={classes.siteMapItem}
               >
@@ -114,6 +124,7 @@ function Footer(props) {
                     className={classes.title}
                     color="white"
                     gutterBottom
+                    style={{ fontSize: "17px" }}
                   >
                     {footer.title}
                   </Typography>
@@ -125,7 +136,7 @@ function Footer(props) {
                           className={classes.navLinkMixed}
                           variant="subtitle1"
                           underline="hover"
-                          style={{ color: "white" }}
+                          style={{ color: "white", fontSize: "16px" }}
                         >
                           {item}
                         </Link>

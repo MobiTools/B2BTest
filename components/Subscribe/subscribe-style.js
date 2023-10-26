@@ -8,7 +8,7 @@ const subscribeStyles = makeStyles({ uniqId: "subscribe" })((theme) => ({
     [theme.breakpoints.up("sm")]: {
       margin: "0 auto 32px",
     },
-    zIndex: 10,
+    zIndex: 9,
     position: "relative",
   },
   buttonHeader: {

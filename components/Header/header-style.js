@@ -74,6 +74,7 @@ const headerStyles = makeStyles({ uniqId: "header" })(
       fontWeight: "600",
       marginRight: 30,
       position: "relative",
+
       "&:after": {
         content: '""',
         display: "block",

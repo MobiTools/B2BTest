@@ -47,7 +47,10 @@ function Expertise() {
             </div>
           </Grid>
           <Grid item lg={7} md={8} xs={12}>
-            <h4 className={text.subtitle} style={{ color: "white" }}>
+            <h4
+              className={text.subtitle}
+              style={{ color: "white", fontSize: "30px" }}
+            >
               Our team at MATTEALE CONSULTING consists of highly skilled SAP
               consultants with extensive experience in various SAP modules,
               including:
@@ -62,7 +65,10 @@ function Expertise() {
                   <h3 className={text.subtitle} style={{ color: "white" }}>
                     SAP S/4HANA
                   </h3>
-                  <p className={text.paragraph} style={{ color: "white" }}>
+                  <p
+                    className={text.paragraph}
+                    style={{ color: "white", fontSize: "20px" }}
+                  >
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
                     standard dummy text ever since the 1500s.
@@ -75,7 +81,10 @@ function Expertise() {
                   <h3 className={text.subtitle} style={{ color: "white" }}>
                     SAP S/4HANA
                   </h3>
-                  <p className={text.paragraph} style={{ color: "white" }}>
+                  <p
+                    className={text.paragraph}
+                    style={{ color: "white", fontSize: "20px" }}
+                  >
                     Lorem Ipsum is simply dummy text of the printing and
                   </p>
                 </Grid>
@@ -86,7 +95,10 @@ function Expertise() {
                   <h3 className={text.subtitle} style={{ color: "white" }}>
                     SAP S/4HANA
                   </h3>
-                  <p className={text.paragraph} style={{ color: "white" }}>
+                  <p
+                    className={text.paragraph}
+                    style={{ color: "white", fontSize: "20px" }}
+                  >
                     typesetting industry. Lorem Ipsum has been the industry's
                   </p>
                 </Grid>
@@ -97,7 +109,10 @@ function Expertise() {
                   <h3 className={text.subtitle} style={{ color: "white" }}>
                     SAP S/4HANA
                   </h3>
-                  <p className={text.paragraph} style={{ color: "white" }}>
+                  <p
+                    className={text.paragraph}
+                    style={{ color: "white", fontSize: "20px" }}
+                  >
                     standard dummy text ever since the 1500s.
                   </p>
                 </Grid>

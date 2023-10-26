@@ -9,24 +9,33 @@ function NavBar() {
 
   return (
     <ul>
-      {navData.map((item, index) => (
-        <li key={index}>
-          <Link
-            href={`/${item.toLowerCase()}`}
-            className={classes.navLinkMixed}
-            style={{ color: "white" }}
-            onMouseEnter={(e) => (e.target.style.borderBottomColor = "#FFF")}
-            onMouseLeave={(e) =>
-              (e.target.style.borderBottomColor = "transparent")
-            }
-          >
-            {item}
-          </Link>
-        </li>
-      ))}
-      <li>
-        <DropdownMenu />
-      </li>
+      {navData.map((item, index) => {
+        if (item === "Services") {
+          return (
+            <li style={{ width: "76.35px", marginRight: 20 }}>
+              <DropdownMenu />
+            </li>
+          );
+        } else {
+          return (
+            <li key={index}>
+              <Link
+                href={`/${item.toLowerCase()}`}
+                className={classes.navLinkMixed}
+                style={{ color: "white" }}
+                onMouseEnter={(e) =>
+                  (e.target.style.borderBottomColor = "#FFF")
+                }
+                onMouseLeave={(e) =>
+                  (e.target.style.borderBottomColor = "transparent")
+                }
+              >
+                {item}
+              </Link>
+            </li>
+          );
+        }
+      })}
     </ul>
   );
 }

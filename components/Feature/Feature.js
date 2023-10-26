@@ -61,6 +61,11 @@ function Feature() {
     className: classes.buttonHeader,
   };
 
+  const imgStyle = {
+    width: isMobile ? "100%" : "80%",
+    borderRadius: 2,
+  };
+
   const illustrationImage = (
     <Box
       sx={{
@@ -86,11 +91,7 @@ function Feature() {
               display: "flex",
             }}
           >
-            <img
-              src={"/pozaweb3-1.png"}
-              style={{ width: isMobile ? "100%" : "80%" }}
-              alt="illustration"
-            />
+            <img src={"/pozaweb3-1.png"} style={imgStyle} alt="illustration" />
           </figure>
         </div>
       </ScrollAnimation>
@@ -122,11 +123,7 @@ function Feature() {
               display: "flex",
             }}
           >
-            <img
-              src={"/pozaweb3-1.png"}
-              style={{ width: isMobile ? "100%" : "80%" }}
-              alt="illustration"
-            />
+            <img src={"/pozaweb3-1.png"} style={imgStyle} alt="illustration" />
           </figure>
         </div>
       </ScrollAnimation>
