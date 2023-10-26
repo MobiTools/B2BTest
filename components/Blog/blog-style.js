@@ -132,9 +132,24 @@ const useStyles = makeStyles({ uniqId: "blog" })((theme) => ({
   blogHeadline: {
     cursor: "pointer",
     position: "relative",
-    [theme.breakpoints.down("md")]: {
-      height: 460,
-      alignItems: "flex-end",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    display: "flex",
+    [theme.breakpoints.up("xs")]: {
+      height: 300,
+      alignItems: "flex-start",
+      justifyContent: "flex-start",
+      display: "flex",
+    },
+    [theme.breakpoints.up("sm")]: {
+      height: 400,
+      alignItems: "flex-start",
+      justifyContent: "flex-start",
+      display: "flex",
+    },
+    [theme.breakpoints.up("md")]: {
+      height: 400,
+      alignItems: "flex-start",
       display: "flex",
     },
   },

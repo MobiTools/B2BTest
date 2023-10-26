@@ -97,7 +97,7 @@ function MixedMobile(props) {
                 button
                 index={index.toString()}
                 component="a"
-                href={`#${item}`}
+                href={`/${item}`}
                 key={item}
                 onClick={toggleDrawer}
                 onKeyDown={toggleDrawer}
