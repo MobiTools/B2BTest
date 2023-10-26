@@ -156,27 +156,6 @@ const ContactForm = (props) => {
                   onChange={handleChange}
                   required
                 />
-                <TextField
-                  name="phone2"
-                  type="phone2"
-                  label="Phone 2"
-                  variant="filled"
-                  fullWidth
-                  sx={{
-                    marginBottom: 2,
-                    "& .MuiFilledInput-input": {
-                      backgroundColor: "#252525", // Background color
-                      color: "white", // Text color
-                      borderRadius: 1,
-                    },
-                    "& .MuiFormLabel-root": {
-                      color: "white", // Text color
-                    },
-                  }}
-                  value={formData.phone2}
-                  onChange={handleChange}
-                  required
-                />
 
                 <TextField
                   name="message"
