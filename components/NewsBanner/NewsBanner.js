@@ -64,12 +64,12 @@ function NewsBanner() {
           variant="h2"
           className={cx(text.capitalize, align.textCenter)}
           display="block"
-          style={{ color: "white" }}
+          style={{ color: "white", fontSize: "37px" }}
         >
           Check our latest news
         </Typography>
         <Typography
-          style={{ color: "white" }}
+          style={{ color: "white", fontSize: "20px" }}
           gutterBottom
           variant="body1"
           className={align.textCenter}

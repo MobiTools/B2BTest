@@ -29,7 +29,7 @@ function CallAction() {
               <Typography
                 display="block"
                 component="p"
-                style={{ color: "white" }}
+                style={{ color: "white", fontSize: "20px" }}
               >
                 Pellentesque ac bibendum tortor. Nulla eget lobortis lacus.
               </Typography>

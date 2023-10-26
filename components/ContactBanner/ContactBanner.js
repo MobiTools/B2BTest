@@ -47,7 +47,7 @@ function ContactBanner(props) {
               <div className={classes.counterItem}>
                 <Typography
                   variant="h3"
-                  style={{ color: "white", marginBottom: 40 }}
+                  style={{ color: "white", marginBottom: 40, fontSize: "37px" }}
                 >
                   Take your first step towards success
                 </Typography>
