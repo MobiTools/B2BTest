@@ -23,11 +23,26 @@ import brand from "~/public/text/brand";
 import TrustedBanner from "../../components/TrustetBanner/TrustedBanner";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import { useDatabase } from "../../context/DatabaseContext";
+import { handleGetArticles } from "../../utils/realtimeUtils";
+import { useEffect } from "react";
+
+export async function getServerSideProps() {
+  // Obține datele din baza de date aici
+  const articles = await handleGetArticles();
+
+  return {
+    props: {
+      articles,
+    },
+  };
+}
 
 function Landing(props) {
   const { classes, cx } = useSpacing();
-  const { onToggleDark, onToggleDir } = props;
-  const { articles, isLoading } = useDatabase();
+  const { onToggleDark, onToggleDir, articles } = props;
+  useEffect(() => {
+    console.log(articles);
+  });
   return (
     <React.Fragment>
       <Head>
@@ -79,7 +94,7 @@ function Landing(props) {
             className={classes.wraperSection}
             style={{ backgroundColor: "#252525" }}
           >
-            <NewsBanner />
+            <NewsBanner articles={articles} />
           </section>
           <section className={classes.wraperTrustedBanner}>
             <ContactBanner dark />

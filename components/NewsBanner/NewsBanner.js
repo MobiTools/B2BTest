@@ -11,14 +11,14 @@ import TestiCard from "../Cards/TestiCard";
 import NewsCard from "../Cards/TestiCard";
 import { DatabaseProvider, useDatabase } from "../../context/DatabaseContext";
 
-function NewsBanner() {
+function NewsBanner({ articles }) {
   const { classes, cx } = useStyle();
   const { t } = useTranslation("common");
 
   const { classes: align } = useTextAlign();
   const { classes: text } = useText();
   const [loaded, setLoaded] = useState(false);
-  const { articles, isLoading } = useDatabase();
+  // const { articles, isLoading } = useDatabase();
 
   let testiContent = [
     {
@@ -80,24 +80,22 @@ function NewsBanner() {
         </Typography>
       </div>
       <div className={classes.carousel}>
-        {!isLoading && (
-          <Carousel
-            responsive={responsive}
-            ssr={true}
-            autoPlay={true}
-            autoPlaySpeed={3000}
-            showDots={true}
-            renderDotsOutside={true}
-            removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
-          >
-            {articles.articlesArray &&
-              articles.articlesArray.map((item, index) => (
-                <div className={classes.cardWrapper}>
-                  <NewsCard item={item} />
-                </div>
-              ))}
-          </Carousel>
-        )}
+        <Carousel
+          responsive={responsive}
+          ssr={true}
+          autoPlay={true}
+          autoPlaySpeed={3000}
+          showDots={true}
+          renderDotsOutside={true}
+          removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+        >
+          {articles.articlesArray &&
+            articles.articlesArray.map((item, index) => (
+              <div className={classes.cardWrapper}>
+                <NewsCard item={item} />
+              </div>
+            ))}
+        </Carousel>
       </div>
     </div>
   );

@@ -126,7 +126,6 @@ function MyApp(props) {
             name="og:image"
             content="https://www.mattealeconsulting.com/images/social_media.png"
           />
-
           <meta name="og:type" content="website" />
         </Head>
 

@@ -39,7 +39,7 @@ function Mixed(props) {
     padding: "10px 20px",
     fontSize: "16px",
     borderRadius: "25px",
-    zIndex: 10,
+    zIndex: 15,
   };
   let flagFixed = false;
 

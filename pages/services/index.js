@@ -12,6 +12,18 @@ import { useDatabase } from "../../context/DatabaseContext";
 import { useSpacing } from "../../theme/common";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { handleGetServices } from "../../utils/realtimeUtils";
+
+export async function getServerSideProps() {
+  // Obține datele din baza de date aici
+  const services = await handleGetServices();
+
+  return {
+    props: {
+      services,
+    },
+  };
+}
 
 const MediaCard = ({ item }) => {
   const route = useRouter();
@@ -94,9 +106,9 @@ const MediaCard = ({ item }) => {
   );
 };
 
-export function Services() {
+export function Services({ services }) {
   const { classes, cx } = useSpacing();
-  const { services } = useDatabase();
+  // const { services } = useDatabase();
 
   const maxLines = 4; // Numărul maxim de rânduri dorit
 
