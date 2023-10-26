@@ -3,6 +3,9 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = withImages({
   trailingSlash: true,
+  images: {
+    disableStaticImages: true,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -35,9 +38,9 @@ module.exports = withImages({
 
     // Excludem paginile cu getServerSideProps de aici
     delete filteredPathMap["/"];
-    delete filteredPathMap["/services"];
-    delete filteredPathMap["/articles"];
     delete filteredPathMap["/home"];
+    delete filteredPathMap["/services"];
+    delete filteredPathMap["/news"];
 
     return filteredPathMap;
   },
