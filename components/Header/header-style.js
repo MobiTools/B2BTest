@@ -1,5 +1,4 @@
 import { makeStyles } from "tss-react/mui";
-import flag from "~/public/images/flag-logo.png";
 
 const flagIcon = {
   width: 16,
@@ -9,7 +8,7 @@ const flagIcon = {
   position: "relative",
   marginRight: 5,
   top: 1,
-  background: `url(${flag}) no-repeat transparent`,
+
   backgroundSize: "16px auto",
   '&[class="ar"]': {
     backgroundPosition: "0 3px",
@@ -183,11 +182,7 @@ const headerStyles = makeStyles({ uniqId: "header" })(
         margin: theme.spacing(0, 1),
       },
     },
-    langMenu: {
-      "& i": {
-        ...flagIcon,
-      },
-    },
+    langMenu: {},
     mobileMenu: {
       color: "white",
       marginRight: theme.spacing(1),
