@@ -37,6 +37,7 @@ module.exports = withImages({
     delete filteredPathMap["/"];
     delete filteredPathMap["/services"];
     delete filteredPathMap["/articles"];
+    delete filteredPathMap["/home"];
 
     return filteredPathMap;
   },
