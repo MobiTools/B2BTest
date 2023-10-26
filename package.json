@@ -16,7 +16,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export",
     "start": "next start",
     "now-build": "next build && next export -o dist",
     "lint": "eslint ./ --ext js",
