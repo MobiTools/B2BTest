@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { handleGetServices } from "../../utils/realtimeUtils";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Obține datele din baza de date aici
   const services = await handleGetServices();
 

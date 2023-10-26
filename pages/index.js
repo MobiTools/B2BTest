@@ -26,7 +26,7 @@ import { useDatabase } from "../context/DatabaseContext";
 import { handleGetArticles } from "../utils/realtimeUtils";
 import { useEffect } from "react";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Obține datele din baza de date aici
   const articles = await handleGetArticles();
 
