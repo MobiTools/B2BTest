@@ -121,7 +121,7 @@ export const handleGetServices = async () => {
         servicesArray.push(service);
       });
 
-      console.log("Final services array:.....");
+      console.log("Final services array:..............");
       console.log(servicesArray);
     } else {
       console.log("No data available");

@@ -17,7 +17,8 @@ import { handleGetServices } from "../../utils/realtimeUtils";
 export async function getStaticProps() {
   // Obține datele din baza de date aici
   const services = await handleGetServices();
-
+  console.log("services...");
+  console.log(services);
   return {
     props: {
       services,
@@ -123,7 +124,7 @@ export function Services({ services }) {
   };
 
   React.useEffect(() => {
-    console.log("asdadsasd");
+    console.log("asdadssssssssssssssasd");
     console.log(services);
   }, []);
 
