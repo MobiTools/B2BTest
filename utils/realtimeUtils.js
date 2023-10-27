@@ -23,11 +23,13 @@ function getLatestArticles(articles) {
     // Selectează ultimele cinci articole după data
     const lastFiveArticles = articles.slice(0, 5);
 
-    const newestArticle = latestArticles[0];
+    // Dacă latestArticles nu are elemente, atunci newestArticle va fi null
+    const newestArticle = latestArticles.length ? latestArticles[0] : null;
 
     return { latestArticles, newestArticle, lastFiveArticles };
   } catch (err) {
     console.log("error on getLatestArticles...", err);
+    return { latestArticles: [], newestArticle: null, lastFiveArticles: [] }; // Asigură-te că returnezi valori valide în caz de eroare
   }
 }
 
