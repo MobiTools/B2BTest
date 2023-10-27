@@ -12,7 +12,16 @@ import TableToolbar from "../components/ProcessTable/TableToolbar";
 import CustomDialog from "../components/DialogBox/CustomDialog";
 
 import IconInSelect from "../components/ProcessTable/IconInSelect";
-
+import {
+  getDatabase,
+  ref,
+  remove,
+  get,
+  child,
+  set,
+  onValue,
+  update,
+} from "firebase/database";
 import CustomTableContainer from "../components/ProcessTable/CustomTableContainer";
 import { useStyles } from "../styles/ProcessTableStyles";
 import {
@@ -23,7 +32,7 @@ import {
 import { getCurrentDateTime } from "../utils/timeUtils";
 import { uploadImage } from "../utils/storageUtils";
 import { auth, storage } from "../firebase";
-import { getDatabase, ref, remove } from "firebase/database";
+
 import {
   deleteObject,
   getDownloadURL,
@@ -96,43 +105,55 @@ export default function ProcessTable() {
   };
 
   const handleDeleteArt = (id, imageFileName) => {
-    db.map((article) => {
-      if (article.id === id) {
-        const authInstance = auth;
-        const currentUser = authInstance.currentUser;
-        const database = getDatabase();
-        const dataRef = ref(database, "Articles/" + article.id);
-        remove(dataRef);
-        // Creează o nouă matrice care exclude articolul cu ID-ul specificat
-        const updatedDb = db.filter((a) => a.id !== id);
-        // Create a reference to the file to delete
-        const deletedRef = storageRef(
-          storage,
-          `images/articles/${currentUser?.uid}/${imageFileName}`
-        );
+    const authInstance = auth;
+    const currentUser = authInstance.currentUser;
+    const database = getDatabase();
 
-        // Delete the file
-        deleteObject(deletedRef)
-          .then(() => {
-            // File deleted successfully
-            console.log("File deleted successfully");
-          })
-          .catch((error) => {
-            console.log(
-              "Uh-oh, an error occurred! AT uploadImage DELETE...",
-              error
-            );
-            // Uh-oh, an error occurred!
-          });
+    // 1. Ștergeți elementul din Firebase
+    const dataRef = ref(database, "Articles/" + id);
+    remove(dataRef);
 
-        // Actualizează starea db cu noua matrice filtrată
-        setDb([...updatedDb]);
-        // handleGetCalendar();
-        // toggleModal();
-      } else {
-        // toggleModal();
-      }
+    // Creează o nouă matrice care exclude articolul cu ID-ul specificat
+    const updatedDb = db.filter((a) => a.id !== id);
+
+    // 2. Resetarea ID-urilor pentru continuitate
+    const finalDb = updatedDb.map((item, index) => {
+      return {
+        ...item,
+        id: index + 1,
+      };
     });
+
+    // Șterge toate nodurile existente sub "Articles/"
+    const articlesRef = ref(database, "Articles");
+    set(articlesRef, {}).then(() => {
+      // După ce toate nodurile sunt șterse, adaugă finalDb ca noile noduri copil
+      finalDb.forEach((article) => {
+        const newArticleRef = child(articlesRef, String(article.id));
+        set(newArticleRef, article);
+      });
+    });
+
+    // Create a reference to the file to delete
+    const deletedRef = storageRef(
+      storage,
+      `images/articles/${currentUser?.uid}/${imageFileName}`
+    );
+
+    // Delete the file
+    deleteObject(deletedRef)
+      .then(() => {
+        console.log("File deleted successfully");
+      })
+      .catch((error) => {
+        console.log(
+          "Uh-oh, an error occurred! AT uploadImage DELETE...",
+          error
+        );
+      });
+
+    // Actualizează starea db cu noua matrice filtrată
+    setDb(finalDb);
   };
 
   const handleEditArticle = async (
@@ -304,7 +325,12 @@ export default function ProcessTable() {
               <CircularProgress />
             ) : db.length === 0 ? (
               <Typography
-                sx={{ fontSize: 20, marginTop: 5, fontWeight: "400" }}
+                sx={{
+                  fontSize: 20,
+                  marginTop: 5,
+                  fontWeight: "400",
+                  color: "white",
+                }}
               >
                 No articles added
               </Typography>

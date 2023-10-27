@@ -22,11 +22,13 @@ const customStyles = `
   h1 {
     font-size: 40px;
     font-weight: bold;
+    line-height: 1.5;
   }
 
   h2 {
     font-size: 30px;
     font-weight: bold;
+    line-height: 1.5;
   }
 
   /* Alte stiluri pentru elementele generate de react-quill */

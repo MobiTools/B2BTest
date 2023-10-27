@@ -20,7 +20,16 @@ import {
 import { getCurrentDateTime } from "../utils/timeUtils";
 import { uploadImage, uploadImageServices } from "../utils/storageUtils";
 import { auth, storage } from "../firebase";
-import { getDatabase, ref, remove } from "firebase/database";
+import {
+  getDatabase,
+  ref,
+  remove,
+  get,
+  child,
+  set,
+  onValue,
+  update,
+} from "firebase/database";
 import {
   deleteObject,
   getDownloadURL,
@@ -94,43 +103,55 @@ export default function ServicesTable() {
   };
 
   const handleDeleteArt = (id, imageFileName) => {
-    db.map((service) => {
-      if (service.id === id) {
-        const authInstance = auth;
-        const currentUser = authInstance.currentUser;
-        const database = getDatabase();
-        const dataRef = ref(database, "Services/" + service.id);
-        remove(dataRef);
-        // Creează o nouă matrice care exclude articolul cu ID-ul specificat
-        const updatedDb = db.filter((a) => a.id !== id);
-        // Create a reference to the file to delete
-        const deletedRef = storageRef(
-          storage,
-          `images/services/${currentUser?.uid}/${imageFileName}`
-        );
+    const authInstance = auth;
+    const currentUser = authInstance.currentUser;
+    const database = getDatabase();
 
-        // Delete the file
-        deleteObject(deletedRef)
-          .then(() => {
-            // File deleted successfully
-            console.log("File deleted successfully");
-          })
-          .catch((error) => {
-            console.log(
-              "Uh-oh, an error occurred! AT uploadImage DELETE...",
-              error
-            );
-            // Uh-oh, an error occurred!
-          });
+    // 1. Ștergeți elementul din Firebase
+    const dataRef = ref(database, "Services/" + id);
+    remove(dataRef);
 
-        // Actualizează starea db cu noua matrice filtrată
-        setDb([...updatedDb]);
-        // handleGetCalendar();
-        // toggleModal();
-      } else {
-        // toggleModal();
-      }
+    // Creează o nouă matrice care exclude articolul cu ID-ul specificat
+    const updatedDb = db.filter((a) => a.id !== id);
+
+    // 2. Resetarea ID-urilor pentru continuitate
+    const finalDb = updatedDb.map((item, index) => {
+      return {
+        ...item,
+        id: index + 1,
+      };
     });
+
+    // Șterge toate nodurile existente sub "Services/"
+    const servicesRef = ref(database, "Services");
+    set(servicesRef, {}).then(() => {
+      // După ce toate nodurile sunt șterse, adaugă finalDb ca noile noduri copil
+      finalDb.forEach((service) => {
+        const newServiceRef = child(servicesRef, String(service.id));
+        set(newServiceRef, service);
+      });
+    });
+
+    // Create a reference to the file to delete
+    const deletedRef = storageRef(
+      storage,
+      `images/services/${currentUser?.uid}/${imageFileName}`
+    );
+
+    // Delete the file
+    deleteObject(deletedRef)
+      .then(() => {
+        console.log("File deleted successfully");
+      })
+      .catch((error) => {
+        console.log(
+          "Uh-oh, an error occurred! AT uploadImage DELETE...",
+          error
+        );
+      });
+
+    // Actualizează starea db cu noua matrice filtrată
+    setDb(finalDb);
   };
 
   const handleEditService = async (
@@ -305,7 +326,12 @@ export default function ServicesTable() {
               <CircularProgress />
             ) : db.length === 0 ? (
               <Typography
-                sx={{ fontSize: 20, marginTop: 5, fontWeight: "400" }}
+                sx={{
+                  fontSize: 20,
+                  marginTop: 5,
+                  fontWeight: "400",
+                  color: "white",
+                }}
               >
                 No services added
               </Typography>
