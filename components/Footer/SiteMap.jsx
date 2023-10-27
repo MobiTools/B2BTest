@@ -1,27 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Container from "@mui/material/Container";
+
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import { useTranslation } from "next-i18next";
-import logo from "~/public/images/logo-starter.svg";
-import brand from "~/public/text/brand";
+
 import { useTextAlign } from "~/theme/common";
-import SelectLang from "../LangSwitch/Select";
+
 import useStyles from "./sitemap-style";
-import Logo from "../Logo";
+
 import Subscribe from "../Subscribe";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
+
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";

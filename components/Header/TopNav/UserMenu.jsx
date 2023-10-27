@@ -5,9 +5,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "next-i18next";
 import PhoneIcon from "@mui/icons-material/Phone";
-import Settings from "./Settings";
+
 import useStyles from "../header-style";
-import link from "~/public/text/link";
 
 function UserMenu(props) {
   const { classes } = useStyles();

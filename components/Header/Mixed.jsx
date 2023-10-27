@@ -14,7 +14,7 @@ import useStyles from "./header-style";
 import navMenu from "./data/single";
 import samplePages from "./data/sample-pages";
 import navData from "./data/single";
-import MultiLevelHover from "./TopNav/MultiLevelHover";
+
 import multiple from "./data/multiple";
 import { Button } from "@mui/material";
 
@@ -133,7 +133,6 @@ function Mixed(props) {
                     close={handleClose}
                     singleNav={home}
                   />
-                  {/* <MultiLevelHover dataMenu={multiple} /> */}
                 </div>
               )}
               {isDesktop && <UserMenu />}

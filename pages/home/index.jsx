@@ -8,22 +8,18 @@ import Hidden from "@mui/material/Hidden";
 // Use this below for Static Site Generation (SSG)
 // // import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import { useSpacing } from "~/theme/common";
-import Header from "../components/Header";
-import BannerSlider from "../components/BannerSlider";
-import Feature from "../components/Feature";
-import ContactBanner from "../components/ContactBanner";
-import NewsBanner from "../components/NewsBanner";
-import Pricing from "../components/Pricing";
-import Blog from "../components/Blog";
-import Subscribe from "../components/Subscribe";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import BannerSlider from "../../components/BannerSlider";
+import Feature from "../../components/Feature";
+import ContactBanner from "../../components/ContactBanner";
+import NewsBanner from "../../components/NewsBanner";
 
-import Notification from "../components/Notification";
-import brand from "~/public/text/brand";
-import TrustedBanner from "../components/TrustetBanner/TrustedBanner";
+import Footer from "../../components/Footer";
+
+import TrustedBanner from "../../components/TrustetBanner/TrustedBanner";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
-import { useDatabase } from "../context/DatabaseContext";
-import { handleGetArticles } from "../utils/realtimeUtils";
+
+import { handleGetArticles } from "../../utils/realtimeUtils";
 import { useEffect } from "react";
 
 export async function getStaticProps() {

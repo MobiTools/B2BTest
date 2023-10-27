@@ -2,13 +2,6 @@ import React, { useReducer } from "react";
 import PropTypes from "prop-types";
 import uiState from "~/theme/config";
 import Mixed from "./Mixed";
-import Mega from "./Mega";
-import DropList from "./DropList";
-import NavScroll from "./NavScroll";
-import Search from "./Search";
-import Basic from "./Basic";
-import Blog from "./BlogHeader";
-import Hamburger from "./Hamburger";
 
 function Main(props) {
   const [state] = useReducer(null, uiState);

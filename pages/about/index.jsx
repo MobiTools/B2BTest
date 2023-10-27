@@ -9,16 +9,14 @@ import { useSpacing } from "~/theme/common";
 import Header from "~/components/Header";
 
 import Banner from "~/components/About/Banner";
-import BannerSecond from "~/components/About/BannerSecond";
-import PhotoSlider from "~/components/About/PhotoSlider";
-import TeamSlider from "~/components/About/TeamSlider";
+
 import AboutVideo from "~/components/About/Video";
 import AboutProgress from "~/components/About/Progress";
 import ContactMap from "~/components/Forms/ContactMap";
 import CallAction from "~/components/CallAction";
-import CompanyLogo from "~/components/CompanyLogo";
+
 import Footer from "~/components/Footer";
-import brand from "~/public/text/brand";
+
 import Mision from "../../components/About/Mision";
 import Expertise from "../../components/About/Expertise/Expertise";
 
