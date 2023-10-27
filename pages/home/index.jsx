@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import CssBaseline from "@mui/material/CssBaseline";
 import Head from "next/head";
-import Hidden from "@mui/material/Hidden";
+
 // Use this below for Server Side Render/Translation (SSR)
 
 // Use this below for Static Site Generation (SSG)
