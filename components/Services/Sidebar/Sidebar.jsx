@@ -6,11 +6,12 @@ import PostWidget from "./PostWidget";
 import CommentWidget from "./CommentWidget";
 import ListWidget from "./ListWidget";
 import GalleryWidget from "./GalleryWidget";
+import { handleGetServices } from "../../../utils/realtimeUtils";
 
-function Sidebar() {
+function Sidebar(props) {
   return (
     <div>
-      <PostWidget />
+      <PostWidget services={props.services} />
       <Box py={3} />
     </div>
   );

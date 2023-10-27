@@ -10,10 +10,10 @@ import { useDatabase } from "../../../context/DatabaseContext";
 import { useRouter } from "next/router";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 
-function PostWidget() {
+function PostWidget({ services }) {
   const { classes } = useStyles();
   const { t } = useTranslation("common");
-  const { services } = useDatabase();
+
   const route = useRouter();
   const handleRoute = (item) => {
     route.push({

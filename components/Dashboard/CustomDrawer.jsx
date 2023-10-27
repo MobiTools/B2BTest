@@ -34,24 +34,6 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { handleSignOut } from "../../utils/signout";
 import { Avatar } from "@mui/material";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {

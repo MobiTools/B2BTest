@@ -59,9 +59,9 @@ export default function AddArticleDialog(props) {
     setTags(updatedTags);
   };
 
-  const isImageValid = (image) => {
-    return image.width === 1440 && image.height === 482;
-  };
+  // const isImageValid = (image) => {
+  //   return image.width === 1440 && image.height === 482;
+  // };
 
   const handleSubmit = async (event) => {
     try {
@@ -73,41 +73,43 @@ export default function AddArticleDialog(props) {
       let metaDescription = data.get("Metadescription");
 
       // Verificare dimensiuni imagine
-      const imageElement = new Image();
-      imageElement.src = selectedImages[0]
-        ? URL.createObjectURL(selectedImages[0])
-        : "";
-      imageElement.onload = () => {
-        if (!isImageValid(imageElement)) {
-          console.log("Imaginea trebuie să aibă dimensiunile: 1440 x 482");
-          setImageNotValid(true);
-          // Setăm o întârziere de 3 secunde pentru a reseta imaginea invalidă
-          setTimeout(() => {
-            setImageNotValid(false);
-          }, 3000); // 3000 milisecunde (3 secunde)
-        } else {
-          // După ce imaginea este validată, executați următoarele acțiuni
-          props.handleShowAddContract();
-          if (selectedImages.length > 0) {
-            uploadImage(selectedImages, "", true).then((image) => {
-              if (image && image.finalUri) {
-                props.handleUploadArticle(
-                  name,
-                  title,
-                  metaDescription,
-                  tags,
-                  image,
-                  content
-                );
-              } else {
-                console.log(
-                  "Imaginea nu a fost încărcată sau a fost o eroare la încărcare."
-                );
-              }
-            });
+      // const imageElement = new Image();
+      // imageElement.src = selectedImages[0]
+      //   ? URL.createObjectURL(selectedImages[0])
+      //   : "";
+      // imageElement.onload = () => {
+      //   if (!isImageValid(imageElement)) {
+      //     console.log("Imaginea trebuie să aibă dimensiunile: 1440 x 482");
+      //     setImageNotValid(true);
+      //     // Setăm o întârziere de 3 secunde pentru a reseta imaginea invalidă
+      //     setTimeout(() => {
+      //       setImageNotValid(false);
+      //     }, 3000); // 3000 milisecunde (3 secunde)
+      //   } else {
+      // După ce imaginea este validată, executați următoarele acțiuni
+
+      props.handleShowAddContract();
+      if (selectedImages.length > 0) {
+        uploadImage(selectedImages, "", true).then((image) => {
+          if (image && image.finalUri) {
+            props.handleUploadArticle(
+              name,
+              title,
+              metaDescription,
+              tags,
+              image,
+              content
+            );
+          } else {
+            console.log(
+              "Imaginea nu a fost încărcată sau a fost o eroare la încărcare."
+            );
           }
-        }
-      };
+        });
+      }
+
+      //   }
+      // };
     } catch (err) {
       console.log("Error at handleSubmit add article...", err);
     }

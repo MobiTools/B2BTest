@@ -18,35 +18,38 @@ import brand from "~/public/text/brand";
 
 import { useRouter } from "next/router";
 import { useParams } from "next/navigation";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, createTheme } from "@mui/material";
 import { useDatabase } from "../../context/DatabaseContext";
+import { handleGetArticles } from "../../utils/realtimeUtils";
+import { getAllNewsIds } from "../../utils/getFirebaseIds";
+
+export async function getStaticProps({ params }) {
+  // Obține datele din baza de date aici
+  const arts = await handleGetArticles();
+
+  const filtered = arts.articlesArray.filter(
+    (article) => article.id == params.slug
+  );
+  let article = filtered;
+  return {
+    props: {
+      article,
+      articles: arts,
+    },
+  };
+}
 
 function BlogDetail(props) {
-  const { articles } = useDatabase();
   const { classes } = useSpacing();
-  const { onToggleDark, onToggleDir } = props;
+  const { onToggleDark, onToggleDir, article } = props;
   // Creează un useState pentru a gestiona array-ul filtrat
-  const router = useRouter();
-  const params = useParams();
-  const [filteredArticles, setFilteredArticles] = useState(articles);
 
-  useEffect(() => {
-    console.log("router..");
-    console.log(router.query.id);
-    // console.log(article);
-    console.log(params);
+  const defaultTheme = createTheme();
 
-    // Filtrăm array-ul articles după router.query.idgi
-    if (params.slug && articles.articlesArray) {
-      const filtered = articles.articlesArray.filter(
-        (article) => article.id == params.slug
-      );
-      // Actualizăm filteredServices cu noul array filtrat
-      setFilteredArticles(filtered);
-    }
-    console.log("articles....");
-    console.log(articles);
-  }, [params.slug, articles]);
+  defaultTheme.typography.p = {
+    fontSize: "60px",
+    color: "white",
+  };
 
   return (
     <Fragment>
@@ -65,30 +68,27 @@ function BlogDetail(props) {
       </Head>
       <CssBaseline />
       <section id="home" />
-      {filteredArticles[0] ? (
-        <div className={classes.mainWrap}>
-          <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} home />
-          <div className={classes.wraperSection}>
-            <Box pt={5}>
-              <Container style={{}}>
-                <Grid container spacing={4}>
-                  <Grid item md={8} xs={12} style={{ paddingTop: 0 }}>
-                    <Article filteredArticles={filteredArticles[0]} />
-                  </Grid>
-                  <Grid item md={4} xs={12} style={{ paddingTop: 0 }}>
-                    <Sidebar lastFiveArticles={articles.lastFiveArticles} />
-                  </Grid>
+
+      <div className={classes.mainWrap}>
+        <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} home />
+        <div className={classes.wraperSection}>
+          <Box pt={5}>
+            <Container style={{}}>
+              <Grid container spacing={4}>
+                <Grid item md={8} xs={12} style={{ paddingTop: 0 }}>
+                  <Article filteredArticles={article[0]} />
                 </Grid>
-              </Container>
-            </Box>
-          </div>
-          <div id="footer">
-            <Footer toggleDir={onToggleDir} />
-          </div>
+                <Grid item md={4} xs={12} style={{ paddingTop: 0 }}>
+                  <Sidebar lastFiveArticles={props.articles.lastFiveArticles} />
+                </Grid>
+              </Grid>
+            </Container>
+          </Box>
         </div>
-      ) : (
-        <CircularProgress />
-      )}
+        <div id="footer">
+          <Footer toggleDir={onToggleDir} />
+        </div>
+      </div>
     </Fragment>
   );
 }
@@ -102,10 +102,20 @@ export default BlogDetail;
 
 // Use this below for Server Side Render/Translation (SSR)
 
-// export async function getStaticPaths(params) {
-//   console.log(params);
-//   // Return a list of possible value for id
-// }
+export async function getStaticPaths() {
+  const allNewsIds = await getAllNewsIds(); // Fetch all available news IDs from Firebase
+
+  const paths = allNewsIds.map((id) => ({
+    params: { slug: id.toString() },
+  }));
+
+  const fallback = false;
+
+  return {
+    paths,
+    fallback,
+  };
+}
 
 // export const getStaticProps = async ({ locale }) => ({
 //   props: { ...(await serverSideTranslations(locale, ["common"])) },

@@ -19,6 +19,7 @@ const appTheme = (color, mode) => ({
       ","
     ),
   },
+
   shade: {
     light: "0 1.5px 12px 2px rgba(0, 0, 0, 0.06)",
     dark: "0px 1px 3px 0px rgba(64, 64, 64, 1), 0px 1px 1px 0px rgba(42, 42, 42, 1), 0px 2px 1px -1px rgba(20, 20, 20, 1)",

@@ -7,20 +7,41 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useTranslation } from "next-i18next";
-
 import useStyles from "./blog-style";
 import { usePathname } from "next/navigation";
+
+// Definiți stilurile CSS direct aici
+const customStyles = `
+  /* Stiluri pentru paragrafe */
+  p {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  /* Stiluri pentru titluri */
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  /* Alte stiluri pentru elementele generate de react-quill */
+`;
 
 function Article({ filteredArticles }) {
   const { classes } = useStyles();
   const { t } = useTranslation("common");
   const pathname = usePathname();
+
   // Functie pentru partajare pe Facebook
   const shareOnFacebook = () => {
     console.log(pathname);
     console.log(window.location.hostname);
     console.log(window.location.href);
-    // const url = encodeURIComponent(window.location.href);
     const url = window.location.href;
     window.open(
       `https://www.facebook.com/sharer/sharer.php?u=${url}`,
@@ -49,6 +70,7 @@ function Article({ filteredArticles }) {
 
   return (
     <div className={classes.root}>
+      <style>{customStyles}</style> {/* Incluziunea stilurilor CSS */}
       <article className={classes.article}>
         <div className={classes.content}>
           <Typography variant="h4" className={classes.titleBlog}>

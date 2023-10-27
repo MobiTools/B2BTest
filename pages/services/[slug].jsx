@@ -17,34 +17,29 @@ import { useParams } from "next/navigation";
 
 import { useDatabase } from "../../context/DatabaseContext";
 import Serv from "../../components/Services/Serv";
+import { getAllServicesIds } from "../../utils/getFirebaseIds";
+import { handleGetServices } from "../../utils/realtimeUtils";
 
-function ServiceDetail() {
-  const { services } = useDatabase();
+export async function getStaticProps({ params }) {
+  // Obține datele din baza de date aici
+  const serv = await handleGetServices();
+
+  const filtered = serv.servicesArray.filter(
+    (service) => service.id == params.slug
+  );
+
+  let service = filtered;
+  return {
+    props: {
+      service,
+      services: serv,
+    },
+  };
+}
+
+function ServiceDetail(props) {
   const { classes } = useSpacing();
   const { classes: titleClasses } = useStyles();
-  const router = useRouter();
-  const params = useParams();
-
-  // Creează un useState pentru a gestiona array-ul filtrat
-  const [filteredServices, setFilteredServices] = useState(services);
-
-  useEffect(() => {
-    console.log("router........");
-    console.log(router.query.id);
-    console.log(services);
-    console.log(params);
-
-    // Filtrăm array-ul services după router.query.id
-    if (params.slug && services.servicesArray) {
-      const filtered = services.servicesArray.filter(
-        (service) => service.id == params.slug
-      );
-      // Actualizăm filteredServices cu noul array filtrat
-      setFilteredServices(filtered);
-    }
-    console.log(filteredServices);
-    console.log(filteredServices);
-  }, [params.slug, services]);
 
   return (
     <Fragment>
@@ -65,29 +60,26 @@ function ServiceDetail() {
       <section id="home" />
       <div className={classes.mainWrap}>
         <Header home />
-        {filteredServices[0] ? (
-          <>
-            <div className={classes.wraperSection}>
-              <Box pt={5}>
-                <Container>
-                  <Grid container spacing={4}>
-                    <Grid item md={8} xs={12} style={{ paddingTop: 0 }}>
-                      <Serv filteredServices={filteredServices[0]} />
-                    </Grid>
-                    <Grid item md={4} xs={12} style={{ paddingTop: 0 }}>
-                      <Sidebar />
-                    </Grid>
+
+        <>
+          <div className={classes.wraperSection}>
+            <Box pt={5}>
+              <Container>
+                <Grid container spacing={4}>
+                  <Grid item md={8} xs={12} style={{ paddingTop: 0 }}>
+                    <Serv filteredServices={props.service[0]} />
                   </Grid>
-                </Container>
-              </Box>
-            </div>
-            <div id="footer">
-              <Footer />
-            </div>
-          </>
-        ) : (
-          <CircularProgress />
-        )}
+                  <Grid item md={4} xs={12} style={{ paddingTop: 0 }}>
+                    <Sidebar services={props.services} />
+                  </Grid>
+                </Grid>
+              </Container>
+            </Box>
+          </div>
+          <div id="footer">
+            <Footer />
+          </div>
+        </>
       </div>
     </Fragment>
   );
@@ -97,5 +89,20 @@ ServiceDetail.propTypes = {
   onToggleDark: PropTypes.func.isRequired,
   onToggleDir: PropTypes.func.isRequired,
 };
+
+export async function getStaticPaths() {
+  const allNewsIds = await getAllServicesIds(); // Fetch all available news IDs from Firebase
+
+  const paths = allNewsIds.map((id) => ({
+    params: { slug: id.toString() },
+  }));
+
+  const fallback = false;
+
+  return {
+    paths,
+    fallback,
+  };
+}
 
 export default ServiceDetail;

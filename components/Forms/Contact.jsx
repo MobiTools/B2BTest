@@ -88,7 +88,12 @@ const ContactForm = (props) => {
             >
               <Typography
                 variant="h4"
-                sx={{ color: "white", textAlign: "start", marginBottom: 2 }}
+                sx={{
+                  color: "white",
+                  textAlign: "start",
+                  marginBottom: 2,
+                  fontSize: "40px",
+                }}
               >
                 Contact Us
               </Typography>
@@ -108,6 +113,7 @@ const ContactForm = (props) => {
                     },
                     "& .MuiFormLabel-root": {
                       color: "white", // Text color
+                      fontSize: "20px",
                     },
                   }}
                   value={formData.from_name}
@@ -129,6 +135,7 @@ const ContactForm = (props) => {
                     },
                     "& .MuiFormLabel-root": {
                       color: "white", // Text color
+                      fontSize: "20px",
                     },
                   }}
                   value={formData.email}
@@ -150,6 +157,7 @@ const ContactForm = (props) => {
                     },
                     "& .MuiFormLabel-root": {
                       color: "white", // Text color
+                      fontSize: "20px",
                     },
                   }}
                   value={formData.phone}
@@ -176,6 +184,7 @@ const ContactForm = (props) => {
                       backgroundColor: "#252525", // Background color
                       borderRadius: 1,
                       color: "white", // Text color
+                      fontSize: "20px",
                     },
                     "& .MuiInputBase-root": {
                       backgroundColor: "#252525", // Background color
@@ -191,7 +200,7 @@ const ContactForm = (props) => {
                   type="submit"
                   variant="contained"
                   sx={{
-                    fontSize: "15px",
+                    fontSize: "20px",
                     fontWeight: "700",
                     backgroundColor: "#d3a03e",
                     color: "white",
@@ -230,7 +239,7 @@ const ContactForm = (props) => {
             >
               <Typography
                 variant="h4"
-                sx={{ color: "white", paddingBottom: 2, fontSize: 30 }}
+                sx={{ color: "white", paddingBottom: 2, fontSize: 40 }}
               >
                 Get in touch
               </Typography>
