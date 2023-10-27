@@ -54,7 +54,7 @@ function BlogDetail(props) {
   return (
     <Fragment>
       <Head>
-        <title>Home | Numele Site-ului</title>
+        <title>Home | Numele Site-uluiiii</title>
         <meta
           name="description"
           content="Descrierea relevantă pentru pagina de start."
@@ -85,7 +85,7 @@ function BlogDetail(props) {
             </Container>
           </Box>
         </div>
-        <div id="footer">
+        <div id="footerr">
           <Footer toggleDir={onToggleDir} />
         </div>
       </div>
