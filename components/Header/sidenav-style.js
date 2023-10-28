@@ -39,6 +39,7 @@ const sidenavStyles = makeStyles({ uniqId: "sidenav" })(
     },
     menuList: {
       color: "white",
+      backgroundColor: "transparent",
       padding: theme.spacing(0.5, 0),
       "& span": {
         textTransform: "capitalize",
@@ -67,19 +68,13 @@ const sidenavStyles = makeStyles({ uniqId: "sidenav" })(
       color: theme.palette.primary.main,
     },
     current: {
-      background:
-        theme.palette.mode === "dark"
-          ? theme.palette.primary.dark
-          : theme.palette.primary.light,
+      background: "transparent",
       "& svg": {
         fill: theme.palette.primary.main,
       },
     },
     currentParent: {
-      background:
-        theme.palette.mode === "dark"
-          ? theme.palette.primary.dark
-          : theme.palette.primary.light,
+      background: "transparent",
       "& svg": {
         fill: theme.palette.primary.main,
       },

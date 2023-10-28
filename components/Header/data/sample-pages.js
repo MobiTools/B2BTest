@@ -4,6 +4,7 @@ import link from "~/public/text/link";
 const sample = [
   {
     id: "services",
+    mainLink: "/services",
     name: "Services",
     child: [
       {
@@ -21,6 +22,10 @@ const sample = [
       {
         name: "Cloud solutions",
         link: "Cloud solutions",
+      },
+      {
+        name: "Other Services",
+        link: "/services",
       },
     ],
   },

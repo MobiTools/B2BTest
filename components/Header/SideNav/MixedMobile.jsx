@@ -67,7 +67,6 @@ function MixedMobile(props) {
               )}
               component="a"
               href={granditem.link}
-              button
             >
               <ListItemText
                 className={classes.menuList}

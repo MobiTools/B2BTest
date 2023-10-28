@@ -3,7 +3,7 @@ import { makeStyles } from "tss-react/mui";
 const useStyles = makeStyles({ uniqId: "paper" })(
   (theme, _params, classes) => ({
     root: {
-      padding: theme.spacing(3, 1),
+      padding: theme.spacing(0, 1),
       boxShadow: theme.shade.light,
       color: theme.palette.text.primary,
       overflow: "hidden",

@@ -9,6 +9,9 @@ import Button from "@mui/material/Button";
 import { useTranslation } from "next-i18next";
 import useStyles from "./blog-style";
 import { usePathname } from "next/navigation";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 // Definiți stilurile CSS direct aici
 const customStyles = `
@@ -51,10 +54,9 @@ function Article({ filteredArticles }) {
     );
   };
 
-  // Functie pentru partajare pe Twitter
-  const shareOnTwitter = () => {
-    const url = encodeURIComponent(window.location.href);
-    window.open(`https://twitter.com/intent/tweet?url=${url}`, "_blank");
+  // Functie pentru partajare pe instagram
+  const shareOnInstagram = () => {
+    window.open("instagram://camera", "_blank");
   };
 
   // Functie pentru partajare pe LinkedIn
@@ -106,17 +108,17 @@ function Article({ filteredArticles }) {
               type="button"
               onClick={shareOnFacebook}
             >
-              <i className="ion-social-facebook" />
+              <FacebookIcon sx={{ marginRight: isDesktop && 1 }} />
               {isDesktop && "Facebook"}
             </Button>
             <Button
               variant="outlined"
               className={classes.cyanBtn}
               type="button"
-              onClick={shareOnTwitter}
+              onClick={shareOnInstagram}
             >
-              <i className="ion-social-twitter" />
-              {isDesktop && "Twitter"}
+              <InstagramIcon sx={{ marginRight: isDesktop && 1 }} />
+              {isDesktop && "Instagram"}
             </Button>
             <Button
               variant="outlined"
@@ -124,7 +126,7 @@ function Article({ filteredArticles }) {
               type="button"
               onClick={shareOnLinkedIn}
             >
-              <i className="ion-social-linkedin" />
+              <LinkedInIcon sx={{ marginRight: isDesktop && 1 }} />
               {isDesktop && "Linkedin"}
             </Button>
           </Box>
