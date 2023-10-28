@@ -6,54 +6,18 @@ import { useTheme } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import ScrollAnimation from "react-scroll-animation-wrapper";
 import Grid from "@mui/material/Grid";
-import { useTranslation } from "next-i18next";
-import { useTextAlign, useText } from "~/theme/common";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import imgAPI from "~/public/images/imgAPI";
+
 import useStyles from "./feature-style";
-import Title from "../Title/Title";
-import {
-  Avatar,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-} from "@mui/material";
-import { useDatabase } from "../../context/DatabaseContext";
+
 import Image from "next/image";
 
 function Feature() {
   const { classes, cx } = useStyles();
-  const { classes: text } = useText();
-  const { classes: align } = useTextAlign();
-  const theme = useTheme();
-  const { articles, isLoading } = useDatabase();
 
-  const { t } = useTranslation("common");
+  const theme = useTheme();
+
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
-  const listItemStyles = {
-    margin: 0,
-    padding: 0,
-  };
-
-  const listItemAvatarStyles = {
-    margin: 0,
-    padding: 0,
-  };
-
-  const checkCircleIconStyles = {
-    color: "#D3A03E",
-    width: "auto",
-    margin: 0,
-    fontSize: 30,
-  };
-
-  const textStyle = {
-    color: "white",
-    width: "auto",
-  };
 
   const buttonHeaderStyle = {
     variant: "contained",

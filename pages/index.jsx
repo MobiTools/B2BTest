@@ -2,30 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import CssBaseline from "@mui/material/CssBaseline";
 import Head from "next/head";
-
-// Use this below for Server Side Render/Translation (SSR)
-
-// Use this below for Static Site Generation (SSG)
-// // import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import { useSpacing } from "~/theme/common";
 import Header from "../components/Header";
 import BannerSlider from "../components/BannerSlider";
 import Feature from "../components/Feature";
 import ContactBanner from "../components/ContactBanner";
 import NewsBanner from "../components/NewsBanner";
-
 import Footer from "../components/Footer";
-
 import TrustedBanner from "../components/TrustetBanner/TrustedBanner";
-import { FloatingWhatsApp } from "react-floating-whatsapp";
-
 import { handleGetArticles } from "../utils/realtimeUtils";
 import { useEffect } from "react";
 
 export async function getStaticProps() {
-  // Obține datele din baza de date aici
   const articles = await handleGetArticles();
-
   return {
     props: {
       articles,
@@ -36,9 +25,11 @@ export async function getStaticProps() {
 function Landing(props) {
   const { classes, cx } = useSpacing();
   const { onToggleDark, onToggleDir, articles } = props;
+
   useEffect(() => {
     console.log(articles);
-  });
+  }, [articles]);
+
   return (
     <React.Fragment>
       <Head>
@@ -84,7 +75,6 @@ function Landing(props) {
           >
             <Feature />
           </section>
-
           <section
             id="NewsBanner"
             className={classes.wraperSection}
@@ -96,19 +86,11 @@ function Landing(props) {
             <ContactBanner dark />
           </section>
         </main>
-
         <Footer toggleDir={onToggleDir} />
       </div>
     </React.Fragment>
   );
 }
-
-// Use this below for Server Side Render/Translation (SSR)
-// export const getStaticProps = async () => ({});
-
-// Use this below for Static Site Generation (SSG)
-// // const getStaticProps = makeStaticProps(['common']);
-// // export { getStaticPaths, getStaticProps };
 
 Landing.propTypes = {
   onToggleDark: PropTypes.func.isRequired,
