@@ -19,6 +19,7 @@ function Headline() {
         width={500}
         height={500}
         style={{ objectFit: "cover", width: "100%", height: "100%" }}
+        loading="lazy"
       />
       <CardActionArea href={link.starter.blogDetail}>
         <CardContent>

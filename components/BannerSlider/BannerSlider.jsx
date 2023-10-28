@@ -139,6 +139,7 @@ function BannerSlider() {
                     className={classes.imageHeader}
                     width={500}
                     height={500}
+                    loading="lazy"
                   />
                 </ScrollAnimation>
               </Grid>

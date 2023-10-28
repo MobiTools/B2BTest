@@ -118,7 +118,7 @@ function Mixed(props) {
 
               <div className={classes.logo}>
                 <a href={link.starter.home}>
-                  <Logo type="landscape" />
+                  <Logo type="landscape" fixed={fixed} />
                 </a>
               </div>
 
@@ -132,6 +132,7 @@ function Mixed(props) {
                     toggle={handleToggle}
                     close={handleClose}
                     singleNav={home}
+                    fixed={fixed}
                   />
                 </div>
               )}

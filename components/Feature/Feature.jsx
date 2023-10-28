@@ -99,6 +99,7 @@ function Feature() {
               src={"/pozaweb3-1.png"}
               style={imgStyle}
               alt="illustration"
+              loading="lazy"
             />
           </figure>
         </div>
@@ -137,6 +138,7 @@ function Feature() {
               src={"/pozaweb3-1.png"}
               style={imgStyle}
               alt="illustration"
+              loading="lazy"
             />
           </figure>
         </div>

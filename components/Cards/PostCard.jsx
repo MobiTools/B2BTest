@@ -30,6 +30,7 @@ function PostCard(props) {
           width={500}
           height={500}
           style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          loading="lazy"
         />
       </div>
       <div className={classes.properties}>

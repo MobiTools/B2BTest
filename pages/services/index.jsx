@@ -55,6 +55,7 @@ const MediaCard = ({ item }) => {
     >
       <div>
         <Image
+          loading="lazy"
           src={item.image.finalUri}
           title="green iguana"
           width={440}
@@ -153,6 +154,7 @@ export function Services({ services }) {
         <section>
           <div className={classes.imgContainer}>
             <Image
+              loading="lazy"
               width={768}
               height={476}
               src="/servicesHeader.png"

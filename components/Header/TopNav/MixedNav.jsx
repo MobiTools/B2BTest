@@ -3,7 +3,7 @@ import Link from "next/link";
 import DropdownMenu from "./dropdownMenu";
 import useStyles from "../header-style";
 
-function NavBar() {
+function NavBar({ fixed }) {
   const { classes } = useStyles();
   const navData = ["Home", "Services", "About", "News", "Contact"];
 
@@ -22,7 +22,9 @@ function NavBar() {
               <Link
                 href={`/${item.toLowerCase()}`}
                 className={classes.navLinkMixed}
-                style={{ color: "white" }}
+                style={{
+                  color: "white",
+                }}
                 onMouseEnter={(e) =>
                   (e.target.style.borderBottomColor = "#FFF")
                 }

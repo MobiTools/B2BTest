@@ -80,6 +80,7 @@ const TrustedBanner = () => {
             >
               <div className={classes.cardWrapper}>
                 <Image
+                  loading="lazy"
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 1"
                   style={imageStyle}
@@ -89,6 +90,7 @@ const TrustedBanner = () => {
               </div>
               <div className={classes.cardWrapper}>
                 <Image
+                  loading="lazy"
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 1"
                   style={imageStyle}
@@ -98,6 +100,7 @@ const TrustedBanner = () => {
               </div>
               <div className={classes.cardWrapper}>
                 <Image
+                  loading="lazy"
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 1"
                   style={imageStyle}
@@ -107,6 +110,7 @@ const TrustedBanner = () => {
               </div>
               <div className={classes.cardWrapper}>
                 <Image
+                  loading="lazy"
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 1"
                   style={imageStyle}
@@ -116,6 +120,7 @@ const TrustedBanner = () => {
               </div>
               <div className={classes.cardWrapper}>
                 <Image
+                  loading="lazy"
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 2"
                   style={imageStyle}
@@ -125,6 +130,7 @@ const TrustedBanner = () => {
               </div>
               <div className={classes.cardWrapper}>
                 <Image
+                  loading="lazy"
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 3"
                   style={imageStyle}

@@ -39,6 +39,7 @@ export default function NewsCard(props) {
         src={props.item.image.finalUri}
         alt="green iguana"
         style={{ objectFit: "cover", width: "100%" }}
+        loading="lazy"
       />
       <CardContent sx={{ height: "auto", minHeight: "170px", padding: "24px" }}>
         <Typography gutterBottom variant="h5" component="div" color="white">

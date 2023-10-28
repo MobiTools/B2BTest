@@ -88,6 +88,7 @@ function Footer(props) {
               width={540}
               height={460}
               style={{ height: "38%", width: "38%" }}
+              loading="lazy"
             />
 
             <Typography

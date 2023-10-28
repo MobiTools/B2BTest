@@ -90,6 +90,7 @@ function Article({ filteredArticles }) {
               height={isDesktop ? 282 : 123}
               src={filteredArticles.image.finalUri}
               alt="blog"
+              loading="lazy"
             />
           </figure>
           <div

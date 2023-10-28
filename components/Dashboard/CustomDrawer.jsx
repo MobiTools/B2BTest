@@ -160,6 +160,7 @@ export default function CustomDrawer(props) {
               width={540}
               height={460}
               style={{ marginTop: 10, height: "7%", width: "7%" }}
+              loading="lazy"
             />
           </Toolbar>
         </AppBar>
