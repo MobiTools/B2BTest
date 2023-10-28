@@ -179,8 +179,10 @@ const useStyles = makeStyles({ uniqId: "blog" })((theme) => ({
     margin: theme.spacing(5, 0),
     "& img": {
       width: "100%",
+      // height: 100,
     },
   },
+
   list: {
     listStyle: "disc",
   },

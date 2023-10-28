@@ -13,6 +13,7 @@ import { Button } from "@mui/material";
 import { useSpacing } from "../../theme/common";
 import ScrollAnimation from "react-scroll-animation-wrapper";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 function BannerSlider() {
   const { classes: spacingClasses } = useSpacing();
@@ -132,10 +133,12 @@ function BannerSlider() {
                   delay={100}
                   duration={1.0}
                 >
-                  <img
+                  <Image
                     src="/pozaHeader.png"
                     alt="Imaginea principală a serviciilor noastre"
                     className={classes.imageHeader}
+                    width={500}
+                    height={500}
                   />
                 </ScrollAnimation>
               </Grid>

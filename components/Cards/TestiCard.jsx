@@ -6,6 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function NewsCard(props) {
   const route = useRouter();
@@ -32,10 +33,12 @@ export default function NewsCard(props) {
 
   return (
     <Card sx={{ maxWidth: 345, borderRadius: 1 }} elevation={0}>
-      <CardMedia
-        sx={{ height: 200, width: 440 }}
-        image={props.item.image.finalUri}
-        title="green iguana"
+      <Image
+        height={200}
+        width={440}
+        src={props.item.image.finalUri}
+        alt="green iguana"
+        style={{ objectFit: "cover", width: "100%" }}
       />
       <CardContent sx={{ height: "auto", minHeight: "170px", padding: "24px" }}>
         <Typography gutterBottom variant="h5" component="div" color="white">

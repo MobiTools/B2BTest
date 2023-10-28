@@ -13,6 +13,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import Image from "next/image";
 
 function Headline({ newestArticle }) {
   const { classes, cx } = useStyles();
@@ -25,9 +26,12 @@ function Headline({ newestArticle }) {
     <>
       <CssBaseline />
       <Card className={classes.blogHeadline}>
-        <CardMedia
+        <Image
           className={classes.media}
-          image={newestArticle && newestArticle.image.finalUri}
+          src={newestArticle && newestArticle.image.finalUri}
+          width={500}
+          height={500}
+          style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
         <CardActionArea
           onClick={() =>

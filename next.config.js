@@ -5,6 +5,7 @@ module.exports = withImages({
   trailingSlash: true,
   images: {
     disableStaticImages: true,
+    domains: ["firebasestorage.googleapis.com"],
   },
   eslint: {
     ignoreDuringBuilds: true,

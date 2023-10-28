@@ -6,15 +6,19 @@ import CardContent from "@mui/material/CardContent";
 import link from "~/public/text/link";
 import { useText } from "~/theme/common";
 import useStyles from "./service-style";
+import Image from "next/image";
 
 function Headline() {
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
   return (
     <Card className={classes.blogHeadline}>
-      <CardMedia
+      <Image
         className={classes.media}
-        image="https://source.unsplash.com/random"
+        src="https://source.unsplash.com/random"
+        width={500}
+        height={500}
+        style={{ objectFit: "cover", width: "100%", height: "100%" }}
       />
       <CardActionArea href={link.starter.blogDetail}>
         <CardContent>

@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Image from "next/image";
 
 // Definiți stilurile CSS direct aici
 const customStyles = `
@@ -84,7 +85,12 @@ function Article({ filteredArticles }) {
             {filteredArticles.date}
           </span>
           <figure className={classes.imageBlog}>
-            <img src={filteredArticles.image.finalUri} alt="blog" />
+            <Image
+              width={1440}
+              height={isDesktop ? 282 : 123}
+              src={filteredArticles.image.finalUri}
+              alt="blog"
+            />
           </figure>
           <div
             dangerouslySetInnerHTML={{

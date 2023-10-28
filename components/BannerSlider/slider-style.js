@@ -16,7 +16,8 @@ const sliderStyle = makeStyles({ uniqId: "slider" })(
       },
     },
     imageHeader: {
-      maxWidth: "100%",
+      width: "100%",
+      height: "auto",
       position: "relative",
       right: 200,
 

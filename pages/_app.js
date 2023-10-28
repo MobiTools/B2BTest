@@ -25,6 +25,7 @@ import "../vendors/animate-extends.css";
 // import "../vendors/slick/slick.css";
 // import "../vendors/slick/slick-theme.css";
 import { DatabaseProvider } from "../context/DatabaseContext";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 let themeType = "light";
 
@@ -147,6 +148,11 @@ function MyApp(props) {
           </div>
         </ThemeProvider>
       </DatabaseProvider>
+      <FloatingWhatsApp
+        phoneNumber="+40787813831"
+        accountName="Matteale Consulting"
+        avatar="/logo-transparent-white-4.png"
+      />
     </CacheProvider>
   );
 }

@@ -13,6 +13,7 @@ import { useSpacing } from "../../theme/common";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { handleGetServices } from "../../utils/realtimeUtils";
+import Image from "next/image";
 
 export async function getStaticProps() {
   // Obține datele din baza de date aici
@@ -53,10 +54,12 @@ const MediaCard = ({ item }) => {
       }}
     >
       <div>
-        <CardMedia
-          sx={{ height: 200, width: 440 }}
-          image={item.image.finalUri}
+        <Image
+          src={item.image.finalUri}
           title="green iguana"
+          width={440}
+          height={200}
+          style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
         <CardContent
           sx={{ height: "auto", minHeight: "170px", padding: "24px" }}
@@ -149,7 +152,9 @@ export function Services({ services }) {
         </section>
         <section>
           <div className={classes.imgContainer}>
-            <img
+            <Image
+              width={768}
+              height={476}
               src="/servicesHeader.png"
               alt="About Matteale Services image"
               className={classes.aboutImg}

@@ -20,6 +20,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import { useDatabase } from "../../context/DatabaseContext";
+import Image from "next/image";
 
 function Feature() {
   const { classes, cx } = useStyles();
@@ -63,6 +64,7 @@ function Feature() {
 
   const imgStyle = {
     width: isMobile ? "100%" : "80%",
+    height: isMobile ? "80%" : "80%",
     borderRadius: 2,
   };
 
@@ -91,7 +93,13 @@ function Feature() {
               display: "flex",
             }}
           >
-            <img src={"/pozaweb3-1.png"} style={imgStyle} alt="illustration" />
+            <Image
+              width={550}
+              height={460}
+              src={"/pozaweb3-1.png"}
+              style={imgStyle}
+              alt="illustration"
+            />
           </figure>
         </div>
       </ScrollAnimation>
@@ -123,7 +131,13 @@ function Feature() {
               display: "flex",
             }}
           >
-            <img src={"/pozaweb3-1.png"} style={imgStyle} alt="illustration" />
+            <Image
+              width={550}
+              height={460}
+              src={"/pozaweb3-1.png"}
+              style={imgStyle}
+              alt="illustration"
+            />
           </figure>
         </div>
       </ScrollAnimation>

@@ -33,6 +33,7 @@ import { useRouter } from "next/router";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { handleSignOut } from "../../utils/signout";
 import { Avatar } from "@mui/material";
+import Image from "next/image";
 
 const drawerWidth = 240;
 
@@ -153,11 +154,12 @@ export default function CustomDrawer(props) {
               )}
             </Typography>
 
-            <img
+            <Image
               alt="Matteale Consulting logo"
               src="/logo_transparent_White 1.png"
-              width={80}
-              style={{ marginTop: 10 }}
+              width={540}
+              height={460}
+              style={{ marginTop: 10, height: "7%", width: "7%" }}
             />
           </Toolbar>
         </AppBar>

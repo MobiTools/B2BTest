@@ -5,22 +5,26 @@ import Paper from "@mui/material/Paper";
 import ScrollAnimation from "react-scroll-animation-wrapper";
 import Carousel from "react-multi-carousel";
 import useStyle from "./testi-style";
-
-const centerContent = {
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-  justifyContent: "center",
-  textAlign: "center",
-};
-
-const imageStyle = {
-  width: "50%", // Aici am redus lățimea la 50% pentru a le face pe jumătate
-  height: "auto", // Păstrăm aspect ratio
-};
+import Image from "next/image";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 const TrustedBanner = () => {
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { classes, cx } = useStyle();
+  const centerContent = {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+  };
+
+  const imageStyle = {
+    width: isMobile ? "70%" : "50%", // Aici am redus lățimea la 50% pentru a le face pe jumătate
+    height: "auto", // Păstrăm aspect ratio
+  };
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -75,45 +79,57 @@ const TrustedBanner = () => {
               style={centerContent}
             >
               <div className={classes.cardWrapper}>
-                <img
+                <Image
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 1"
                   style={imageStyle}
+                  width={540}
+                  height={160}
                 />
               </div>
               <div className={classes.cardWrapper}>
-                <img
+                <Image
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 1"
                   style={imageStyle}
+                  width={540}
+                  height={160}
                 />
               </div>
               <div className={classes.cardWrapper}>
-                <img
+                <Image
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 1"
                   style={imageStyle}
+                  width={540}
+                  height={160}
                 />
               </div>
               <div className={classes.cardWrapper}>
-                <img
+                <Image
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 1"
                   style={imageStyle}
+                  width={540}
+                  height={160}
                 />
               </div>
               <div className={classes.cardWrapper}>
-                <img
+                <Image
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 2"
                   style={imageStyle}
+                  width={540}
+                  height={160}
                 />
               </div>
               <div className={classes.cardWrapper}>
-                <img
+                <Image
                   src="/kyndryl-logo-3.png"
                   alt="Imagine 3"
                   style={imageStyle}
+                  width={540}
+                  height={160}
                 />
               </div>
             </Carousel>

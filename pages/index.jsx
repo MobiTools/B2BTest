@@ -96,11 +96,7 @@ function Landing(props) {
             <ContactBanner dark />
           </section>
         </main>
-        <FloatingWhatsApp
-          phoneNumber="+40787813831"
-          accountName="Matteale Consulting"
-          avatar="/logo-transparent-white-4.png"
-        />
+
         <Footer toggleDir={onToggleDir} />
       </div>
     </React.Fragment>
