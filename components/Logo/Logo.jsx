@@ -4,6 +4,7 @@ import logo from "~/public/images/logo-starter.svg";
 import brand from "~/public/text/brand";
 import useStyles from "./logo-style";
 import Image from "next/image";
+import LazyLoad from "react-lazyload";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 function Logo(props) {
@@ -14,18 +15,19 @@ function Logo(props) {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <span className={cx(classes[type], classes.logo, classes[size])}>
-      <Image
-        src={"/logo-transparent-white-1.png"}
-        alt="logo"
-        width={540}
-        height={460}
-        style={{
-          height: "28%",
-          width: props.fixed ? "68%" : "80%",
-          objectFit: "cover",
-        }}
-        loading="lazy"
-      />
+      <LazyLoad height={200} offset={100} once>
+        <Image
+          src={"/logo-transparent-white-1.png"}
+          alt="logo"
+          width={540}
+          height={460}
+          style={{
+            height: "28%",
+            width: props.fixed ? "68%" : "80%",
+            objectFit: "cover",
+          }}
+        />
+      </LazyLoad>
       {/* { type !== 'only' ? brand.starter.name : '' } */}
     </span>
   );
