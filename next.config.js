@@ -2,7 +2,9 @@ const withImages = require('next-images');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = withImages({
-  output: 'export',  // Add this line
+  output: {
+    format: 'export'  // Corrected line
+  },
   trailingSlash: true,
   images: {
     disableStaticImages: true,
