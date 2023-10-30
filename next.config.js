@@ -2,6 +2,7 @@ const withImages = require("next-images");
 const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = withImages({
+  output: 'export',  // Linia adăugată
   trailingSlash: true,
   images: {
     disableStaticImages: true,
