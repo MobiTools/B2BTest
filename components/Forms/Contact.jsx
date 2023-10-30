@@ -14,6 +14,7 @@ import { useSpacing } from "../../theme/common";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import { sendEmailThroughFirebaseFunction } from "../../api/sendEmail";
 
 const ContactForm = (props) => {
   const { classes } = useSpacing();
@@ -44,21 +45,46 @@ const ContactForm = (props) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+  
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+  
+      setIsSubmitting(true);
+  
+      let fullName = formData.from_name;
+      let email = formData.email;
+      let message = formData.message;
+      let phone = formData.phone;
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      alert("Please enter a valid email address.");
-      return;
+     let finalMessage = 
+      `
+      message: ${message}
+
+      email: ${email}
+
+      phone: ${phone}
+      
+      `
+      console.log(typeof message)
+      console.log(typeof finalMessage)
+  
+      // Aici ar trebui să apelezi funcția ta Firebase pentru trimiterea de e-mail-uri.
+      // De exemplu:
+      await sendEmailThroughFirebaseFunction({fullName, email, finalMessage, phone});
+  
+      setIsSubmitting(false);
+    } catch (err) {
+      console.log("Eroare la handleSubmit contact form...", err);
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(true);
-
-    // Sending email code (commented out for the example)
-
-    setIsSubmitting(false);
   };
+  
 
   return (
     <div style={{ backgroundColor: "black" }}>
