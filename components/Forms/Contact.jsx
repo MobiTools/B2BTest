@@ -113,7 +113,7 @@ const ContactForm = (props) => {
               }}
             >
               <Typography
-                variant="h4"
+                variant="h1"
                 sx={{
                   color: "white",
                   textAlign: "start",

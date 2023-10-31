@@ -47,6 +47,7 @@ function Headline({ newestArticle }) {
           <CardContent>
             <span className={classes.anchorContent}>
               <Typography
+              variant="h1"
                 className={cx(classes.headlineTitle, text.title2)}
                 style={{ fontSize: "40px" }}
               >

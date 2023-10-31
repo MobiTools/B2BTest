@@ -49,7 +49,7 @@ function About(props) {
             alt="About Matteale Consulting image"
             className={classes.aboutImg}
           />
-          <h2 className={classes.aboutText}>About Us</h2>
+          <h1 className={classes.aboutText}>About Us</h1>
         </div>
 
         <div

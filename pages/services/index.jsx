@@ -161,7 +161,7 @@ export function Services({ services }) {
               alt="About Matteale Services image"
               className={classes.aboutImg}
             />
-            <h2 className={classes.aboutText}>Services</h2>
+            <h1 className={classes.aboutText}>Services</h1>
           </div>
         </section>
 

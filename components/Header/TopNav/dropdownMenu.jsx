@@ -14,10 +14,10 @@ export default function DropdownMenu() {
   const { classes } = useStyles();
   const dropdownData = [
     { name: "Support infrastructure", link: "supportinfrastructure" },
-    { name: "Web and app support", link: "Webandappsupport" },
+    { name: "Web and app support", link: "webandappsupport" },
     {
       name: "Migration and implementation",
-      link: "Migrationandimplementation",
+      link: "migrationandimplementation",
     },
     { name: "Cloud solutions", link: "cloudsolutions" },
   ];
@@ -121,7 +121,7 @@ export default function DropdownMenu() {
                       return (
                         <div style={{ marginTop: index === 0 ? 0 : 8 }}>
                           <Link
-                            href={`/${item.name}`}
+                            href={`/services/${item.link}`}
                             className={classes.navLinkMixed}
                             style={{
                               textDecoration: "none",
