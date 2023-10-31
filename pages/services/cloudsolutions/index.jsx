@@ -8,13 +8,13 @@ import Grid from "@mui/material/Grid";
 import { useSpacing } from "~/theme/common";
 import useStyles from "~/components/Services/service-style";
 import Header from "~/components/Header";
-import Service from "~/components/Services/Service";
+
 import Sidebar from "~/components/Services/Sidebar";
 import Footer from "~/components/Footer";
-import { CircularProgress, Divider, Typography } from "@mui/material";
+
 
 import Serv from "../../../components/Services/Serv";
-import { getAllServicesIds } from "../../../utils/getFirebaseIds";
+
 import { handleGetServices } from "../../../utils/realtimeUtils";
 
 export async function getStaticProps({ params }) {

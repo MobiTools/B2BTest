@@ -12,7 +12,7 @@ import Banner from "~/components/About/Banner";
 
 import AboutVideo from "~/components/About/Video";
 import AboutProgress from "~/components/About/Progress";
-import ContactMap from "~/components/Forms/ContactMap";
+
 import CallAction from "~/components/CallAction";
 
 import Footer from "~/components/Footer";
@@ -20,89 +20,72 @@ import Footer from "~/components/Footer";
 import Mision from "../../components/About/Mision";
 import Expertise from "../../components/About/Expertise/Expertise";
 
+const SEOHead = () => (
+  <Head>
+    <title>About Us | Numele Site-ului</title>
+    <meta name="description" content="Descrierea relevantă pentru pagina About Us." />
+    <meta name="og:title" content="About Us | Numele Site-ului" />
+    <meta name="og:description" content="Descrierea relevantă pentru pagina About Us." />
+    <meta name="keywords" content="cuvant1, cuvant2, cuvant3" />
+  </Head>
+);
+
+const bgColorBlack = { backgroundColor: "black" };
+const bgColorGrey = { backgroundColor: "#252525" };
+
 function About(props) {
   const { classes, cx } = useSpacing();
   const { onToggleDark, onToggleDir } = props;
+
   return (
     <Fragment>
-      <Head>
-        <title>Home | Numele Site-ului</title>
-        <meta
-          name="description"
-          content="Descrierea relevantă pentru pagina de start."
-        />
-        <meta name="og:title" content="Home | Numele Site-ului" />
-        <meta
-          name="og:description"
-          content="Descrierea relevantă pentru pagina de start."
-        />
-        <meta name="keywords" content="cuvant1, cuvant2, cuvant3" />
-      </Head>
+      <SEOHead />
       <CssBaseline />
-      <section id="home" />
 
-      <div className={classes.mainWrap} style={{ backgroundColor: "black" }}>
+      <div className={classes.mainWrap} style={bgColorBlack}>
         <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+        
         <div className={classes.imgContainer}>
           <img
             src="/about-background-1.png"
-            alt="About Matteale Consulting image"
+            alt="About Matteale Consulting"
             className={classes.aboutImg}
           />
           <h1 className={classes.aboutText}>About Us</h1>
         </div>
 
-        <div
-          style={{ backgroundColor: "black" }}
-          className={classes.wraperSection}
-        >
+        <div style={bgColorBlack} className={classes.wraperSection}>
           <Banner />
         </div>
 
-        <div
-          style={{ backgroundColor: "#252525" }}
-          className={classes.wraperSection}
-        >
+        <div style={bgColorGrey} className={classes.wraperSection}>
           <Container>
             <Grid container>
-              <Grid item md={12} xs={12}>
+              <Grid item md={12}>
                 <AboutVideo />
               </Grid>
             </Grid>
           </Container>
         </div>
-        <div
-          style={{ backgroundColor: "black" }}
-          className={classes.wraperSection}
-        >
+        <div style={bgColorBlack} className={classes.wraperSection}>
           <Expertise />
         </div>
-        <div
-          style={{ backgroundColor: "#252525" }}
-          className={classes.wraperSection}
-        >
+        <div style={bgColorGrey} className={classes.wraperSection}>
           <Mision />
         </div>
-        <div
-          style={{ backgroundColor: "black" }}
-          className={classes.wraperSection}
-        >
+        <div style={bgColorBlack} className={classes.wraperSection}>
           <Container>
             <Grid container spacing={2}>
-              <Grid item md={6} xs={12}>
-                <img src="/values.webp" className={classes.valuesImg} />
+              <Grid item md={6}>
+                <img src="/values.webp" alt="Our Values" className={classes.valuesImg} />
               </Grid>
-              <Grid item md={6} xs={12}>
+              <Grid item md={6}>
                 <AboutProgress />
               </Grid>
             </Grid>
           </Container>
         </div>
-
-        <div
-          style={{ backgroundColor: "black", paddingTop: 0 }}
-          className={classes.wraperSection}
-        >
+        <div style={{ ...bgColorBlack, paddingTop: 0 }} className={classes.wraperSection}>
           <CallAction />
         </div>
         <Footer toggleDir={onToggleDir} />

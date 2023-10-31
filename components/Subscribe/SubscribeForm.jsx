@@ -5,11 +5,11 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button"; // Importă componenta Button
-import { useTranslation } from "next-i18next";
+
 import useStyles from "./subscribe-style";
 
 function SubscribeForm() {
-  const { t } = useTranslation("common");
+
   const { classes } = useStyles();
   const [values, setValues] = useState({
     email: "",

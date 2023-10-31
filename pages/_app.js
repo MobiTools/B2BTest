@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import App from "next/app";
-import { auth, database, storage } from "../firebase";
+
 import PropTypes from "prop-types";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CacheProvider } from "@emotion/react";
@@ -9,21 +9,18 @@ import createCache from "@emotion/cache";
 import rtlPlugin from "stylis-plugin-rtl";
 import { prefixer } from "stylis";
 import CssBaseline from "@mui/material/CssBaseline";
-import LoadingBar from "react-top-loading-bar";
+
 import { appWithTranslation } from "next-i18next";
-import lngDetector from "../lib/languageDetector";
+
 import appTheme from "../theme/appTheme";
-// import "animate.css/animate.min.css";
-/* import css vendors */
+
+/* import css */
 import "react-18-image-lightbox/style.css";
 import "../vendors/animate.css";
 import "../vendors/animate-slider.css";
 import "../vendors/hamburger-menu.css";
 import "../vendors/animate-extends.css";
-// import "../vendors/react-top-loading-bar.css";
-// import "../vendors/page-transition.css";
-// import "../vendors/slick/slick.css";
-// import "../vendors/slick/slick-theme.css";
+
 import { DatabaseProvider } from "../context/DatabaseContext";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 
@@ -56,7 +53,7 @@ function MyApp(props) {
   const { Component, pageProps, router } = props; // eslint-disable-line
   const [loading, setLoading] = useState(0);
 
-  const curLang = lngDetector.detect();
+
 
   const themeName = "mainTheme";
   const defaultTheme = "light";
@@ -67,12 +64,12 @@ function MyApp(props) {
 
   useEffect(() => {
     // Set layout direction
-    const themeDir = curLang === "ar" ? "rtl" : "ltr";
+    const themeDir = "ltr";
     document.dir = themeDir;
-    document.documentElement.setAttribute("lang", curLang);
+
 
     // Set color mode and direction
-    if (themeType === "dark" || curLang === "ar") {
+    if (themeType === "dark" ) {
       setTheme({
         ...appTheme(themeName, themeType || defaultTheme),
         direction: themeDir,
@@ -81,7 +78,7 @@ function MyApp(props) {
 
     // Enable this code below for Server Side Rendering/Translation (SSR)
     const { pathname, asPath, query } = router;
-    router.push({ pathname, query }, asPath, { locale: curLang });
+    router.push({ pathname, query }, asPath);
 
     // Remove preloader
     const preloader = document.getElementById("preloader");
@@ -132,13 +129,7 @@ function MyApp(props) {
 
         <ThemeProvider theme={muiTheme}>
           <CssBaseline />
-          {/* <LoadingBar
-          height={0}
-          color={theme.palette.primary.main}
-          progress={loading}
-          className="top-loading-bar"
-        /> */}
-
+   
           <div id="main-wrap">
             <Component
               {...pageProps}

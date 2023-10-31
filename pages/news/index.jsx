@@ -7,30 +7,41 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { useTranslation } from "next-i18next";
-// Use this below for Server Side Render/Translation (SSR)
 
-// Use this below for Static Site Generation (SSG)
-// import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+
 import { useSpacing } from "~/theme/common";
 import Header from "~/components/Header";
 import Headline from "~/components/Blog/Headline";
 import PostCard from "~/components/Cards/PostCard";
 import Sidebar from "~/components/Blog/Sidebar";
 import Footer from "~/components/Footer";
-import brand from "~/public/text/brand";
+
 import link from "~/public/text/link";
-import { DatabaseProvider, useDatabase } from "../../context/DatabaseContext";
+
 import { useState } from "react";
 import { useEffect } from "react";
 import { Fragment } from "react";
-import { CircularProgress } from "@mui/material";
+
+import { handleGetArticles } from "../../utils/realtimeUtils";
+
+
+export async function getStaticProps() {
+  // Obține datele din baza de date aici
+  const articles = await handleGetArticles();
+  console.log("articles...");
+  console.log(articles);
+  return {
+    props: {
+      articles,
+    },
+  };
+}
 
 function BlogHome(props) {
   const { classes } = useSpacing();
-  const { onToggleDark, onToggleDir } = props;
-  const { t } = useTranslation("common");
-  const { articles, isLoading: loadedDb } = useDatabase();
+  const { onToggleDark, onToggleDir, articles } = props;
+
+
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
@@ -161,8 +172,3 @@ BlogHome.propTypes = {
 
 export default BlogHome;
 
-// Use this below for Server Side Render/Translation (SSR)
-
-// Use this below for Static Site Generation (SSG)
-// const getStaticProps = makeStaticProps(['common']);
-// export { getStaticPaths, getStaticProps };

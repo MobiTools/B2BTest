@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import { Paper, Typography, Alert, CssBaseline } from "@mui/material";
+import { Alert, CssBaseline } from "@mui/material";
 import ContactForm from "../../components/Forms/Contact";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import ContactMap from "../../components/Forms/ContactMap";
+
 import MapContainer from "../../components/Forms/ContactMap";
 import Head from "next/head";
 
@@ -66,7 +66,7 @@ function Contact() {
             transform: "translateX(-50%)",
             maxWidth: 500,
             zIndex: 1000, // Asigură că alerta este afișată peste tot conținutul
-            marginBottom: 10,
+            marginBottom: 5,
             backgroundColor: "#edf7ed", // Verde deschis transparent
           }}
         >

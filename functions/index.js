@@ -1,11 +1,14 @@
 const functions = require("firebase-functions");
 const nodemailer = require("nodemailer");
 
+const emailConfig = functions.config().email;
+const { user, pass } = emailConfig;
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "radu.p@gmail.com",
-    pass: "njem eqak ptoz eqbh",
+    user,
+    pass,
   },
 });
 

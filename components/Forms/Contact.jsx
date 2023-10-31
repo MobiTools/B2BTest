@@ -76,9 +76,18 @@ const ContactForm = (props) => {
   
       // Aici ar trebui să apelezi funcția ta Firebase pentru trimiterea de e-mail-uri.
       // De exemplu:
-      await sendEmailThroughFirebaseFunction({fullName, email, finalMessage, phone});
+      await sendEmailThroughFirebaseFunction({fullName, email, finalMessage, phone}).then(() => {
+        setFormData({
+          from_name: "",
+          email: "",
+          phone: "",
+          message: "",
+        })
+        setIsSubmitting(false);
+        props.setIsMessageSent(true);
+      })
   
-      setIsSubmitting(false);
+     
     } catch (err) {
       console.log("Eroare la handleSubmit contact form...", err);
       setIsSubmitting(false);
@@ -180,6 +189,7 @@ const ContactForm = (props) => {
                       backgroundColor: "#252525", // Background color
                       color: "white", // Text color
                       borderRadius: 1,
+                      
                     },
                     "& .MuiFormLabel-root": {
                       color: "white", // Text color
