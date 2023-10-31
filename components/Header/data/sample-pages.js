@@ -9,19 +9,19 @@ const sample = [
     child: [
       {
         name: "Support infrastructure ",
-        link: "supportinfrastructure",
+        link: "/services/supportinfrastructure",
       },
       {
         name: "Web and app support",
-        link: "webandappsupport",
+        link: "/services/webandappsupport",
       },
       {
         name: "Migration and implementation",
-        link: "migrationandimplementation",
+        link: "/services/migrationandimplementation",
       },
       {
         name: "Cloud solutions",
-        link: "Cloud solutions",
+        link: "/services/cloudsolutions",
       },
       {
         name: "Other Services",

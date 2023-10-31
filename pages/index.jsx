@@ -26,9 +26,6 @@ function Landing(props) {
   const { classes, cx } = useSpacing();
   const { onToggleDark, onToggleDir, articles } = props;
 
-  useEffect(() => {
-    console.log(articles);
-  }, [articles]);
 
   return (
     <React.Fragment>

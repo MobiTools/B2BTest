@@ -1,3 +1,5 @@
+import '../firebase';
+
 import {
   getDatabase,
   ref,
@@ -68,6 +70,8 @@ export const handleGetArticles = async () => {
     const snapshot = await get(child(dbRef, "Articles/"));
     let articlesArray = []; // Specificați tipul de obiecte pe care îl conține matricea
 
+    
+
     if (snapshot.exists()) {
       snapshot.forEach((childSnapshot) => {
         // Get the object inside the snapshot and push it into the array
@@ -86,7 +90,8 @@ export const handleGetArticles = async () => {
 
     return { articlesArray, latestArticles, newestArticle, lastFiveArticles };
   } catch (error) {
-    console.error(error);
+    console.log("error at handleGetArticles from firebase...",error);
+    // return null; 
   }
 };
 
