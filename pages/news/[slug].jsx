@@ -80,7 +80,7 @@ function BlogDetail(props) {
           </Box>
         </div>
         <div id="footerr">
-          <Footer toggleDir={onToggleDir} />
+          <Footer />
         </div>
       </div>
     </Fragment>

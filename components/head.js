@@ -98,10 +98,15 @@ const HeadComponent = () => (
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <link
-      href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
-      rel="stylesheet"
-    />
+    <link 
+  rel="preload" 
+  href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" 
+  as="style" 
+  onload="this.rel='stylesheet'"
+/>
+<noscript>
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+</noscript>
     {/*  Facebook */}
     <meta property="author" content="ProWeb" />
     <meta property="og:site_name" content="www.MattealeConsulting.com" />

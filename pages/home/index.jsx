@@ -86,7 +86,7 @@ function Landing(props) {
             <ContactBanner dark />
           </section>
         </main>
-        <Footer toggleDir={onToggleDir} />
+        <Footer  />
       </div>
     </React.Fragment>
   );

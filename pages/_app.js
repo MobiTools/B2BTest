@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-import App from "next/app";
-import "./globals.css"
+
 import PropTypes from "prop-types";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CacheProvider } from "@emotion/react";
@@ -22,7 +21,13 @@ import "../vendors/hamburger-menu.css";
 import "../vendors/animate-extends.css";
 
 import { DatabaseProvider } from "../context/DatabaseContext";
-import { FloatingWhatsApp } from "react-floating-whatsapp";
+import dynamic from 'next/dynamic';
+// Lazy load the FloatingWhatsApp component
+const FloatingWhatsAppLazy = dynamic(
+  () => import('react-floating-whatsapp').then(mod => mod.FloatingWhatsApp),
+  { ssr: false }
+);
+
 
 let themeType = "light";
 
@@ -127,19 +132,19 @@ function MyApp(props) {
           <div id="main-wrap">
             <Component
               {...pageProps}
-              onToggleDir={toggleDirection}
+             
               key={router.route}
             />
           </div>
         </ThemeProvider>
       </DatabaseProvider>
-      <div className="aspect-ratio-box">
-      <FloatingWhatsApp
+     
+      <FloatingWhatsAppLazy
         phoneNumber="+40787813831"
         accountName="Matteale Consulting"
         avatar="/logo-transparent-white-4.png"
       />
-      </div>
+ 
     </CacheProvider>
   );
 }
@@ -150,8 +155,6 @@ MyApp.propTypes = {
   router: PropTypes.object.isRequired,
 };
 
-MyApp.getInitialProps = async (appContext) => ({
-  ...(await App.getInitialProps(appContext)),
-});
+
 
 export default appWithTranslation(MyApp);

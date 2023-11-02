@@ -88,7 +88,7 @@ function About(props) {
         <div style={{ ...bgColorBlack, paddingTop: 0 }} className={classes.wraperSection}>
           <CallAction />
         </div>
-        <Footer toggleDir={onToggleDir} />
+        <Footer  />
       </div>
     </Fragment>
   );

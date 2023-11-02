@@ -30,7 +30,7 @@ function WithMap(props) {
             <ContactMap />
           </div>
         </Container>
-        <Footer toggleDir={onToggleDir} />
+        <Footer  />
       </div>
     </Fragment>
   );

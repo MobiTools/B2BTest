@@ -157,7 +157,7 @@ function BlogHome(props) {
             </Box>
           </div>
           <div id="footer">
-            <Footer toggleDir={onToggleDir} />
+            <Footer  />
           </div>
         </div>
       }

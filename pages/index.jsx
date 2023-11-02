@@ -13,14 +13,15 @@ import TrustedBanner from "../components/TrustetBanner/TrustedBanner";
 import { handleGetArticles } from "../utils/realtimeUtils";
 
 
-// export async function getStaticProps() {
-//   const articles = await handleGetArticles();
-//   return {
-//     props: {
-//       articles,
-//     },
-//   };
-// }
+
+export async function getStaticProps() {
+  const articles = await handleGetArticles();
+  return {
+    props: {
+      articles,
+    },
+  };
+}
 
 function Landing(props) {
   const { classes, cx } = useSpacing();
@@ -77,7 +78,7 @@ function Landing(props) {
             className={classes.wraperSection}
             style={{ backgroundColor: "#252525" }}
           >
-            {/* <NewsBanner articles={articles} /> */}
+            <NewsBanner articles={articles} />
           </section>
           <section className={classes.wraperTrustedBanner}>
             <ContactBanner dark />

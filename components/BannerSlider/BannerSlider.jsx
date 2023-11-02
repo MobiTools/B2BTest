@@ -1,11 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import Typography from "@mui/material/Typography";
-import Hidden from "@mui/material/Hidden";
-import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import ButtonBase from "@mui/material/ButtonBase";
-import Divider from "@mui/material/Divider";
-import Carousel from "react-slick";
 import { useTranslation } from "next-i18next";
 import { useText } from "~/theme/common";
 import useStyles from "./slider-style";
@@ -24,32 +18,7 @@ function BannerSlider() {
   const route = useRouter();
 
   const [loaded, setLoaded] = useState(false);
-  const [curSlide, setCurSlide] = useState(0);
 
-  const settings = {
-    dots: false,
-    arrows: false,
-    slidesToShow: 1,
-    infinite: false,
-    autoplay: false,
-    responsive: [
-      {
-        breakpoint: 960,
-        settings: {
-          dots: true,
-          fade: true,
-        },
-      },
-    ],
-  };
-
-  const handleAfterChange = (currentSlide) => {
-    setCurSlide(currentSlide);
-  };
-
-  const gotoSlide = (slide) => {
-    slider.current.slickGoTo(slide);
-  };
 
   useEffect(() => {
     setLoaded(true);
@@ -139,7 +108,7 @@ function BannerSlider() {
                     className={classes.imageHeader}
                     width={500}
                     height={500}
-                    loading="lazy"
+                    priority={true}
                   />
                 </ScrollAnimation>
               </Grid>
@@ -151,4 +120,5 @@ function BannerSlider() {
   );
 }
 
-export default BannerSlider;
+export default React.memo(BannerSlider);
+

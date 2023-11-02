@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from "react";
-import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
@@ -11,19 +10,19 @@ import MobileMenu from "./SideNav/MixedMobile";
 import HeaderMenu from "./TopNav/MixedNav";
 import UserMenu from "./TopNav/UserMenu";
 import useStyles from "./header-style";
-import navMenu from "./data/single";
 import samplePages from "./data/sample-pages";
 import navData from "./data/single";
 
 import multiple from "./data/multiple";
 import { Button } from "@mui/material";
 
-let counter = 0;
+
 
 function Mixed(props) {
   const [fixed, setFixed] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const [flagFixed, setFlagFixed] = useState(false);
   const { classes, cx } = useStyles();
   const theme = useTheme();
   const {home } = props;
@@ -41,7 +40,7 @@ function Mixed(props) {
     borderRadius: "25px",
     zIndex: 15,
   };
-  let flagFixed = false;
+ 
 
   const handleScroll = () => {
     const doc = document.documentElement;
@@ -49,12 +48,15 @@ function Mixed(props) {
     const newFlagFixed = scroll > 80;
     if (flagFixed !== newFlagFixed) {
       setFixed(newFlagFixed);
-      flagFixed = newFlagFixed;
+      setFlagFixed(newFlagFixed);
     }
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const handleOpenDrawer = () => {

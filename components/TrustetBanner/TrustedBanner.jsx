@@ -1,12 +1,14 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import ScrollAnimation from "react-scroll-animation-wrapper";
 import Carousel from "react-multi-carousel";
 import useStyle from "./testi-style";
 import Image from "next/image";
 import { useMediaQuery, useTheme } from "@mui/material";
+import { useMemo } from "react";
+
+const images = ['/kyndryl-logo-3.png', '/kyndryl-logo-3.png', '/kyndryl-logo-3.png', '/kyndryl-logo-3.png', '/kyndryl-logo-3.png', '/kyndryl-logo-3.png', '/kyndryl-logo-3.png'];
 
 const TrustedBanner = () => {
   const theme = useTheme();
@@ -25,24 +27,28 @@ const TrustedBanner = () => {
     width: isMobile ? "70%" : "50%", // Aici am redus lățimea la 50% pentru a le face pe jumătate
     height: "auto", // Păstrăm aspect ratio
   };
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
+
+  const responsive = useMemo(() => ({
+
+      superLargeDesktop: {
+        breakpoint: { max: 4000, min: 3000 },
+        items: 5,
+      },
+      desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 3,
+      },
+      tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2,
+      },
+      mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+      },
+  
+  }), []);
+
 
   return (
     <Paper elevation={0}>
@@ -78,16 +84,19 @@ const TrustedBanner = () => {
               removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
               style={centerContent}
             >
-              <div className={classes.cardWrapper}>
-                <Image
-                  loading="lazy"
-                  src="/kyndryl-logo-3.png"
-                  alt="Imagine 1"
-                  style={imageStyle}
-                  width={540}
-                  height={160}
-                />
-              </div>
+              {images.map((src, index) => (
+  <div key={index} className={classes.cardWrapper}>
+    <Image
+      loading="lazy"
+      src={src}
+      alt={`Imagine ${index + 1}`}
+      style={imageStyle}
+      width={540}
+      height={160}
+    />
+  </div>
+))}
+             
               <div className={classes.cardWrapper}>
                 <Image
                   loading="lazy"
@@ -146,4 +155,5 @@ const TrustedBanner = () => {
   );
 };
 
-export default TrustedBanner;
+export default React.memo(TrustedBanner);
+
