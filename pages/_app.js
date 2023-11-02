@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import App from "next/app";
-
+import "./globals.css"
 import PropTypes from "prop-types";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CacheProvider } from "@emotion/react";
@@ -113,7 +113,7 @@ function MyApp(props) {
       <DatabaseProvider>
         <Head>
           <meta charSet="utf-8" />
-          <meta name="author" content="ProWeb" />
+          
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
@@ -133,11 +133,13 @@ function MyApp(props) {
           </div>
         </ThemeProvider>
       </DatabaseProvider>
+      <div className="aspect-ratio-box">
       <FloatingWhatsApp
         phoneNumber="+40787813831"
         accountName="Matteale Consulting"
         avatar="/logo-transparent-white-4.png"
       />
+      </div>
     </CacheProvider>
   );
 }

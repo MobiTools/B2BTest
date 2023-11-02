@@ -78,7 +78,7 @@ function Footer(props) {
   const { classes: align } = useTextAlign();
 
   return (
-    <div maxWidth="lg" component="footer" className={classes.footer}>
+    <div component="footer" className={classes.footer}>
       <Grid container spacing={4}>
         <Grid item xs={12} md={3}>
           <div style={{ overflow: "hidden" }}>
@@ -165,6 +165,7 @@ function Footer(props) {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center" }}
+                aria-label="Matteale Consulting on Facebook"
               >
                 <FacebookIcon style={{ color: "white" }} />
               </a>
@@ -184,29 +185,32 @@ function Footer(props) {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center" }}
+                aria-label="Matteale Consulting on Instagram"
               >
                 <InstagramIcon style={{ color: "white" }} />
               </a>
             </IconButton>
 
             <IconButton
-              aria-label="LI"
+             
               className={classes.margin}
               size="small"
               style={{ backgroundColor: "#0077B5" }}
+              aria-label="Matteale Consulting on Linkedin"
             >
               <a
                 href="https://www.linkedin.com/company/matteale-consulting-services/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center" }}
+                aria-label="Matteale Consulting on Linkedin"
               >
                 <LinkedInIcon style={{ color: "white" }} />
               </a>
             </IconButton>
 
             <IconButton
-              aria-label="YT"
+              aria-label="Matteale Consulting on Youtube"
               className={classes.margin}
               size="small"
               style={{ backgroundColor: "#FF0000" }}
@@ -216,6 +220,7 @@ function Footer(props) {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center" }}
+                aria-label="Matteale Consulting on Youtube"
               >
                 <YouTubeIcon style={{ color: "white" }} />
               </a>

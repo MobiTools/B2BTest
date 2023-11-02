@@ -15,7 +15,7 @@ import brand from "~/public/text/brand";
 
 function WithMap(props) {
   const { classes, cx } = useSpacing();
-  const { onToggleDark, onToggleDir } = props;
+
 
   return (
     <Fragment>
@@ -24,7 +24,7 @@ function WithMap(props) {
       </Head>
       <CssBaseline />
       <div className={classes.mainWrap}>
-        <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+        <Header />
         <Container>
           <div className={cx(classes.containerGeneral, classes.containerFront)}>
             <ContactMap />
@@ -36,10 +36,6 @@ function WithMap(props) {
   );
 }
 
-WithMap.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-};
 
 export default WithMap;
 

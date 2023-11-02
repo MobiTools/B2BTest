@@ -90,10 +90,6 @@ function CloudSolutions(props) {
   );
 }
 
-CloudSolutions.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-};
 
 
 

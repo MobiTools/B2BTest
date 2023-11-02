@@ -5,25 +5,20 @@ import Mixed from "./Mixed";
 
 function Main(props) {
   const [state] = useReducer(null, uiState);
-  const { home, onToggleDark, onToggleDir } = props;
+  const { home} = props;
   return (
     <div>
       {state.header === "mixed" && (
         <Mixed
           home={home}
-          onToggleDark={onToggleDark}
-          onToggleDir={onToggleDir}
+        
         />
       )}
     </div>
   );
 }
 
-Main.propTypes = {
-  home: PropTypes.bool,
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-};
+
 
 Main.defaultProps = {
   home: false,

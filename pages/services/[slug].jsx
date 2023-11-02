@@ -85,10 +85,6 @@ function ServiceDetail(props) {
   );
 }
 
-ServiceDetail.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-};
 
 export async function getStaticPaths() {
   const allNewsIds = await getAllServicesIds(); // Fetch all available news IDs from Firebase

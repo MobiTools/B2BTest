@@ -90,10 +90,6 @@ function WebAndAppSupport(props) {
   );
 }
 
-WebAndAppSupport.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-};
 
 
 

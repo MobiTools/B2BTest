@@ -1,6 +1,7 @@
 const withImages = require('next-images');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
+
 module.exports = withImages({
   output: {
     format: 'export'  // Corrected line

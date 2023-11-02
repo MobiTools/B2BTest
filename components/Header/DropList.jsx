@@ -37,7 +37,7 @@ function Header(props) {
 
   const { classes, cx } = useStyles();
   const theme = useTheme();
-  const { onToggleDark, onToggleDir } = props;
+ 
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -81,17 +81,12 @@ function Header(props) {
                 </div>
               )}
             </nav>
-            <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+            <UserMenu />
           </div>
         </Container>
       </AppBar>
     </Fragment>
   );
 }
-
-Header.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired
-};
 
 export default Header;

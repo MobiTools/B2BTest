@@ -24,7 +24,7 @@ export async function getStaticProps() {
 
 function Landing(props) {
   const { classes, cx } = useSpacing();
-  const { onToggleDark, onToggleDir, articles } = props;
+  const { articles } = props;
 
   useEffect(() => {
     console.log(articles);
@@ -52,7 +52,7 @@ function Landing(props) {
       </Head>
       <CssBaseline />
       <div className={classes.mainWrap}>
-        <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} home />
+        <Header  home />
         <main className={classes.containerWrap} style={{ marginTop: 0 }}>
           <section id="home">
             <BannerSlider />
@@ -92,9 +92,5 @@ function Landing(props) {
   );
 }
 
-Landing.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-};
 
 export default Landing;

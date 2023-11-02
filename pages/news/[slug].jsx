@@ -35,7 +35,7 @@ export async function getStaticProps({ params }) {
 
 function BlogDetail(props) {
   const { classes } = useSpacing();
-  const { onToggleDark, onToggleDir, article } = props;
+  const { article } = props;
   // Creează un useState pentru a gestiona array-ul filtrat
 
   const defaultTheme = createTheme();
@@ -64,7 +64,7 @@ function BlogDetail(props) {
       <section id="home" />
 
       <div className={classes.mainWrap}>
-        <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} home />
+        <Header home />
         <div className={classes.wraperSection}>
           <Box pt={5}>
             <Container style={{}}>
@@ -87,10 +87,7 @@ function BlogDetail(props) {
   );
 }
 
-BlogDetail.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-};
+
 
 export default BlogDetail;
 

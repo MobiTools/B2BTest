@@ -55,8 +55,7 @@ function Hamburger(props) {
 
   const { classes, cx } = useStyles();
   const {
-    onToggleDark,
-    onToggleDir,
+
     home,
   } = props;
   const [menuList] = useState([
@@ -112,7 +111,7 @@ function Hamburger(props) {
                   </Link>
                 )}
               </div>
-              <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+              <UserMenu  />
             </nav>
           </div>
         </Container>
@@ -146,12 +145,7 @@ function Hamburger(props) {
   );
 }
 
-Hamburger.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-  home: PropTypes.bool,
 
-};
 
 Hamburger.defaultProps = {
   home: false

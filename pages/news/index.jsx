@@ -39,7 +39,7 @@ export async function getStaticProps() {
 
 function BlogHome(props) {
   const { classes } = useSpacing();
-  const { onToggleDark, onToggleDir, articles } = props;
+  const {articles } = props;
 
 
 
@@ -78,7 +78,7 @@ function BlogHome(props) {
       <section id="home" />
       {
         <div className={classes.mainWrap}>
-          <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} home />
+          <Header  home />
           <div className={classes.containerGeneral}>
             <Box pt={{ xs: 5, sm: 3, md: 4 }}>
               <Container>
@@ -165,10 +165,7 @@ function BlogHome(props) {
   );
 }
 
-BlogHome.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-};
+
 
 export default BlogHome;
 

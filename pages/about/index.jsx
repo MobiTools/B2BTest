@@ -35,7 +35,7 @@ const bgColorGrey = { backgroundColor: "#252525" };
 
 function About(props) {
   const { classes, cx } = useSpacing();
-  const { onToggleDark, onToggleDir } = props;
+
 
   return (
     <Fragment>
@@ -43,7 +43,7 @@ function About(props) {
       <CssBaseline />
 
       <div className={classes.mainWrap} style={bgColorBlack}>
-        <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+        <Header  />
         
         <div className={classes.imgContainer}>
           <img
@@ -94,9 +94,6 @@ function About(props) {
   );
 }
 
-About.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-};
+
 
 export default About;

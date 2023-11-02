@@ -26,7 +26,7 @@ function Mixed(props) {
   const [openMenu, setOpenMenu] = useState(false);
   const { classes, cx } = useStyles();
   const theme = useTheme();
-  const { onToggleDark, onToggleDir, home } = props;
+  const {home } = props;
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
@@ -109,6 +109,7 @@ function Mixed(props) {
                     openDrawer && "is-active"
                   )}
                   size="large"
+                  aria-label="Toggle navigation menu"
                 >
                   <span className="hamburger-box" style={{ color: "white" }}>
                     <span className={cx(classes.bar, "hamburger-inner")} />
@@ -157,12 +158,6 @@ function Mixed(props) {
     </Fragment>
   );
 }
-
-Mixed.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-  home: PropTypes.bool,
-};
 
 Mixed.defaultProps = {
   home: false,

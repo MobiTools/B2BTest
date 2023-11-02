@@ -8,12 +8,10 @@ function Main(props) {
   const { toggleDir } = props;
 
   return (
-    <div>{state.footer === "sitemap" && <SiteMap toggleDir={toggleDir} />}</div>
+    <div>{state.footer === "sitemap" && <SiteMap  />}</div>
   );
 }
 
-Main.propTypes = {
-  toggleDir: PropTypes.func.isRequired,
-};
+
 
 export default Main;

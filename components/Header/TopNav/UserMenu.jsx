@@ -11,7 +11,7 @@ import useStyles from "../header-style";
 function UserMenu(props) {
   const { classes } = useStyles();
   const theme = useTheme();
-  const { onToggleDark, onToggleDir } = props;
+
   const { t } = useTranslation("common");
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 

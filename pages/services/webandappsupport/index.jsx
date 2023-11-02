@@ -90,11 +90,6 @@ function SupportInfrastructure(props) {
   );
 }
 
-SupportInfrastructure.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired,
-};
-
 
 
 export default SupportInfrastructure;
