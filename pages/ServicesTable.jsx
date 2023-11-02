@@ -76,6 +76,7 @@ export default function ServicesTable() {
     content,
     name
   ) => {
+ 
     let serviceData = {
       id,
       title,
@@ -84,6 +85,7 @@ export default function ServicesTable() {
       tags,
       content,
       name,
+   
     };
     console.log("test.....");
     console.log(serviceData);
@@ -166,6 +168,13 @@ export default function ServicesTable() {
     noNewImage
   ) => {
     try {
+      console.log("tags....")
+      console.log(tags)
+      
+      let metaKeys = tags.join(', ') 
+      
+      console.log(metaKeys)
+
       const dateTime = getCurrentDateTime();
       console.log(`Data: ${dateTime.date}`);
       console.log(`Ora: ${dateTime.time}`);
@@ -192,6 +201,7 @@ export default function ServicesTable() {
               updatedAtTime: dateTime.time,
               image: imgReupload,
               tags,
+              metaKeys
             };
           } else {
             console.log("Start new image......");
@@ -214,6 +224,7 @@ export default function ServicesTable() {
               updatedAtTime: dateTime.time,
               image: newImage,
               tags,
+              metaKeys
             };
 
             console.log("updatedService......");
@@ -247,7 +258,12 @@ export default function ServicesTable() {
   ) => {
     try {
       const dateTime = getCurrentDateTime();
-
+      console.log("tags....")
+      console.log(tags)
+      
+      let metaKeys = tags.join(', ') 
+      
+      console.log(metaKeys)
       const newService = {
         id: db.length + 1,
         name,
@@ -258,6 +274,7 @@ export default function ServicesTable() {
         date: dateTime.date,
         time: dateTime.time,
         image,
+        metaKeys
       };
 
       // Folosește await pentru a aștepta finalizarea promisiunii

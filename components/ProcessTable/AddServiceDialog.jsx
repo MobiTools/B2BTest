@@ -14,6 +14,8 @@ import {
   Fab,
   Chip,
   Alert,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
@@ -127,6 +129,10 @@ export default function AddServiceDialog(props) {
     updatedImages.splice(index, 1);
     setSelectedImages(updatedImages);
   };
+
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Dialog
@@ -281,7 +287,7 @@ export default function AddServiceDialog(props) {
           name="Tags"
           autoComplete="Tags"
           autoFocus
-          sx={{ mb: 2 }}
+          sx={{ mb: 2, mt: isMobile ? 10 : 5  }}
           value={tagInput}
           onChange={handleTagInputChange}
           InputProps={{

@@ -103,14 +103,14 @@ const HeadComponent = () => (
       rel="stylesheet"
     />
     {/*  Facebook */}
-    <meta property="author" content="oiron" />
-    <meta property="og:site_name" content="oiron.indisains.com" />
+    <meta property="author" content="ProWeb" />
+    <meta property="og:site_name" content="www.MattealeConsulting.com" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     {/*  Twitter */}
-    <meta property="twitter:site" content="oiron.indisains.com" />
-    <meta property="twitter:domain" content="oiron.indisains.com" />
-    <meta property="twitter:creator" content="oiron" />
+    <meta property="twitter:site" content="www.MattealeConsulting.com" />
+    <meta property="twitter:domain" content="www.MattealeConsulting.com" />
+    <meta property="twitter:creator" content="ProWeb" />
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:image:src" content="/images/logo-starter.png" />
     <meta property="og:url" content={brand.starter.url} />

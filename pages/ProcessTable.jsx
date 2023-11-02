@@ -168,6 +168,12 @@ export default function ProcessTable() {
     noNewImage
   ) => {
     try {
+      console.log("tags....")
+      console.log(tags)
+      
+      let metaKeys = tags.join(', ') 
+      
+      console.log(metaKeys)
       const dateTime = getCurrentDateTime();
       console.log(`Data: ${dateTime.date}`);
       console.log(`Ora: ${dateTime.time}`);
@@ -194,6 +200,7 @@ export default function ProcessTable() {
               updatedAtTime: dateTime.time,
               image: imgReupload,
               tags,
+              metaKeys
             };
           } else {
             console.log("Start new image......");
@@ -212,6 +219,7 @@ export default function ProcessTable() {
               updatedAtTime: dateTime.time,
               image: newImage,
               tags,
+              metaKeys
             };
 
             console.log("updatedArticle......");
@@ -246,17 +254,26 @@ export default function ProcessTable() {
     try {
       const dateTime = getCurrentDateTime();
 
+      console.log("tags....")
+      console.log(tags)
+      
+      let metaKeys = tags.join(', ') 
+      
+      console.log(metaKeys)
+
       const newArticle = {
         id: db.length + 1,
         name,
-        title: title,
+        title,
         metaDescription,
         tags,
         content,
         date: dateTime.date,
         time: dateTime.time,
         image,
+        metaKeys
       };
+
 
       // Folosește await pentru a aștepta finalizarea promisiunii
       await writeArticleData(newArticle);

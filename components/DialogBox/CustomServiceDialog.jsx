@@ -11,6 +11,8 @@ import {
   DialogActions,
   Button,
   Slide,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import * as data from "../../data/data";
 import * as styles from "../../styles/MainScreenStyles";
@@ -44,6 +46,8 @@ export default function CustomServiceDialog(props) {
       props.serviceData.image.fileName
     );
   };
+
+ 
   return (
     <>
       <Dialog

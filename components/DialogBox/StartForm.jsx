@@ -14,6 +14,8 @@ import {
   Fab,
   Box,
   Chip,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { StyledTextField } from "../../styles/FormStyles";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -115,6 +117,9 @@ export default function StartForm({ articleData, handleEditArticle }) {
     setSelectedImages([...selectedImages, ...Array.from(files)]);
     setFileInputKey(Date.now()); // Reset the input to allow selecting more images
   };
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <>
@@ -288,7 +293,7 @@ export default function StartForm({ articleData, handleEditArticle }) {
             name="Tags"
             autoComplete="Tags"
             autoFocus
-            sx={{ mb: 2 }}
+            sx={{ mb: 2, mt: isMobile ? 10 : 0 }}
             value={tagInput}
             onChange={handleTagInputChange}
             InputProps={{

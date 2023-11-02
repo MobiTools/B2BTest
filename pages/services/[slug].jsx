@@ -43,18 +43,18 @@ function ServiceDetail(props) {
 
   return (
     <Fragment>
-      <Head>
-        <title>Home | Numele Site-ului</title>
+        <Head>
+        <title>{props.service[0].title}</title>
         <meta
           name="description"
-          content="Descrierea relevantă pentru pagina de start."
+          content={props.service[0].metaDescription}
         />
-        <meta name="og:title" content="Home | Numele Site-ului" />
+        <meta name="og:title" content={props.service[0].title} />
         <meta
           name="og:description"
-          content="Descrierea relevantă pentru pagina de start."
+          content={props.service[0].metaDescription}
         />
-        <meta name="keywords" content="cuvant1, cuvant2, cuvant3" />
+        <meta name="keywords" content={props.service[0].metaKeys} />
       </Head>
       <CssBaseline />
       <section id="home" />

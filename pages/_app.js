@@ -113,18 +113,12 @@ function MyApp(props) {
       <DatabaseProvider>
         <Head>
           <meta charSet="utf-8" />
-          <meta name="author" content="Numele Tău sau Companiei" />
+          <meta name="author" content="ProWeb" />
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
           <meta name="image" content="URL-imagine" />
-          <meta name="og:url" content="https://www.mattealeconsulting.com" />
-          <meta
-            name="og:image"
-            content="https://www.mattealeconsulting.com/images/social_media.png"
-          />
-          <meta name="og:type" content="website" />
         </Head>
 
         <ThemeProvider theme={muiTheme}>
