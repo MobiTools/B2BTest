@@ -16,13 +16,12 @@ import navData from "./data/single";
 import multiple from "./data/multiple";
 import { Button } from "@mui/material";
 
-
+let counter = 0;
 
 function Mixed(props) {
   const [fixed, setFixed] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
-  const [flagFixed, setFlagFixed] = useState(false);
   const { classes, cx } = useStyles();
   const theme = useTheme();
   const {home } = props;
@@ -40,7 +39,7 @@ function Mixed(props) {
     borderRadius: "25px",
     zIndex: 15,
   };
- 
+  let flagFixed = false;
 
   const handleScroll = () => {
     const doc = document.documentElement;
@@ -48,15 +47,12 @@ function Mixed(props) {
     const newFlagFixed = scroll > 80;
     if (flagFixed !== newFlagFixed) {
       setFixed(newFlagFixed);
-      setFlagFixed(newFlagFixed);
+      flagFixed = newFlagFixed;
     }
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
   }, []);
 
   const handleOpenDrawer = () => {
