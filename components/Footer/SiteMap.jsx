@@ -82,6 +82,7 @@ function Footer(props) {
       <Grid container spacing={4}>
         <Grid item xs={12} md={3}>
           <div style={{ overflow: "hidden" }}>
+            
             <Image
               src={"/logo-transparent-white-1.png"}
               alt="logo"
